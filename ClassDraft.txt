@@ -1,0 +1,24 @@
+
+
+
+CLASSES:
+
+Board:
+Your board
+Tracking board
+Ships
+
+Placing the boats
+
+Player:
+board object
+
+Preforms the check to see if its a hit or miss.
+
+
+
+Executive:
+
+2 player objects
+Exec should be running the game and then calling the functions that keeps the game going
+*Main Menu - Player gets to choose how many ships they would like (min 1 max 5), random option, make sure to add std::throw exception for values outside the amount of ships.

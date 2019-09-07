@@ -3,8 +3,18 @@ Meeting 1:
 Location: Eaton 2
 All in attendance.
 
+Agenda:
+*Chose C++ as language for project. 
+*Set next meeting date.
+
 Meeting 2:
 09/07/2019 @ 2:40PM
 Location: Alcove 1326 in LEEP2
 All in attendance.
+
+Agenda:
+*Brainstorming
+*Ran through simulation
+*Started Class Creation (pseudocode)
+*Set up potential next meeting.
 
