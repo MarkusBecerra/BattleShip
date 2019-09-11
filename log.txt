@@ -4,7 +4,7 @@ Location: Eaton 2
 All in attendance.
 
 Agenda:
-*Chose C++ as language for project. 
+*Chose C++ as language for project.
 *Set next meeting date.
 
 Meeting 2:
@@ -18,3 +18,7 @@ Agenda:
 *Started Class Creation (pseudocode)
 *Set up potential next meeting.
 
+Meeting 3:
+09/09/2019 @11:40AM
+*Discussed changes we made since last meeting
+*Planned to meet in lab in two days
