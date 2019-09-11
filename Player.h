@@ -10,15 +10,15 @@ class Player
 {
 private:
 Board* m_board = nullptr;
-string recentguess;
+std::string recentguess;
 
 
 public:
 Player();   //player constructor
 ~Player();
-setrecentGuess();
-getrecentGuess();
-void shot(string guess, bool hitormiss);
+std::string setrecentGuess();
+std::string getrecentGuess();
+void shot(std::string guess, bool hitormiss);
 
 
 
