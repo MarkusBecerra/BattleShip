@@ -1,4 +1,4 @@
-Chance:
+Chance: Board.cpp (creating default board layout)
 
 Thomas:
 
