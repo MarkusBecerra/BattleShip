@@ -29,3 +29,4 @@ Location: Eaton Hall in a Lab Room
 All in attendance
 
 Agenda:
+*Created Board and Player classes
