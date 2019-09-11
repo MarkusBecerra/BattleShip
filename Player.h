@@ -4,13 +4,17 @@
 #define PLAYER_H
 
 #include <iostream>
+#include "Board.h"
 
 class Player
 {
+private:
+Board* m_board = nullptr;
+
 
 public:
-
-  Player();   //player constructor
+Player();   //player constructor
+~Player();
 
 
 };
