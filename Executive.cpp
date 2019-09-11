@@ -4,6 +4,8 @@
 Executive::Executive()
 {
 	std::cout <<"Hi from Executive class\n";
+	player_1 = new Player();
+	player_2 = new Player();
 }
 
 void Executive::mainMenu()
