@@ -6,3 +6,8 @@ Player::Player()
 {
 
 }
+
+Player::~Player()
+{
+  delete m_board;
+}

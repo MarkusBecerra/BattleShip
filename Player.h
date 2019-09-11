@@ -7,10 +7,12 @@
 
 class Player
 {
+private:
+
 
 public:
-
-  Player();   //player constructor
+Player();   //player constructor
+~Player();
 
 
 };
