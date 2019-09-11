@@ -2,8 +2,11 @@ Chance: Board.cpp (creating default board layout)
 
 Thomas:
 
+
 Haonan:
 
 Sarah:
+Main and Executive
 
 Markus:
+Player Class
