@@ -4,7 +4,7 @@
 
 Player::Player()
 {
-
+	m_board = new Board();
 }
 
 Player::~Player()

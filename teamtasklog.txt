@@ -1,5 +1,5 @@
-Chance:
-The Board
+Chance: Board.cpp (creating default board layout)
+
 Thomas:
 
 

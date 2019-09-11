@@ -4,10 +4,11 @@
 #define PLAYER_H
 
 #include <iostream>
+#include "Board.h"
 
 class Player
 {
-private:
+
 
 
 public:

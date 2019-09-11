@@ -4,10 +4,12 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 
 class Executive
 {
 	public:
 		Executive();
+		void mainMenu();
 };
 #endif
