@@ -7,6 +7,9 @@
 
 class Board
 {
+	private:
+		std::string myBoard[8][8];
+		std::string shotBoard[8][8];
 	public:
 		Board();
 };
