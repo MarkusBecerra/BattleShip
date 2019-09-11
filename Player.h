@@ -3,9 +3,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-class Player(){
+#include <iostream>
 
-  Player(){};   //player constructor
+class Player
+{
+
+public:
+
+  Player();   //player constructor
 
 
 };
