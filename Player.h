@@ -8,7 +8,8 @@
 
 class Player
 {
-
+private:
+Board* m_board = nullptr;
 
 
 public:
