@@ -18,13 +18,61 @@ Board::Board()
 		}
 	}
 
-	std::cout << "\n\nYour opponent's board: \n\n";
+	// std::cout << "\n\n\t\t\tYour opponent's board\n";
+	//
+	// std::cout << "\t";
 
-	std::cout << "\t";
+// 	for(int i=0;i<8;i++)
+//   {
+//     std::cout << rowNames[i] << "\t";
+//   }
+// std::cout << "\n";
+//
+//   for(int i=0;i<8;i++)
+//   {
+// 		std::cout << i+1;
+// 		for(int j=0;j<8;j++)
+// 		{
+// 			std::cout << "\t" << shotBoard[i][j];
+// 		}
+// 		if(i != 7)
+// 		{
+// 			std::cout << "\n\n\n"; //prints spaces between rows. Not needed at end to conserve space
+// 		}
+// 		else
+// 		{
+// 			std::cout << "\n\n"; //prints only one newline instead of three to conserve space
+// 		}
+//   }
+
+	// std::cout << "\t\t\tYour board\n";
+	// std::cout << "\t";
+	//
+	// for(int i=0;i<8;i++)
+	// {
+	// 	std::cout << rowNames[i] << "\t";
+	// }
+	// std::cout << "\n";
+	//
+	// for(int i=0;i<8;i++)
+  // {
+	// 	std::cout << i+1;
+	// 	for(int j=0;j<8;j++)
+	// 	{
+	// 		std::cout << "\t" << myBoard[i][j];
+	// 	}
+	// 	std::cout << "\n\n\n";
+  // }
+
+}
+
+void Board::printOpponentBoard()
+{
+	std::cout << "\n\t\t\tYour opponent's board\n";
 
 	for(int i=0;i<8;i++)
   {
-    std::cout << rowNames[i] << "\t";
+    std::cout << m_rowNames[i] << "\t";
   }
 std::cout << "\n";
 
@@ -35,26 +83,35 @@ std::cout << "\n";
 		{
 			std::cout << "\t" << shotBoard[i][j];
 		}
-		std::cout << "\n\n\n";
+		if(i != 7)
+		{
+			std::cout << "\n\n\n"; //prints spaces between rows. Not needed at end to conserve space
+		}
+		else
+		{
+			std::cout << "\n\n"; //prints only one newline instead of three to conserve space
+		}
   }
+}
 
-	std::cout << "Your board: \n\n";
+void Board::printYouBoard()
+{
+	std::cout << "\t\t\tYour board\n";
 	std::cout << "\t";
 
 	for(int i=0;i<8;i++)
 	{
-		std::cout << rowNames[i] << "\t";
+		std::cout << m_rowNames[i] << "\t";
 	}
 	std::cout << "\n";
 
 	for(int i=0;i<8;i++)
-  {
+	{
 		std::cout << i+1;
 		for(int j=0;j<8;j++)
 		{
 			std::cout << "\t" << myBoard[i][j];
 		}
 		std::cout << "\n\n\n";
-  }
-
+	}
 }
