@@ -30,3 +30,9 @@ All in attendance
 
 Agenda:
 *Created Board and Player classes
+
+Meeting 5:
+09/13/2019
+Location: Eaton 2
+All in attendance.
+Discussed when to meet next and what to focus on
