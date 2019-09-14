@@ -15,6 +15,6 @@ class Board
 	public:
 		Board();
 		void printShotBoard();
-		void printYouBoard();
+		void printMyBoard();
 };
 #endif

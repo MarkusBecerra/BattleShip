@@ -66,7 +66,7 @@ Board::Board()
 
 }
 
-void Board::printOpponentBoard()
+void Board::printShotBoard()
 {
 	std::cout << "\n\t\t\tYour opponent's board\n";
 
@@ -94,7 +94,7 @@ std::cout << "\n";
   }
 }
 
-void Board::printYouBoard()
+void Board::printMyBoard()
 {
 	std::cout << "\t\t\tYour board\n";
 	std::cout << "\t";
