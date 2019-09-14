@@ -12,7 +12,7 @@ class Executive
 	public:
 		Executive();
 		void mainMenu();
-		void shoot(std::string location, int whichPlayer);
+		void shoot(std::string location);
 
 	private:
 

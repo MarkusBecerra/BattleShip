@@ -16,3 +16,11 @@ void Executive::mainMenu()
 
 
 }
+
+void Executive::shoot(std::string location)
+{
+	if(m_playerTurn == 1)
+	{
+		player_2->getShot(location);
+	}
+}
