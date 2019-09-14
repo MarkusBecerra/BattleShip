@@ -19,52 +19,6 @@ Board::Board()
 		}
 	}
 
-	// std::cout << "\n\n\t\t\tYour opponent's board\n";
-	//
-	// std::cout << "\t";
-
-// 	for(int i=0;i<8;i++)
-//   {
-//     std::cout << rowNames[i] << "\t";
-//   }
-// std::cout << "\n";
-//
-//   for(int i=0;i<8;i++)
-//   {
-// 		std::cout << i+1;
-// 		for(int j=0;j<8;j++)
-// 		{
-// 			std::cout << "\t" << shotBoard[i][j];
-// 		}
-// 		if(i != 7)
-// 		{
-// 			std::cout << "\n\n\n"; //prints spaces between rows. Not needed at end to conserve space
-// 		}
-// 		else
-// 		{
-// 			std::cout << "\n\n"; //prints only one newline instead of three to conserve space
-// 		}
-//   }
-
-	// std::cout << "\t\t\tYour board\n";
-	// std::cout << "\t";
-	//
-	// for(int i=0;i<8;i++)
-	// {
-	// 	std::cout << rowNames[i] << "\t";
-	// }
-	// std::cout << "\n";
-	//
-	// for(int i=0;i<8;i++)
-  // {
-	// 	std::cout << i+1;
-	// 	for(int j=0;j<8;j++)
-	// 	{
-	// 		std::cout << "\t" << myBoard[i][j];
-	// 	}
-	// 	std::cout << "\n\n\n";
-  // }
-
 }
 
 void Board::printShotBoard()
