@@ -1,12 +1,14 @@
 Chance: Board.cpp (creating default board layout)
 
 Thomas:
-
+Executive Class
 
 Haonan:
+Player Class
 
 Sarah:
-Main and Executive
+In charge of players shooting and board being updated
 
 Markus:
-Player Class
+Ship creation and ship tracker
+Some board stuff
