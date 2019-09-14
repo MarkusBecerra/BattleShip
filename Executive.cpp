@@ -10,11 +10,20 @@ Executive::Executive()
 
 void Executive::mainMenu()
 {
-	int numOfBoats = 1;
+	int numOfBoats = 0;
 	std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
 	std::cin >> numOfBoats;
+}
+
+void Executive::game()
+{
+	while(){
 
 
+
+
+
+	}
 }
 
 void Executive::shoot(std::string location)

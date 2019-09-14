@@ -13,11 +13,13 @@ class Executive
 		Executive();
 		void mainMenu();
 		void shoot(std::string location);
+		void game();
 
 	private:
 
 		Player* player_1;
 		Player* player_2;
 		int m_playerTurn; //keeps track of which player's turn it is
+		bool gameOver;	//game over to stop the while loop once the game ends
 };
 #endif
