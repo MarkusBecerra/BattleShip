@@ -27,5 +27,5 @@ class Board
 		void updateMyBoard(std::string userGuess); //if blueTilde, change to whiteMiss, if whiteMiss, prints you already shot here, if redHit, prints you already shot here, if ship, change to redHit
 
 		bool withinBoundary(std::string userGuess);	//gets called from Player shoot function. Calls guessConversion. Needs to check for valid input.
-
+	};
 #endif
