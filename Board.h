@@ -16,5 +16,6 @@ class Board
 		Board();
 		void printShotBoard();
 		void printYouBoard();
+		
 };
 #endif

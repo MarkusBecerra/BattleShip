@@ -18,7 +18,6 @@ Player();   //player constructor
 ~Player();
 std::string setrecentGuess();
 std::string getrecentGuess();
-void shot(std::string guess, bool hitormiss);
 
 
 
