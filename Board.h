@@ -11,9 +11,10 @@ class Board
 		std::string myBoard[8][8];
 		std::string shotBoard[8][8];
 		std::string m_rowNames = "ABCDEFGH";
+		std::string m_columnNames = "12345678";
 	public:
 		Board();
-		void printOpponentBoard();
+		void printShotBoard();
 		void printYouBoard();
 };
 #endif
