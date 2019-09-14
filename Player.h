@@ -16,9 +16,12 @@ std::string recentguess;
 public:
 Player();   //player constructor
 ~Player();
-std::string setrecentGuess();
-std::string getrecentGuess();
-void getShot(std::string guess);
+std::string setRecentGuess();
+std::string getRecentGuess();
+
+void Shooting(std::string guess); 
+void gettingShot(std::string guess);
+
 
 
 
