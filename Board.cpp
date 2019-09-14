@@ -8,6 +8,7 @@ Board::Board()
 	std::string blueTilde = "\033[1;36m~\033[0m";
 	std::string redHit = "\033[1;31mX\033[0m";
 	std::string whiteMiss = "\033[1;37mO\033[0m";
+	//std::string ship = ;
 
 	for (int i=0; i<8; i++)
 	{
