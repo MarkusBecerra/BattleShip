@@ -36,3 +36,12 @@ Meeting 5:
 Location: Eaton 2
 All in attendance.
 Discussed when to meet next and what to focus on
+
+Meeting 6:
+09/14/2019 @ 2:30PM
+Location: LEEP2 1322
+All in attendance.
+Agenda:
+*Outlined classes and their functions
+*Added class functions
+*Mapped out the flow of the program, step by step
