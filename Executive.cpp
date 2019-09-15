@@ -52,4 +52,8 @@ void Executive::shoot(std::string location)
 		hit = player_1->gettingShot(location);
 		player_2->shooting(location,hit);
 	}
+	
 }
+
+
+

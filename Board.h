@@ -16,6 +16,11 @@ class Board
 		int columnIndex;
 		void guessConversion(std::string userGuess);	//converts userGuess to two array indices, updating rowIndex and columnIndex
 
+		std::string blueTilde;
+		std::string redHit;
+		std::string whiteMiss;
+		std::string ship;
+
 	public:
 		Board();
 		void printShotBoard();

@@ -3,12 +3,11 @@
 
 Board::Board()
 {
-	std::string rowNames = "ABCDEFGH";
 
-	std::string blueTilde = "\033[1;36m~\033[0m";
-	std::string redHit = "\033[1;31mX\033[0m";
-	std::string whiteMiss = "\033[1;37mO\033[0m";
-	//std::string ship = "\033[1;37m\033[0m";
+	blueTilde = "\033[1;36m~\033[0m";
+	redHit = "\033[1;31mX\033[0m";
+	whiteMiss = "\033[1;37mO\033[0m";
+	//ship = "\033[1;37m\033[0m";
 
 	for (int i=0; i<8; i++)
 	{
@@ -75,11 +74,26 @@ void Board::printMyBoard()
 
 bool Board::updateMyBoard(std::string userGuess)
 {
-	return true; //actually return whether it hit a ship
+	guessConversion(userGuess);
+	std::string location = myBoard[rowIndex][columnIndex];
+	if(location == blueTilde)
+		myBoard[rowIndex][columnIndex] = whiteMiss;
+	//else if(location == ship)
+	//{
+	//	myBoard[rowIndex][columnIndex] = redHit;
+	//	return true;
+	//}
+	return false;
 }
 
 void Board::updateShotBoard(std::string userGuess, bool wasHit)
 {
+}
+
+void Board::guessConversion(std::string userGuess)
+{
+	rowIndex = 0;
+	columnIndex = 0;
 }
 
 
