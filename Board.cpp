@@ -70,3 +70,13 @@ void Board::printMyBoard()
 		std::cout << "\n\n\n";
 	}
 }
+
+
+
+bool Board::updateMyBoard(std::string userGuess)
+{
+	return true; //actually return whether it hit a ship
+}
+
+
+

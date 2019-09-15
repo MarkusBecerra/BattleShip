@@ -19,8 +19,8 @@ Player();   //player constructor
 std::string setRecentGuess();
 std::string getRecentGuess();
 
-void Shooting(std::string guess); 
-void gettingShot(std::string guess);
+void shooting(std::string guess, bool hit); 
+bool gettingShot(std::string guess);
 
 
 

@@ -17,7 +17,7 @@ void Executive::mainMenu()
 
 void Executive::game()
 {
-	while(){
+	while(false){
 
 
 
@@ -28,8 +28,16 @@ void Executive::game()
 
 void Executive::shoot(std::string location)
 {
+	bool hit = false;
 	if(m_playerTurn == 1)
 	{
-		player_2->gettingShot(location);
+		hit = player_2->gettingShot(location);
+		player_1->shooting(location,hit);
+		
+	}
+	else
+	{
+		hit = player_1->gettingShot(location);
+		player_2->shooting(location,hit);
 	}
 }

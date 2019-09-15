@@ -24,7 +24,7 @@ class Board
 		void setupBoard(int numberOfShips); //asks the player where they want to place the ships. uses with withinBoundary and edits myBoard and shotBoard
 
 		void updateShotBoard(std::string userGuess, bool wasHit); //if blueTilde, change to whiteMiss, if whiteMiss, prints you already shot here, if redHit, prints you already shot here, if ship, change to redHit
-		void updateMyBoard(std::string userGuess); //if blueTilde, change to whiteMiss, if whiteMiss, prints you already shot here, if redHit, prints you already shot here, if ship, change to redHit
+		bool updateMyBoard(std::string userGuess); //if blueTilde, change to whiteMiss, if whiteMiss, prints you already shot here, if redHit, prints you already shot here, if ship, change to redHit, return whether it hit a ship
 
 		bool withinBoundary(std::string userGuess);	//gets called from Player shoot function. Calls guessConversion. Needs to check for valid input.
 	};
