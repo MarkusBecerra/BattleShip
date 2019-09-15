@@ -2,9 +2,10 @@
 
 #include "Player.h"
 
-Player::Player()
+Player::Player(int shipNums)
 {
 	m_board = new Board();
+	numOfShips = shipNums;
 }
 
 Player::~Player()
@@ -14,7 +15,7 @@ Player::~Player()
 
 void Player::shooting(std::string guess, bool hit)
 {
-	
+	m_board->updateShotBoard(guess,hit);	
 }
 bool Player::gettingShot(std::string guess)
 {

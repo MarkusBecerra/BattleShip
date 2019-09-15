@@ -19,7 +19,7 @@ class Executive
 
 		Player* player_1;
 		Player* player_2;
-		int m_playerTurn; //keeps track of which player's turn it is
+		bool m_player_1Turn; //true if player1 turn, false if player2 turn
 		bool gameOver;	//game over to stop the while loop once the game ends
 };
 #endif

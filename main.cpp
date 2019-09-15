@@ -5,6 +5,6 @@ int main()
 {
 	std::cout << "BattleShip!\n";
 	Executive exec;
-	exec.mainMenu();
+	exec.game();
 	return 0;
 }

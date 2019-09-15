@@ -78,5 +78,10 @@ bool Board::updateMyBoard(std::string userGuess)
 	return true; //actually return whether it hit a ship
 }
 
+void Board::updateShotBoard(std::string userGuess, bool wasHit)
+{
+}
+
+
 
 

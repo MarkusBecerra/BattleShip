@@ -3,33 +3,45 @@
 
 Executive::Executive()
 {
-	std::cout <<"Hi from Executive class\n";
-	player_1 = new Player();
-	player_2 = new Player();
+	int numOfBoats = 0;
+	std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
+	std::cin >> numOfBoats;
+	player_1 = new Player(numOfBoats);
+	player_2 = new Player(numOfBoats);
+	gameOver = false;
+	m_player_1Turn = true;
 }
 
 void Executive::mainMenu()
 {
-	int numOfBoats = 0;
-	std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
-	std::cin >> numOfBoats;
+
 }
 
 void Executive::game()
 {
-	while(false){
-
-
-
-
+	
+	std::string guess;
+	int testTemp = 5;
+	while(!gameOver && testTemp > 0)
+	{
+		if(m_player_1Turn)
+			std::cout <<"Player 1: Where would you like to shoot? ";
+		else
+			std::cout <<"Player 2: Where would you like to shoot? ";
+		std::cin >> guess;
+		shoot(guess);
+		m_player_1Turn = !m_player_1Turn;
+		testTemp--;
 
 	}
 }
 
+
+
 void Executive::shoot(std::string location)
 {
 	bool hit = false;
-	if(m_playerTurn == 1)
+	if(m_player_1Turn)
 	{
 		hit = player_2->gettingShot(location);
 		player_1->shooting(location,hit);

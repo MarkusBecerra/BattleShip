@@ -11,10 +11,10 @@ class Player
 private:
 Board* m_board = nullptr;
 std::string recentguess;
-
+int numOfShips;
 
 public:
-Player();   //player constructor
+Player(int shipsNum);   //player constructor
 ~Player();
 std::string setRecentGuess();
 std::string getRecentGuess();
