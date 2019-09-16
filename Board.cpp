@@ -8,7 +8,7 @@ Board::Board()
 	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
 	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
 	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
-	//ship = "\033[1;37m\033[0m";
+	ship = "\033[1;32m∆\033[0m";
 
 	for (int i=0; i<8; i++)
 	{
@@ -24,7 +24,7 @@ Board::Board()
 void Board::printShotBoard()
 {
 	std::cout << "\n\t\t\tYour opponent's board\n";
-
+	std::cout << '\t';
 	for(int i=0;i<8;i++)
   {
     std::cout << m_rowNames[i] << "\t";
@@ -89,6 +89,15 @@ bool Board::updateMyBoard(std::string userGuess)
 
 void Board::updateShotBoard(std::string userGuess, bool wasHit)
 {
+	guessConversion(userGuess);
+	if(wasHit)
+	{
+		myBoard[m_rowIndex][m_columnIndex] = redHit;
+	}
+	else
+	{
+		myBoard[m_rowIndex][m_columnIndex] = whiteMiss;
+	}
 }
 
 //assumes userGuess is within boundary since that is checked first

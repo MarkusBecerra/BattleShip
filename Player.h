@@ -23,5 +23,6 @@ std::string getRecentGuess() const; //member variable helper function
 void shooting(std::string guess, bool hit);
 bool gettingShot(std::string guess);
 
+Board* getBoard() const;
 };
 #endif

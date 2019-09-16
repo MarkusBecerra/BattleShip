@@ -36,6 +36,16 @@ void Executive::game()
 			}
 			std::cin >> guess;
 			shoot(guess);
+			if(m_player_1Turn)
+			{
+				player_1->getBoard()->printShotBoard();
+				player_1->getBoard()->printMyBoard();
+			}
+			else
+			{
+				player_2->getBoard()->printShotBoard();
+				player_2->getBoard()->printMyBoard();
+			}
 			m_player_1Turn = !m_player_1Turn;
 			testTemp--;
 		}

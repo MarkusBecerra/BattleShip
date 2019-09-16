@@ -13,9 +13,9 @@ Player::~Player()
   delete m_board;
 }
 
-void Player::setRecentGuess(std::string guess)
+void Player::setRecentGuess(std::string userGuess)
 {
-	recentguess = guess;
+	recentguess = userGuess;
 }
 
 std::string Player::getRecentGuess() const
@@ -23,13 +23,13 @@ std::string Player::getRecentGuess() const
 	return recentguess;
 }
 
-void Player::shooting(std::string guess, bool hit)
+void Player::shooting(std::string userGuess, bool hit)
 {
-	m_board->updateShotBoard(guess,hit);
+	m_board->updateShotBoard(userGuess, hit);
 }
-bool Player::gettingShot(std::string guess)
+bool Player::gettingShot(std::string userGuess)
 {
-	if(m_board->withinBoundary(guess)) //used to test correct input. Can delete this if-else if wanted
+	if(m_board->withinBoundary(userGuess)) //used to test correct input. Can delete this if-else if wanted
 	{
 		std::cout << "within boundary\n";
 	}
@@ -38,5 +38,10 @@ bool Player::gettingShot(std::string guess)
 		throw(std::runtime_error("Out of Boundary\n"));
 	}
 
-	return (m_board->updateMyBoard(guess));
+	return (m_board->updateMyBoard(userGuess));
+}
+
+Board* Player::getBoard() const
+{
+	return m_board;
 }
