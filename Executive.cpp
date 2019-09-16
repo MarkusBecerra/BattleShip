@@ -24,15 +24,25 @@ void Executive::game()
 	int testTemp = 5;
 	while(!gameOver && testTemp > 0)
 	{
-		if(m_player_1Turn)
-			std::cout <<"Player 1: Where would you like to shoot? ";
-		else
-			std::cout <<"Player 2: Where would you like to shoot? ";
-		std::cin >> guess;
-		shoot(guess);
-		m_player_1Turn = !m_player_1Turn;
-		testTemp--;
-
+		try
+		{
+			if(m_player_1Turn)
+			{
+				std::cout <<"Player 1: Where would you like to shoot? ";
+			}
+			else
+			{
+				std::cout <<"Player 2: Where would you like to shoot? ";
+			}
+			std::cin >> guess;
+			shoot(guess);
+			m_player_1Turn = !m_player_1Turn;
+			testTemp--;
+		}
+		catch(std::runtime_error &rte)
+		{
+			std::cout << rte.what();
+		}
 	}
 }
 

@@ -110,7 +110,7 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 		}
 	}
 	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract 'a' to convert it from the ASCII value to the proper decimal value. citation needed
-	
+
 	m_columnIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
 	std::cout << "row: " << m_rowIndex << " column: " << m_columnIndex << "\n";
 }

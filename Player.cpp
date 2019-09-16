@@ -35,10 +35,8 @@ bool Player::gettingShot(std::string guess)
 	}
 	else
 	{
-		std::cout << "not within boundary\n";
-
-
-	
+		throw(std::runtime_error("Out of Boundary\n"));
+	}
 
 	return (m_board->updateMyBoard(guess));
 }

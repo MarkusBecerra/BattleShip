@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <stdexcept>
 
 class Board
 {
