@@ -16,10 +16,11 @@ int numOfShips;
 public:
 Player(int shipsNum);   //player constructor
 ~Player();
-std::string setRecentGuess();
-std::string getRecentGuess();
 
-void shooting(std::string guess, bool hit); 
+void setRecentGuess(std::string guess); //member variable helper function
+std::string getRecentGuess() const; //member variable helper function
+
+void shooting(std::string guess, bool hit);
 bool gettingShot(std::string guess);
 
 
