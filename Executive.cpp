@@ -9,7 +9,7 @@ Executive::Executive()
 	player_1 = new Player(numOfBoats);
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
-	m_player_1Turn = true;
+	m_player_1Turn = 1;
 }
 
 void Executive::mainMenu()
@@ -26,7 +26,7 @@ void Executive::game()
 	{
 		try
 		{
-			if(m_player_1Turn)
+			if(m_player_1Turn % 2 == 1)
 			{
 				std::cout <<"Player 1: Where would you like to shoot? ";
 			}
@@ -36,17 +36,19 @@ void Executive::game()
 			}
 			std::cin >> guess;
 			shoot(guess);
-			if(m_player_1Turn)
+			if(m_player_1Turn % 2 == 1)
 			{
+				std::cout << "PLAYER 1 BOARDS\n";
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
 			}
 			else
 			{
+				std::cout << "PLAYER 2 BOARDS\n";
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
 			}
-			m_player_1Turn = !m_player_1Turn;
+			m_player_1Turn++;
 			testTemp--;
 		}
 		catch(std::runtime_error &rte)
@@ -61,7 +63,7 @@ void Executive::game()
 void Executive::shoot(std::string location)
 {
 	bool hit = false;
-	if(m_player_1Turn)
+	if(m_player_1Turn % 2 == 1)
 	{
 		hit = player_2->gettingShot(location);
 		player_1->shooting(location,hit);

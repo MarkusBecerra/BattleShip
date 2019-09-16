@@ -78,12 +78,14 @@ bool Board::updateMyBoard(std::string userGuess)
 	guessConversion(userGuess);
 	std::string location = myBoard[m_rowIndex][m_columnIndex];
 	if(location == blueTilde)
+	{
 		myBoard[m_rowIndex][m_columnIndex] = whiteMiss;
-	//else if(location == ship)
-	//{
-	//	myBoard[m_rowIndex][m_columnIndex] = redHit;
-	//	return true;
-	//}
+	}
+	else if(location == ship)
+	{
+		myBoard[m_rowIndex][m_columnIndex] = redHit;
+		return true;
+	}
 	return false;
 }
 
@@ -92,11 +94,11 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 	guessConversion(userGuess);
 	if(wasHit)
 	{
-		myBoard[m_rowIndex][m_columnIndex] = redHit;
+		shotBoard[m_rowIndex][m_columnIndex] = redHit;
 	}
 	else
 	{
-		myBoard[m_rowIndex][m_columnIndex] = whiteMiss;
+		shotBoard[m_rowIndex][m_columnIndex] = whiteMiss;
 	}
 }
 
@@ -108,20 +110,20 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 	{
 		if(userGuess.at(0) == m_rowNames.at(i))
 		{
-			m_rowIndex = i;
+			m_columnIndex = i;
 			break;
 		}
 		else
 		{
-			m_rowIndex = 9; //sets m_rowIndex to a number outside of the range so that it's not just the value it held previously.
+			m_columnIndex = 9; //sets m_rowIndex to a number outside of the range so that it's not just the value it held previously.
 											//if the letter the user typed is withing "ABCDEFGH", then the correct index is set and we break out
 											//of this for loop and m_rowIndex does not become 9
 		}
 	}
 	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract 'a' to convert it from the ASCII value to the proper decimal value. citation needed
 
-	m_columnIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
-	std::cout << "row: " << m_rowIndex << " column: " << m_columnIndex << "\n";
+	m_rowIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
+	std::cout << "column: " << m_columnIndex << " row: " << m_rowIndex << "\n";
 }
 
 bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess

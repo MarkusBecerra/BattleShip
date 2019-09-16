@@ -27,6 +27,7 @@ void Player::shooting(std::string userGuess, bool hit)
 {
 	m_board->updateShotBoard(userGuess, hit);
 }
+
 bool Player::gettingShot(std::string userGuess)
 {
 	if(m_board->withinBoundary(userGuess)) //used to test correct input. Can delete this if-else if wanted
@@ -39,6 +40,7 @@ bool Player::gettingShot(std::string userGuess)
 	}
 
 	return (m_board->updateMyBoard(userGuess));
+
 }
 
 Board* Player::getBoard() const
