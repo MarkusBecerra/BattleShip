@@ -12,8 +12,8 @@ class Board
 		std::string myBoard[8][8];
 		std::string m_rowNames = "ABCDEFGH";
 		std::string m_columnNames = "12345678";
-		int rowIndex;
-		int columnIndex;
+		int m_rowIndex;
+		int m_columnIndex;
 		void guessConversion(std::string userGuess);	//converts userGuess to two array indices, updating rowIndex and columnIndex
 
 		std::string blueTilde;

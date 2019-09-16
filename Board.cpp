@@ -1,12 +1,13 @@
 
 #include "Board.h"
+#include <sstream>
 
 Board::Board()
 {
 
-	blueTilde = "\033[1;36m~\033[0m";
-	redHit = "\033[1;31mX\033[0m";
-	whiteMiss = "\033[1;37mO\033[0m";
+	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
+	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
+	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
 	//ship = "\033[1;37m\033[0m";
 
 	for (int i=0; i<8; i++)
@@ -75,12 +76,12 @@ void Board::printMyBoard()
 bool Board::updateMyBoard(std::string userGuess)
 {
 	guessConversion(userGuess);
-	std::string location = myBoard[rowIndex][columnIndex];
+	std::string location = myBoard[m_rowIndex][m_columnIndex];
 	if(location == blueTilde)
-		myBoard[rowIndex][columnIndex] = whiteMiss;
+		myBoard[m_rowIndex][m_columnIndex] = whiteMiss;
 	//else if(location == ship)
 	//{
-	//	myBoard[rowIndex][columnIndex] = redHit;
+	//	myBoard[m_rowIndex][m_columnIndex] = redHit;
 	//	return true;
 	//}
 	return false;
@@ -90,12 +91,39 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 {
 }
 
-void Board::guessConversion(std::string userGuess)
+//assumes userGuess is within boundary since that is checked first
+void Board::guessConversion(std::string userGuess) //converts userGuess to two indices and updates member variables m_rowIndex and m_columnIndex with those indices
 {
-	rowIndex = 0;
-	columnIndex = 0;
+	std::cout << "guess: " << userGuess << "\n";
+	for(int i=0;i<m_rowNames.length();i++)
+	{
+		if(userGuess.at(0) == m_rowNames.at(i))
+		{
+			m_rowIndex = i;
+			break;
+		}
+		else
+		{
+			m_rowIndex = 9; //sets m_rowIndex to a number outside of the range so that it's not just the value it held previously.
+											//if the letter the user typed is withing "ABCDEFGH", then the correct index is set and we break out
+											//of this for loop and m_rowIndex does not become 9
+		}
+	}
+	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract 'a' to convert it from the ASCII value to the proper decimal value. citation needed
+	
+	m_columnIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
+	std::cout << "row: " << m_rowIndex << " column: " << m_columnIndex << "\n";
 }
 
-
-
-
+bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess
+{
+	guessConversion(userGuess);
+	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

@@ -19,7 +19,7 @@ void Executive::mainMenu()
 
 void Executive::game()
 {
-	
+
 	std::string guess;
 	int testTemp = 5;
 	while(!gameOver && testTemp > 0)
@@ -45,15 +45,12 @@ void Executive::shoot(std::string location)
 	{
 		hit = player_2->gettingShot(location);
 		player_1->shooting(location,hit);
-		
+
 	}
 	else
 	{
 		hit = player_1->gettingShot(location);
 		player_2->shooting(location,hit);
 	}
-	
+
 }
-
-
-
