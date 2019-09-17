@@ -34,8 +34,28 @@ void Executive::game()
 			{
 				std::cout <<"Player 2: Where would you like to shoot? ";
 			}
-			std::cin >> guess;
-			shoot(guess);
+
+//////below is the try catch block to make sure the guess is a string of length 2
+			try
+			{
+				std::cin >> guess;
+
+				while(guess.length() != 2)			//checking that string length is 2
+				{
+					std::cout << "Please enter a coordinate, such as A1,B5,H2: ";
+					std::cin >> guess;
+				}
+
+				shoot(guess);
+
+			}
+			catch (std::string message)
+			{
+				//what do we add here??
+			}
+///////end try catch block for checking length of guess string
+
+
 			if(m_player_1Turn % 2 == 1)
 			{
 				std::cout << "PLAYER 1 BOARDS\n";
