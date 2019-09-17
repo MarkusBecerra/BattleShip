@@ -4,8 +4,23 @@
 Executive::Executive()
 {
 	int numOfBoats = 0;
-	std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
-	std::cin >> numOfBoats;
+
+	try
+	{
+		std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
+		std::cin >> numOfBoats;
+
+		while(numOfBoats < 1 && numOfBoats > 5){
+			std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
+			std::cin >> numOfBoats;
+		}
+	}
+	
+	catch(std::string message)
+	{
+		std::cout << message;
+	}
+
 	player_1 = new Player(numOfBoats);
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
