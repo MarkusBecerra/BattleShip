@@ -6,22 +6,45 @@ Executive::Executive()
 {
 	int numOfBoats = 0;
 
-	do
+	try
 	{
 
 	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
 	std::cin >> numOfBoats;
 
-	while(std::cin.fail()) {			//check for integer input
-			std::cout << "Invalid input, expecting integer!" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+			while(std::cin.fail())			//check for integer input
+			{
+					std::cout << "Invalid input, expecting integer!" << std::endl;
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 
-			std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-			std::cin >> numOfBoats;
+					std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+					std::cin >> numOfBoats;
+			}
+
+			while(numOfBoats < 1 || numOfBoats > 5)
+			{
+					std::cout << "Please choose a number 1-5.\n";
+					std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+					std::cin >> numOfBoats;
+
+					while(std::cin.fail())			//check for integer input
+					{
+							std::cout << "Invalid input, expecting integer!" << std::endl;
+							std::cin.clear();
+							std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+							std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+							std::cin >> numOfBoats;
+					}
+			}
+
 	}
 
-	}while(numOfBoats < 1 || numOfBoats > 5);
+	catch(std::string message)
+	{
+		std::cout << "Need 1-5\n";
+	}
 
 	player_1 = new Player(numOfBoats);
 	player_2 = new Player(numOfBoats);
