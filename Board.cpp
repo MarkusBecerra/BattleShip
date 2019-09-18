@@ -23,7 +23,7 @@ Board::Board()
 
 Board::Board(int shipnum)
 {
-	numberOfShips = shipnum
+	numberOfShips = shipnum;
 	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
 	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
 	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
@@ -125,7 +125,7 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 void Board::guessConversion(std::string userGuess) //converts userGuess to two indices and updates member variables m_rowIndex and m_columnIndex with those indices
 {
 	std::cout << "guess: " << userGuess << "\n";
-	for(int i=0;i<m_rowNames.length();i++)
+	for(unsigned int i=0;i<m_rowNames.length();i++)	//had to make i an unsigned int since m_rowNames.length() returns an unsigned in as well
 	{
 		if(userGuess.at(0) == m_rowNames.at(i))
 		{
