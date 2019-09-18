@@ -161,3 +161,76 @@ bool Board::withinBoundary(std::string userGuess) //a check for valid input stil
 		return false;
 	}
 }
+
+bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
+{
+	guessConversion(userGuess);
+	for(int i = 0; i < shipLength; i++) //Add try catch block friends!
+ {
+	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex + i && m_columnIndex + i <= 7))
+		{
+		if(myBoard[m_rowIndex][m_columnIndex + i] != blueTilde)
+			{
+			return false;
+			}
+		}
+	else
+	{
+		return false;
+	}
+	return true;
+ }
+}
+
+void Board::setupBoard()
+{
+	std::string userGuess;
+	std::string userDirection;
+	m_ship =  new Ship[numberOfShips];
+	for(int i = 0; i < numberOfShips; i++)
+	{
+		m_ship[i].createShip(i+1);
+		if(m_ship[i].getLength() == 1)
+		{
+			printMyBoard();
+			std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
+			std::cin>>userGuess;
+			if(withinBoundary(userGuess))
+			{
+				myBoard[m_rowIndex][m_columnIndex] = ship;
+				m_ship[i].setCoordinate(userGuess, 0);
+				printMyBoard();
+			}
+			else
+			{
+				std::cout<<"WRONG HEY TEAM MAKE SURE TO ADD A LOOP HERE UNTIL THE PLAYER ADDS VALID INPUT FOR THE FREAKING SHIP!";
+			}
+		}
+		else
+		{
+
+			std::cout<<"HORIZTONAL(H) OR VERTICAL(V)? ";
+			std::cin>>userDirection;
+			if(userDirection == "H")
+			{
+				printMyBoard();
+				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)?";
+				std::cin>>userGuess;
+				if(noHorizontalCollision(userGuess,i+1))
+				{
+					guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+					for(int j = 0; j < m_ship[i].getLength(); j++ )
+					{
+						myBoard[m_rowIndex][m_columnIndex+j] = ship;
+						//m_ship[i].setCoordinate(userGuess, j);
+
+					}
+				}
+
+
+			}
+		}
+
+	}
+
+}

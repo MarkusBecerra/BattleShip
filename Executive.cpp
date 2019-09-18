@@ -10,6 +10,8 @@ Executive::Executive()
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
 	m_player_1Turn = 1;
+	player_1 -> getBoard() -> setupBoard();
+	player_2 -> getBoard() -> setupBoard();
 }
 
 void Executive::mainMenu()
