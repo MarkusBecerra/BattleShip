@@ -105,6 +105,10 @@ bool Board::updateMyBoard(std::string userGuess)
 		myBoard[m_rowIndex][m_columnIndex] = redHit;
 		return true;
 	}
+	else if(location == redHit || location == whiteMiss)
+	{
+		std::cout << "\nYou already shot at this location!\n";
+	}
 	return false;
 }
 
