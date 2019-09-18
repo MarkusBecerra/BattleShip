@@ -8,18 +8,17 @@
 class Ship
 {
 private:
-int m_shipNumber;
 std::string* m_ship = nullptr;
-int length
-int damage = 0;
+int m_length;
+int m_damage = 0;
 bool m_Sunk = false;
 
 public:
 Ship();
-void createShip(int length, int shipNumber);
+void createShip(int length);
 //void createShip(int length, int shipNumber);
-bool ConsecutiveCoordinates(int index);
-void setCoordinate(std::string coordinate, int index, int* xCoordinateList, int* yCoordinateList);
+//bool ConsecutiveCoordinates(int index) I DONT THINK WE NEED THIS
+void setCoordinate(std::string coordinate, int index);
 std::string getCoordinate(int index);
 void setLength(int length);
 int getLength();

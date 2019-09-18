@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include "Ship.h"
 
 class Board
 {
@@ -22,6 +23,7 @@ class Board
 		std::string whiteMiss;
 		std::string ship;
 		int numberOfShips;
+		Ship* m_ship = nullptr;
 
 	public:
 		Board(int shipnum);
@@ -32,11 +34,12 @@ class Board
 		void setNumberOfShips(int shipnum);
 		void getNumberofShips();
 
-		void setupBoard(int numberOfShips); //asks the player where they want to place the ships. uses with withinBoundary and edits myBoard and shotBoard
+		void setupBoard(); //asks the player where they want to place the ships. uses with withinBoundary and edits myBoard and shotBoard
 
 		void updateShotBoard(std::string userGuess, bool wasHit); //if blueTilde, change to whiteMiss, if whiteMiss, prints you already shot here, if redHit, prints you already shot here, if ship, change to redHit
 		bool updateMyBoard(std::string userGuess); //if blueTilde, change to whiteMiss, if whiteMiss, prints you already shot here, if redHit, prints you already shot here, if ship, change to redHit, return whether it hit a ship
 
 		bool withinBoundary(std::string userGuess);	//gets called from Player shoot function. Calls guessConversion. Needs to check for valid input.
+		bool noHorizontalCollision(std::string userGuess, int shipLength);
 	};
 #endif
