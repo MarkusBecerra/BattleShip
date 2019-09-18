@@ -4,7 +4,7 @@
 
 Player::Player(int shipNums)
 {
-	m_board = new Board();
+	m_board = new Board(shipNums);
 	numOfShips = shipNums;
 }
 

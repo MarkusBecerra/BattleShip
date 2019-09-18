@@ -21,11 +21,16 @@ class Board
 		std::string redHit;
 		std::string whiteMiss;
 		std::string ship;
+		int numberOfShips;
 
 	public:
+		Board(int shipnum);
 		Board();
 		void printShotBoard();
 		void printMyBoard();
+
+		void setNumberOfShips(int shipnum);
+		void getNumberofShips();
 
 		void setupBoard(int numberOfShips); //asks the player where they want to place the ships. uses with withinBoundary and edits myBoard and shotBoard
 
