@@ -12,3 +12,5 @@ In charge of players shooting and board being updated
 Markus:
 Ship creation and ship tracker
 Some board stuff
+Placing Ships
+
