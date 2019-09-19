@@ -1,6 +1,7 @@
 
 #include "Board.h"
 #include <sstream>
+#include <limits>
 
 Board::Board()
 {
@@ -90,7 +91,15 @@ void Board::printMyBoard()
 	}
 }
 
-
+void Board::printIntermission()
+{
+	for(int i=0;i<40;i++)
+	{
+		std::cout << "\n\n\n\n\n\n";
+	}
+	std::cout << "When ready, please press Enter: ";
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+}
 
 bool Board::updateMyBoard(std::string userGuess)
 {
@@ -185,7 +194,7 @@ bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
 void Board::setupBoard()
 {
 	std::string userGuess;
-	std::string userDirection;
+	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
 	m_ship =  new Ship[numberOfShips];
 	for(int i = 0; i < numberOfShips; i++)
 	{
@@ -225,6 +234,12 @@ void Board::setupBoard()
 						//m_ship[i].setCoordinate(userGuess, j);
 
 					}
+					printMyBoard();
+
+					std::cout << "Press Enter to go to the next Player's turn: ";
+					std::cin.ignore();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
+					printIntermission();
 				}
 
 

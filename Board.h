@@ -30,6 +30,7 @@ class Board
 		Board();
 		void printShotBoard();
 		void printMyBoard();
+		void printIntermission();
 
 		void setNumberOfShips(int shipnum);
 		void getNumberofShips();
