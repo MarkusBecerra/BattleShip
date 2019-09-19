@@ -6,36 +6,18 @@ Executive::Executive()
 {
 	int numOfBoats = 0;
 	std::string tempBoats = " ";			//using string to use getline string.at(1)
-	std::string invalidBoats = " ";		//used to throw
 
 	try
 	{
 
 	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-	std::getline(std::cin, tempBoats);		//don't really need get line do we?
-	//std::cin >> tempBoats;
-	//std::cout << "Number of temp boats: " << tempBoats << "\n";
-
-	//std::cout << "Length of temp boats: " << tempBoats.length() <<  "\n";
+	std::getline(std::cin, tempBoats);
 
 	while(tempBoats.length() > 1 || tempBoats.length() < 1)
 	{
-		invalidBoats = "Must be a number from 1 to 5!\n";
-		std::cout << invalidBoats;
+		std::cout << "Must be a one-digit number from 1-5!\n";
 		std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-		std::cin >> tempBoats;
-	}
-
-	if(tempBoats.length() == 1)
-	{
-		numOfBoats = tempBoats.at(0) - '0';		//convert tempBoats string to int
-		//std::cout << "Number of numOfBoats: " << numOfBoats << '\n';
-	}
-
-	if(numOfBoats < 1 || numOfBoats > 5)
-	{
-		invalidBoats = "Must be a number from 1 to 5!\n";
-		throw(std::runtime_error("Must be a number from 1 to 5!\n"));
+		std::getline(std::cin, tempBoats);
 	}
 
 			while(std::cin.fail())			//check for integer input
@@ -45,14 +27,30 @@ Executive::Executive()
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 
 					std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-					std::cin >> numOfBoats;
+					std::getline(std::cin, tempBoats);
+
+					while(tempBoats.length() > 1 || tempBoats.length() < 1)
+					{
+						std::cout << "Must be a one-digit number from 1-5!\n";
+						std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+						std::getline(std::cin, tempBoats);
+					}
+
 			}
 
 			while(numOfBoats < 1 || numOfBoats > 5)
 			{
-					std::cout << "Please choose a number 1-5.\n";
+					//throw(std::runtime_error("Must be a number from 1 to 5!\n"));
+					std::cout << "Must be a number 1-5!\n";
 					std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-					std::cin >> numOfBoats;
+					std::getline(std::cin, tempBoats);
+
+					while(tempBoats.length() > 1 || tempBoats.length() < 1)
+					{
+						std::cout << "Must be a one-digit number from 1-5!\n";
+						std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+						std::getline(std::cin, tempBoats);
+					}
 
 					while(std::cin.fail())			//check for integer input
 					{
@@ -62,10 +60,31 @@ Executive::Executive()
 							std::cin.ignore(' ','\n');
 
 							std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-							std::cin >> numOfBoats;
+							std::getline(std::cin, tempBoats);
+
+							while(tempBoats.length() > 1 || tempBoats.length() < 1)
+							{
+								std::cout << "Must be a one-digit number from 1-5!\n";
+								std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+								std::getline(std::cin, tempBoats);
+							}
 					}
 			}
 
+			if(tempBoats.length() == 1)
+			{
+				numOfBoats = tempBoats.at(0) - '0';		//convert tempBoats string to int
+				if(numOfBoats >= 1 && numOfBoats <= 5)
+				{
+					////MOVED THE FOLLOWING FOUR LINES OF CODE INSIDE THE TRY CATCH BLOCK
+					player_1 = new Player(numOfBoats);
+					player_2 = new Player(numOfBoats);
+					gameOver = false;
+					m_player_1Turn = 1;
+					game();			//GAME NOW CALLED HERE RATHER THAN IN MAIN
+					/////end those lines
+				}
+			}
 	}
 
 	catch(std::runtime_error &rte)
@@ -73,10 +92,7 @@ Executive::Executive()
 		std::cout << rte.what();
 	}
 
-	player_1 = new Player(numOfBoats);
-	player_2 = new Player(numOfBoats);
-	gameOver = false;
-	m_player_1Turn = 1;
+
 }
 
 void Executive::mainMenu()
@@ -86,7 +102,6 @@ void Executive::mainMenu()
 
 void Executive::game()
 {
-
 	std::string guess;
 	int testTemp = 5;
 	while(!gameOver && testTemp > 0)
@@ -121,7 +136,6 @@ void Executive::game()
 				//what do we add here??
 			}
 ///////end try catch block for checking length of guess string
-
 
 			if(m_player_1Turn % 2 == 1)
 			{
