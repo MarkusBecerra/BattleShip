@@ -10,54 +10,54 @@ int Executive::boatCheck() // will return numOfBoats
 
 	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
 	std::getline(std::cin, tempBoats);
+	std::cout << "TEMP BOATS AT 0: " << tempBoats.at(0) << "\n";
 
-	if(tempBoats.length() > 1 || tempBoats.length() < 1)
+	if(tempBoats.length() < 1 || tempBoats.length() > 1)
 	{
 		std::cout << "Must be a one-digit number from 1-5!\n";
 		boatCheck();
 	}
 
-	if(tempBoats.at(0) < 1 || tempBoats.at(0) > 5)
+	else
 	{
-		boatCheck();
-	}
-
-	if(std::cin.fail())			//check for integer input
-	{
-			std::cout << "Invalid input, expecting integer!" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-
-			std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-			std::getline(std::cin, tempBoats);
-			boatCheck();
-	}
-
-	if(tempBoats.length() == 1)
-	{
+		std::cout << "HIT ELSE STATEMENT!!!\n";
 		numOfBoats = tempBoats.at(0) - '0';
-	}
 
-	return numOfBoats;
+		if(numOfBoats < 1 || numOfBoats > 5)
+		{
+			std::cout << "Must be an integer from 1-5!\n";
+			boatCheck();
+		}
+
+		else
+		{
+			std::cout << "HIT RETURN STATEMENT\n";
+			return numOfBoats;
+		}
+	}
+	// else if(std::cin.fail())			//check for integer input
+	// {
+	// 		std::cout << "Invalid input, expecting integer!" << std::endl;
+	// 		std::cin.clear();
+	// 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+	//
+	// 		boatCheck();
+	// }
 }
 
 Executive::Executive()
 {
-	int numOfBoats = 0;
-	std::string tempBoats = " ";			//using string to use getline string.at(1)
 
 	try
 	{
 		numOfBoats = boatCheck();
+		std::cout << "NUMBER OF BOATS FROM BOAT CHECK: "<< numOfBoats << "\n";
 	}
 
 	catch(std::runtime_error &rte)
 	{
 		std::cout << rte.what();
 	}
-
-	std::cout << "NUMBER OF BOATS: " << numOfBoats << "\n";
-	std::cout << "LENGTH OF TEMPBOATS: " << tempBoats.length() << "\n";
 
 	player_1 = new Player(numOfBoats);
 	player_2 = new Player(numOfBoats);
