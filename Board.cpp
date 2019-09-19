@@ -223,7 +223,7 @@ void Board::setupBoard()
 			std::cin>>userDirection;
 			if(userDirection == "H")
 			{
-				
+
 				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 				std::cin>>userGuess;
 				if(noHorizontalCollision(userGuess,i+1))
@@ -248,6 +248,6 @@ void Board::setupBoard()
 		}
 
 	}
-	printMyBoard();
+
 
 }

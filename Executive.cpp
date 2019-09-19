@@ -12,15 +12,8 @@ Executive::Executive()
 	m_player_1Turn = 1;
 	std::cout <<"\n\n\nPlayer 1 place your ships\n";
 	player_1 -> getBoard() -> setupBoard();
-	std::cin.ignore();
-	std::cout <<"Player 1 please hit enter and let other player place their ships in secret:";
-	std::cin.ignore();
-	std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlayer 2 place your ships\n";
 	player_2 -> getBoard() -> setupBoard();
-	std::cin.ignore();
-	std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret\n";
-	std::cin.ignore();
-	std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
 }
 
 void Executive::mainMenu()
@@ -60,7 +53,7 @@ void Executive::game()
 				std::cin.ignore();
 				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret\n";
 				std::cin.ignore();
-				std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+				player_1->getBoard()->printIntermission();
 			}
 			else
 			{
@@ -70,7 +63,7 @@ void Executive::game()
 				std::cin.ignore();
 				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret\n";
 				std::cin.ignore();
-				std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+				player_2->getBoard()->printIntermission();
 			}
 			m_player_1Turn++;
 			testTemp--;
