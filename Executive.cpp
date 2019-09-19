@@ -10,8 +10,17 @@ Executive::Executive()
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
 	m_player_1Turn = 1;
+	std::cout <<"\n\n\nPlayer 1 place your ships\n";
 	player_1 -> getBoard() -> setupBoard();
+	std::cin.ignore();
+	std::cout <<"Player 1 please hit enter and let other player place their ships in secret:";
+	std::cin.ignore();
+	std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlayer 2 place your ships\n";
 	player_2 -> getBoard() -> setupBoard();
+	std::cin.ignore();
+	std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret\n";
+	std::cin.ignore();
+	std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 }
 
 void Executive::mainMenu()
@@ -30,25 +39,38 @@ void Executive::game()
 		{
 			if(m_player_1Turn % 2 == 1)
 			{
+				player_1->getBoard()->printShotBoard();
+				player_1->getBoard()->printMyBoard();
 				std::cout <<"Player 1: Where would you like to shoot? ";
 			}
 			else
 			{
+				player_2->getBoard()->printShotBoard();
+				player_2->getBoard()->printMyBoard();
 				std::cout <<"Player 2: Where would you like to shoot? ";
 			}
 			std::cin >> guess;
 			shoot(guess);
 			if(m_player_1Turn % 2 == 1)
 			{
+
 				std::cout << "PLAYER 1 BOARDS\n";
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
+				std::cin.ignore();
+				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret\n";
+				std::cin.ignore();
+				std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 			}
 			else
 			{
 				std::cout << "PLAYER 2 BOARDS\n";
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
+				std::cin.ignore();
+				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret\n";
+				std::cin.ignore();
+				std::cout <<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 			}
 			m_player_1Turn++;
 			testTemp--;

@@ -204,26 +204,27 @@ void Board::setupBoard()
 			printMyBoard();
 			std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
 			std::cin>>userGuess;
-			if(withinBoundary(userGuess))
+			while(!withinBoundary(userGuess))
 			{
+				printMyBoard();
+				std::cout <<"That coordinate is not valid\n";
+				std::cout <<"Pick a coordinate to place this ship of size 1 (for example C6): ";
+				std::cin>>userGuess;
+			}
 				myBoard[m_rowIndex][m_columnIndex] = ship;
 				m_ship[i].setCoordinate(userGuess, 0);
 				printMyBoard();
-			}
-			else
-			{
-				std::cout<<"WRONG HEY TEAM MAKE SURE TO ADD A LOOP HERE UNTIL THE PLAYER ADDS VALID INPUT FOR THE FREAKING SHIP!";
-			}
+
 		}
 		else
 		{
-
-			std::cout<<"HORIZTONAL(H) OR VERTICAL(V)? ";
+			printMyBoard();
+			std::cout<<"HORIZTONAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
 			std::cin>>userDirection;
 			if(userDirection == "H")
 			{
-				printMyBoard();
-				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)?";
+				
+				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 				std::cin>>userGuess;
 				if(noHorizontalCollision(userGuess,i+1))
 				{
@@ -247,5 +248,6 @@ void Board::setupBoard()
 		}
 
 	}
+	printMyBoard();
 
 }
