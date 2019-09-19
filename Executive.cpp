@@ -5,12 +5,38 @@
 Executive::Executive()
 {
 	int numOfBoats = 0;
+	std::string tempBoats = " ";			//using string to use getline string.at(1)
+	std::string invalidBoats = " ";		//used to throw
 
 	try
 	{
 
 	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-	std::cin >> numOfBoats;
+	std::getline(std::cin, tempBoats);		//don't really need get line do we?
+	//std::cin >> tempBoats;
+	//std::cout << "Number of temp boats: " << tempBoats << "\n";
+
+	//std::cout << "Length of temp boats: " << tempBoats.length() <<  "\n";
+
+	while(tempBoats.length() > 1 || tempBoats.length() < 1)
+	{
+		invalidBoats = "Must be a number from 1 to 5!\n";
+		std::cout << invalidBoats;
+		std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+		std::cin >> tempBoats;
+	}
+
+	if(tempBoats.length() == 1)
+	{
+		numOfBoats = tempBoats.at(0) - '0';		//convert tempBoats string to int
+		//std::cout << "Number of numOfBoats: " << numOfBoats << '\n';
+	}
+
+	if(numOfBoats < 1 || numOfBoats > 5)
+	{
+		invalidBoats = "Must be a number from 1 to 5!\n";
+		throw(std::runtime_error("Must be a number from 1 to 5!\n"));
+	}
 
 			while(std::cin.fail())			//check for integer input
 			{
@@ -33,6 +59,7 @@ Executive::Executive()
 							std::cout << "Invalid input, expecting integer!" << std::endl;
 							std::cin.clear();
 							std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+							std::cin.ignore(' ','\n');
 
 							std::cout << "How many ships would you like to play with? (Choose 1-5): ";
 							std::cin >> numOfBoats;
@@ -41,9 +68,9 @@ Executive::Executive()
 
 	}
 
-	catch(std::string message)
+	catch(std::runtime_error &rte)
 	{
-		std::cout << "Need 1-5\n";
+		std::cout << rte.what();
 	}
 
 	player_1 = new Player(numOfBoats);
