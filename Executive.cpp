@@ -2,6 +2,45 @@
 #include "Executive.h"
 #include <limits>
 
+//ADD FUNCTION TO HEADER
+int Executive::boatCheck() // will return numOfBoats
+{
+	int numOfBoats = 0;
+	std::string tempBoats = " ";
+
+	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+	std::getline(std::cin, tempBoats);
+
+	if(tempBoats.length() > 1 || tempBoats.length() < 1)
+	{
+		std::cout << "Must be a one-digit number from 1-5!\n";
+		boatCheck();
+	}
+
+	if(tempBoats.at(0) < 1 || tempBoats.at(0) > 5)
+	{
+		boatCheck();
+	}
+
+	if(std::cin.fail())			//check for integer input
+	{
+			std::cout << "Invalid input, expecting integer!" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+			std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+			std::getline(std::cin, tempBoats);
+			boatCheck();
+	}
+
+	if(tempBoats.length() == 1)
+	{
+		numOfBoats = tempBoats.at(0) - '0';
+	}
+
+	return numOfBoats;
+}
+
 Executive::Executive()
 {
 	int numOfBoats = 0;
@@ -9,82 +48,7 @@ Executive::Executive()
 
 	try
 	{
-
-	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-	std::getline(std::cin, tempBoats);
-
-	while(tempBoats.length() > 1 || tempBoats.length() < 1)
-	{
-		std::cout << "Must be a one-digit number from 1-5!\n";
-		std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-		std::getline(std::cin, tempBoats);
-	}
-
-			while(std::cin.fail())			//check for integer input
-			{
-					std::cout << "Invalid input, expecting integer!" << std::endl;
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-
-					std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-					std::getline(std::cin, tempBoats);
-
-					while(tempBoats.length() > 1 || tempBoats.length() < 1)
-					{
-						std::cout << "Must be a one-digit number from 1-5!\n";
-						std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-						std::getline(std::cin, tempBoats);
-					}
-
-			}
-
-			while(numOfBoats < 1 || numOfBoats > 5)
-			{
-					//throw(std::runtime_error("Must be a number from 1 to 5!\n"));
-					std::cout << "Must be a number 1-5!\n";
-					std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-					std::getline(std::cin, tempBoats);
-
-					while(tempBoats.length() > 1 || tempBoats.length() < 1)
-					{
-						std::cout << "Must be a one-digit number from 1-5!\n";
-						std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-						std::getline(std::cin, tempBoats);
-					}
-
-					while(std::cin.fail())			//check for integer input
-					{
-							std::cout << "Invalid input, expecting integer!" << std::endl;
-							std::cin.clear();
-							std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-							std::cin.ignore(' ','\n');
-
-							std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-							std::getline(std::cin, tempBoats);
-
-							while(tempBoats.length() > 1 || tempBoats.length() < 1)
-							{
-								std::cout << "Must be a one-digit number from 1-5!\n";
-								std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-								std::getline(std::cin, tempBoats);
-							}
-					}
-			}
-
-			if(tempBoats.length() == 1)
-			{
-				numOfBoats = tempBoats.at(0) - '0';		//convert tempBoats string to int
-				if(numOfBoats >= 1 && numOfBoats <= 5)
-				{
-					////MOVED THE FOLLOWING FOUR LINES OF CODE INSIDE THE TRY CATCH BLOCK
-					player_1 = new Player(numOfBoats);
-					player_2 = new Player(numOfBoats);
-					gameOver = false;
-					m_player_1Turn = 1;
-					game();			//GAME NOW CALLED HERE RATHER THAN IN MAIN
-					/////end those lines
-				}
-			}
+		numOfBoats = boatCheck();
 	}
 
 	catch(std::runtime_error &rte)
@@ -92,7 +56,15 @@ Executive::Executive()
 		std::cout << rte.what();
 	}
 
+	std::cout << "NUMBER OF BOATS: " << numOfBoats << "\n";
+	std::cout << "LENGTH OF TEMPBOATS: " << tempBoats.length() << "\n";
 
+	player_1 = new Player(numOfBoats);
+	player_2 = new Player(numOfBoats);
+	gameOver = false;
+	m_player_1Turn = 1;
+	game();			//GAME NOW CALLED HERE RATHER THAN IN MAIN
+		/////end those lines
 }
 
 void Executive::mainMenu()
