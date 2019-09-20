@@ -365,3 +365,8 @@ int Board::getNumberofShips() const
 {
 	return numberOfShips;
 }
+
+Ship* Board::getShip() const
+{
+	return m_ship;
+}

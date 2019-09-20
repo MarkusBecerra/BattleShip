@@ -71,6 +71,7 @@ bool Ship::isSunk()
 {
   if(m_damage == m_length)
   {
+    std::cout << "\nis sunk\n" << "length: " << m_length << "\n";
     return true;
   }
   else
