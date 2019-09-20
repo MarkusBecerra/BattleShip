@@ -1,4 +1,4 @@
-/*
+/**
 * \Author: Chance Penner
 * \Author: Markus Becerra
 * \Author: Sarah Scott
