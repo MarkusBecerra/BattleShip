@@ -14,7 +14,12 @@ int m_damage = 0;
 bool m_Sunk = false;
 }
 
-int Ship::getLength()
+void Ship::setLength(int length)
+{
+  m_length = length;
+}
+
+int Ship::getLength() const
 {
   return m_length;
 }
