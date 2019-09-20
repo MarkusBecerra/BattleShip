@@ -90,7 +90,6 @@ void Executive::mainMenu()
 void Executive::game()
 {
 	std::string guess;
-	int testTemp = 5;
 	while(!m_gameOver)
 	{
 		try
@@ -128,7 +127,7 @@ void Executive::game()
 			}
 ///////end try catch block for checking length of guess string
 
-			if(m_player_1Turn % 2 == 1) //if it is player 1's turn
+			if(m_player_1Turn % 2 == 1 && !m_gameOver) //if it is player 1's turn
 			{
 
 				std::cout << "PLAYER 1 TURN\n";
@@ -139,7 +138,7 @@ void Executive::game()
 				std::cin.ignore();
 				player_1->getBoard()->printIntermission();
 			}
-			else	//if it is player 2's turn
+			else if(m_player_1Turn % 2 == 0 && !m_gameOver)	//if it is player 2's turn
 			{
 				std::cout << "PLAYER 2 TURN\n";
 				player_2->getBoard()->printShotBoard();
@@ -151,7 +150,6 @@ void Executive::game()
 			}
 
 			m_player_1Turn++; //change player turn
-			testTemp--;
 		}
 		catch(std::runtime_error &rte)
 		{
@@ -163,11 +161,11 @@ void Executive::game()
 
 	if(m_player_1Turn % 2 == 1) //m_player_1Turn gets changed right before this, which is why the value is comparing different than above
 	{
-		std::cout << "PLAYER 2 WINS!\n";
+		std::cout << "PLAYER 1 WINS!\n";
 	}
 	else
 	{
-		std::cout << "PLAYER 1 WINS!\n";
+		std::cout << "PLAYER 2 WINS!\n";
 	}
 
 }
@@ -183,7 +181,7 @@ void Executive::shoot(std::string location)
 		hit = player_2->gettingShot(location);
 		player_1->shooting(location,hit);
 
-		for(int i=0;i<numberOfShips;i++)
+		for(int i=0;i<numberOfShips;i++)	//checks for game over
 		{
 			if(player_2->getBoard()->getShip()[i].isSunk())
 			{
@@ -203,7 +201,7 @@ void Executive::shoot(std::string location)
 		hit = player_1->gettingShot(location);
 		player_2->shooting(location,hit);
 
-		for(int i=0;i<numberOfShips;i++)
+		for(int i=0;i<numberOfShips;i++)	//checks for game over
 		{
 			if(player_1->getBoard()->getShip()[i].isSunk())
 			{
