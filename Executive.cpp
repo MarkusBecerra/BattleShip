@@ -2,56 +2,55 @@
 #include "Executive.h"
 #include <limits>
 
-//ADD FUNCTION TO HEADER
-int Executive::boatCheck() // will return numOfBoats
+int Executive::boatCheck() // will return numOfBoats when valid
 {
 	int numOfBoats = 0;
 	std::string tempBoats = " ";
 
 	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
-	std::getline(std::cin, tempBoats);
-	std::cout << "TEMP BOATS AT 0: " << tempBoats.at(0) << "\n";
+
+	try
+	{
+		std::getline(std::cin, tempBoats);
+	}
+
+	catch(std::out_of_range &ex)
+	{
+		std::cout << "No input was recieved, please enter a number 1-5: \n";
+		return boatCheck();
+	}
 
 	if(tempBoats.length() < 1 || tempBoats.length() > 1)
 	{
 		std::cout << "Must be a one-digit number from 1-5!\n";
-		boatCheck();
+		return boatCheck();
 	}
 
 	else
 	{
-		std::cout << "HIT ELSE STATEMENT!!!\n";
 		numOfBoats = tempBoats.at(0) - '0';
 
 		if(numOfBoats < 1 || numOfBoats > 5)
 		{
 			std::cout << "Must be an integer from 1-5!\n";
-			boatCheck();
+			return boatCheck();
 		}
 
 		else
 		{
-			std::cout << "HIT RETURN STATEMENT\n";
 			return numOfBoats;
 		}
 	}
-	// else if(std::cin.fail())			//check for integer input
-	// {
-	// 		std::cout << "Invalid input, expecting integer!" << std::endl;
-	// 		std::cin.clear();
-	// 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-	//
-	// 		boatCheck();
-	// }
+
 }
 
 Executive::Executive()
 {
+	int numOfBoats = 0;
 
 	try
 	{
 		numOfBoats = boatCheck();
-		std::cout << "NUMBER OF BOATS FROM BOAT CHECK: "<< numOfBoats << "\n";
 	}
 
 	catch(std::runtime_error &rte)
@@ -63,8 +62,7 @@ Executive::Executive()
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
 	m_player_1Turn = 1;
-	game();			//GAME NOW CALLED HERE RATHER THAN IN MAIN
-		/////end those lines
+	game();	
 }
 
 void Executive::mainMenu()
