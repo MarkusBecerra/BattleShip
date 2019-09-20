@@ -1,4 +1,14 @@
-//Player cpp file to contain all player functions
+/**
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:	 Player.cpp
+* \Date:   09/19/2019
+* \Brief:  File is cpp file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
 
 #include "Player.h"
 
@@ -30,16 +40,17 @@ void Player::shooting(std::string userGuess, bool hit)
 
 bool Player::gettingShot(std::string userGuess)
 {
-	if(m_board->withinBoundary(userGuess)) //used to test correct input. Can delete this if-else if wanted
+	if(m_board->withinBoundary(userGuess))
 	{
-		std::cout << "within boundary\n";
+		return (m_board->updateMyBoard(userGuess));
+		//std::cout << "within boundary\n";
 	}
 	else
 	{
-		throw(std::runtime_error("Out of Boundary\n"));
+		throw(std::runtime_error("Out of Boundary! Try again.\n"));
 	}
 
-	return (m_board->updateMyBoard(userGuess));
+	// return (m_board->updateMyBoard(userGuess));
 
 }
 

@@ -1,3 +1,15 @@
+/**
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:   Ship.cpp
+* \Date:   09/19/2019
+* \Brief:  File is cpp file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
+
 #include "Ship.h"
 
 void Ship::createShip(int length)
@@ -14,7 +26,12 @@ int m_damage = 0;
 bool m_Sunk = false;
 }
 
-int Ship::getLength()
+void Ship::setLength(int length)
+{
+  m_length = length;
+}
+
+int Ship::getLength() const
 {
   return m_length;
 }
@@ -22,9 +39,43 @@ int Ship::getLength()
 void Ship::setCoordinate(std::string coordinate, int index)
 {
   m_ship[index] = coordinate;
+  std::cout<<coordinate <<'\n';
+}
+
+std::string Ship::getCoordinate(int index) const
+{
+  return m_ship[index];
 }
 
 Ship::~Ship()
 {
   delete m_ship;
+}
+
+void Ship::addDamage()
+{
+  m_damage++;
+}
+
+int Ship::getDamage()
+{
+  return m_damage;
+}
+
+void Ship::setDamage(int newDamage)
+{
+m_damage = newDamage;
+}
+
+bool Ship::isSunk()
+{
+  if(m_damage == m_length)
+  {
+    // std::cout << "\nis sunk\n" << "length: " << m_length << "\n";
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }

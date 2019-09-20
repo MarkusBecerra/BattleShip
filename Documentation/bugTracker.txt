@@ -1,0 +1,6 @@
+TODO
+-Have to press enter twice after shooting, empty standby line???
+-Loading screen intermission, make prettier!
+
+DONE
+-Typing a coordinate rather than H or V for horizontal or vertical
