@@ -258,19 +258,46 @@ void Board::setupBoard()
 		m_ship[i].createShip(i+1);
 		if(m_ship[i].getLength() == 1)
 		{
-			printMyBoard();
-			std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
-			std::cin>>userGuess;
-			while(!withinBoundary(userGuess))
-			{
-				printMyBoard();
-				std::cout <<"That coordinate is not valid\n";
-				std::cout <<"Pick a coordinate to place this ship of size 1 (for example C6): ";
-				std::cin>>userGuess;
-			}
-				myBoard[m_rowIndex][m_columnIndex] = ship;
-				m_ship[i].setCoordinate(userGuess, 0);
-				printMyBoard();
+			userGuess = " ";
+
+				do {
+					printMyBoard();
+					std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
+					std::getline(std::cin, userGuess);
+
+					if(userGuess.length() != 2)
+					{
+						std::cout << "Invalid coordinate! Try again.\n";
+					}
+
+				} while(userGuess.length()!=2);
+
+				// printMyBoard();
+				// std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
+				// std::getline(std::cin, userGuess);
+
+				// if(userGuess.length() != 2)
+				// {
+				// 	std::cout << "Invalid coordinate! Try again.\n";
+				// }
+
+				while(!withinBoundary(userGuess))
+				{
+					printMyBoard();
+					std::cout <<"That coordinate is not valid\n";
+					std::cout <<"Pick a coordinate to place this ship of size 1 (for example C6): ";
+					std::getline(std::cin, userGuess);
+
+					if(userGuess.length() != 2)
+					{
+						std::cout << "Invalid coordinate! Try again.\n";
+					}
+
+				}
+					myBoard[m_rowIndex][m_columnIndex] = ship;
+					m_ship[i].setCoordinate(userGuess, 0);
+					printMyBoard();
+
 
 		}
 		else
