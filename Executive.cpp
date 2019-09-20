@@ -205,7 +205,7 @@ void Executive::shoot(std::string location)
 
 		for(int i=0;i<numberOfShips;i++)
 		{
-			if(player_1->getBoard()->getShip()[0].isSunk())
+			if(player_1->getBoard()->getShip()[i].isSunk())
 			{
 				m_gameOver = true;	//sets to true if they are sunk
 			}
