@@ -1,3 +1,15 @@
+/**
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:	 Executive.cpp
+* \Date:   09/19/2019
+* \Brief:  File is cpp file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
+
 
 #include "Executive.h"
 #include <limits>
@@ -62,7 +74,12 @@ Executive::Executive()
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
 	m_player_1Turn = 1;
-	game();	
+	game();
+
+	std::cout <<"\n\n\nPlayer 1 place your ships\n";
+	player_1 -> getBoard() -> setupBoard();
+	player_2 -> getBoard() -> setupBoard();
+
 }
 
 void Executive::mainMenu()
@@ -80,10 +97,14 @@ void Executive::game()
 		{
 			if(m_player_1Turn % 2 == 1)
 			{
+				player_1->getBoard()->printShotBoard();
+				player_1->getBoard()->printMyBoard();
 				std::cout <<"Player 1: Where would you like to shoot? ";
 			}
 			else
 			{
+				player_2->getBoard()->printShotBoard();
+				player_2->getBoard()->printMyBoard();
 				std::cout <<"Player 2: Where would you like to shoot? ";
 			}
 
@@ -109,15 +130,24 @@ void Executive::game()
 
 			if(m_player_1Turn % 2 == 1)
 			{
+
 				std::cout << "PLAYER 1 BOARDS\n";
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
+				std::cin.ignore();
+				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret\n";
+				std::cin.ignore();
+				player_1->getBoard()->printIntermission();
 			}
 			else
 			{
 				std::cout << "PLAYER 2 BOARDS\n";
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
+				std::cin.ignore();
+				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret\n";
+				std::cin.ignore();
+				player_2->getBoard()->printIntermission();
 			}
 			m_player_1Turn++;
 			testTemp--;

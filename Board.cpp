@@ -1,6 +1,18 @@
+/**
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:	 Board.cpp
+* \Date:   09/19/2019
+* \Brief:  File is cpp file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
 
 #include "Board.h"
 #include <sstream>
+#include <limits>
 
 Board::Board()
 {
@@ -20,6 +32,25 @@ Board::Board()
 	}
 
 }
+
+Board::Board(int shipnum)
+{
+	numberOfShips = shipnum;
+	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
+	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
+	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
+	ship = "\033[1;32m∆\033[0m";
+
+	for (int i=0; i<8; i++)
+	{
+		for(int j=0; j<8; j++)
+		{
+			myBoard[i][j] = blueTilde;
+			shotBoard[i][j] = blueTilde;
+		}
+	}
+}
+
 
 void Board::printShotBoard()
 {
@@ -71,7 +102,15 @@ void Board::printMyBoard()
 	}
 }
 
-
+void Board::printIntermission()
+{
+	for(int i=0;i<40;i++)
+	{
+		std::cout << "\n\n\n\n\n\n";
+	}
+	std::cout << "When ready, please press Enter: ";
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+}
 
 bool Board::updateMyBoard(std::string userGuess)
 {
@@ -85,6 +124,10 @@ bool Board::updateMyBoard(std::string userGuess)
 	{
 		myBoard[m_rowIndex][m_columnIndex] = redHit;
 		return true;
+	}
+	else if(location == redHit || location == whiteMiss)
+	{
+		std::cout << "\nYou already shot at this location!\n";
 	}
 	return false;
 }
@@ -106,7 +149,7 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 void Board::guessConversion(std::string userGuess) //converts userGuess to two indices and updates member variables m_rowIndex and m_columnIndex with those indices
 {
 	std::cout << "guess: " << userGuess << "\n";
-	for(int i=0;i<m_rowNames.length();i++)
+	for(unsigned int i=0;i<m_rowNames.length();i++)	//had to make i an unsigned int since m_rowNames.length() returns an unsigned in as well
 	{
 		if(userGuess.at(0) == m_rowNames.at(i))
 		{
@@ -137,4 +180,161 @@ bool Board::withinBoundary(std::string userGuess) //a check for valid input stil
 	{
 		return false;
 	}
+}
+
+bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
+{
+	guessConversion(userGuess);
+	for(int i = 0; i < shipLength; i++) //Add try catch block friends!
+ {
+	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex + i && m_columnIndex + i <= 7))
+		{
+		if(myBoard[m_rowIndex][m_columnIndex + i] != blueTilde)
+			{
+			return false;
+			}
+		}
+	else
+	{
+		return false;
+	}
+	//return true;
+ }
+ return true;
+}
+
+bool Board::noVerticalCollision(std::string userGuess, int shipLength)
+{
+	guessConversion(userGuess);
+	for(int i = 0; i < shipLength; i++) //Add try catch block friends!
+ {
+	if((0 <= m_rowIndex + i && m_rowIndex + i <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
+		{
+		if(myBoard[m_rowIndex + i][m_columnIndex] != blueTilde)
+			{
+			return false;
+			}
+		}
+	else
+	{
+		return false;
+	}
+	//return true;
+ }
+ return true;
+}
+
+void Board::setupBoard()
+{
+	std::string userGuess;
+	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
+	bool validLocation = false;	//used to keep asking for valid location if still false
+	m_ship =  new Ship[numberOfShips];
+	for(int i = 0; i < numberOfShips; i++)		//TODO, MAKE SURE THAT IF THEY TYPE B11, IT DOESN'T JUST GO TO B1
+	{
+		m_ship[i].createShip(i+1);
+		if(m_ship[i].getLength() == 1)
+		{
+			printMyBoard();
+			std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
+			std::cin>>userGuess;
+			while(!withinBoundary(userGuess))
+			{
+				printMyBoard();
+				std::cout <<"That coordinate is not valid\n";
+				std::cout <<"Pick a coordinate to place this ship of size 1 (for example C6): ";
+				std::cin>>userGuess;
+			}
+				myBoard[m_rowIndex][m_columnIndex] = ship;
+				m_ship[i].setCoordinate(userGuess, 0);
+				printMyBoard();
+
+		}
+		else
+		{
+			std::cout<<"HORIZTONAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
+			std::cin>>userDirection;
+			if(userDirection == "H")
+			{
+				validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
+
+				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+				std::cin>>userGuess;
+
+				while(validLocation == false)
+				{
+
+					if(noHorizontalCollision(userGuess,i+1))
+					{
+						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						for(int j = 0; j < m_ship[i].getLength(); j++ )
+						{
+							myBoard[m_rowIndex][m_columnIndex+j] = ship;
+							//m_ship[i].setCoordinate(userGuess, j);
+
+						}
+						printMyBoard();
+
+						validLocation = true;
+					}
+					else
+					{
+						printMyBoard();
+						std::cout << "Invalid location. Try again!\n";
+						std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+						std::cin>>userGuess;
+					}
+				}
+			}
+			else if(userDirection == "V")
+			{
+				validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
+
+				std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+				std::cin>>userGuess;
+
+				while(validLocation == false)
+				{
+					if(noVerticalCollision(userGuess,i+1))
+					{
+						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						for(int j = 0; j < m_ship[i].getLength(); j++ )
+						{
+							myBoard[m_rowIndex+j][m_columnIndex] = ship;
+							//m_ship[i].setCoordinate(userGuess, j);
+
+						}
+						printMyBoard();
+
+						validLocation = true;
+					}
+					else
+					{
+						printMyBoard();
+						std::cout << "Invalid location. Try again!\n";
+						std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+						std::cin>>userGuess;
+					}
+				}
+			}
+		}
+
+	}
+	std::cout << "Press Enter to go to the next Player's turn: ";
+	std::cin.ignore();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
+	printIntermission();
+
+
+
+}
+
+void Board::setNumberofShips(int shipnum)
+{
+	numberOfShips = shipnum;
+}
+
+int Board::getNumberofShips() const
+{
+	return numberOfShips;
 }

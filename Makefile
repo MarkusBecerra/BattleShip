@@ -1,5 +1,5 @@
-prog: main.o Executive.o Board.o Player.o
-	g++ -g -Wall -std=c++11 main.o Executive.o Board.o Player.o -o prog
+prog: main.o Executive.o Board.o Player.o Ship.o
+	g++ -g -Wall -std=c++11 main.o Executive.o Board.o Player.o Ship.o -o prog
 
 main.o: main.cpp
 	g++ -g -Wall -std=c++11 -c main.cpp
@@ -13,5 +13,7 @@ Player.o: Player.cpp Player.h
 Board.o: Board.cpp Board.h
 	g++ -g -Wall -std=c++11 -c Board.cpp
 
+Ship.o: Ship.cpp Ship.h
+	g++ -g -Wall -std=c++11 -c Ship.cpp
 clean:
 	rm *.o prog

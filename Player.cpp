@@ -1,10 +1,20 @@
-//Player cpp file to contain all player functions
+/**
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:	 Player.cpp
+* \Date:   09/19/2019
+* \Brief:  File is cpp file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
 
 #include "Player.h"
 
 Player::Player(int shipNums)
 {
-	m_board = new Board();
+	m_board = new Board(shipNums);
 	numOfShips = shipNums;
 }
 
