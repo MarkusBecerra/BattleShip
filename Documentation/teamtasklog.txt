@@ -1,7 +1,7 @@
 Chance: Board.cpp (creating default board layout)
 
 Thomas:
-Executive Class
+Executive Class, verification of input
 
 Haonan:
 Player Class
@@ -13,4 +13,3 @@ Markus:
 Ship creation and ship tracker
 Some board stuff
 Placing Ships
-
