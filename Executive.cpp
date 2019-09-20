@@ -89,43 +89,47 @@ void Executive::mainMenu()
 
 void Executive::game()
 {
-	std::string guess;
+	std::string guess = " ";
+
 	while(!m_gameOver)
 	{
 		try
 		{
-			if(m_player_1Turn % 2 == 1)	//if it is player 1's turn
-			{
-				player_1->getBoard()->printShotBoard();
-				player_1->getBoard()->printMyBoard();
-				std::cout <<"Player 1: Where would you like to shoot? ";
-			}
-			else	//if it is player 2's turn
-			{
-				player_2->getBoard()->printShotBoard();
-				player_2->getBoard()->printMyBoard();
-				std::cout <<"Player 2: Where would you like to shoot? ";
-			}
+			guess = " ";			//reinitializes guess to prevent infinite out of boundary loop
 
-//////below is the try catch block to make sure the guess is a string of length 2
-			try
+			while(guess.length() != 2)
 			{
-				std::cin >> guess;
-
-				while(guess.length() != 2)			//checking that string length is 2
+				if(m_player_1Turn % 2 == 1)	//if it is player 1's turn
 				{
-					std::cout << "Please enter a coordinate, such as A1,B5,H2: ";
-					std::cin >> guess;
+					player_1->getBoard()->printShotBoard();
+					player_1->getBoard()->printMyBoard();
+					std::cout << "Player 1: Where would you like to shoot: ";
+
+					std::getline(std::cin, guess);
+
+					if(guess.length() != 2)
+					{
+						std::cout << "Invalid coordinate! Try again.\n";
+					}
+
 				}
+				else	//if it is player 2's turn
+				{
+					player_2->getBoard()->printShotBoard();
+					player_2->getBoard()->printMyBoard();
+					std::cout <<"Player 2: Where would you like to shoot: ";
 
-				shoot(guess);
+					std::getline(std::cin, guess);
+					
+					if(guess.length() != 2)
+					{
+						std::cout << "Invalid coordinate! Try again.\n";
+					}
 
+				}
 			}
-			catch (std::string message)
-			{
-				//what do we add here??
-			}
-///////end try catch block for checking length of guess string
+
+			shoot(guess);
 
 			if(m_player_1Turn % 2 == 1 && !m_gameOver) //if it is player 1's turn
 			{
@@ -156,8 +160,6 @@ void Executive::game()
 			std::cout << rte.what();
 		}
 	}
-
-	//once m_gameOver == true, we break out of the while loop and print who won.
 
 	if(m_player_1Turn % 2 == 1) //m_player_1Turn gets changed right before this, which is why the value is comparing different than above
 	{
