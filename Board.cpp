@@ -187,14 +187,37 @@ bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
 	{
 		return false;
 	}
-	return true;
+	//return true;
  }
+ return true;
+}
+
+bool Board::noVerticalCollision(std::string userGuess, int shipLength)
+{
+	guessConversion(userGuess);
+	for(int i = 0; i < shipLength; i++) //Add try catch block friends!
+ {
+	if((0 <= m_rowIndex + i && m_rowIndex + i <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
+		{
+		if(myBoard[m_rowIndex + i][m_columnIndex] != blueTilde)
+			{
+			return false;
+			}
+		}
+	else
+	{
+		return false;
+	}
+	//return true;
+ }
+ return true;
 }
 
 void Board::setupBoard()
 {
 	std::string userGuess;
 	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
+	bool validLocation = false;	//used to keep asking for valid location if still false
 	m_ship =  new Ship[numberOfShips];
 	for(int i = 0; i < numberOfShips; i++)
 	{
@@ -223,31 +246,75 @@ void Board::setupBoard()
 			std::cin>>userDirection;
 			if(userDirection == "H")
 			{
+				validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
 				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 				std::cin>>userGuess;
-				if(noHorizontalCollision(userGuess,i+1))
+
+				while(validLocation == false)
 				{
-					guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
-					for(int j = 0; j < m_ship[i].getLength(); j++ )
+
+					if(noHorizontalCollision(userGuess,i+1))
 					{
-						myBoard[m_rowIndex][m_columnIndex+j] = ship;
-						//m_ship[i].setCoordinate(userGuess, j);
+						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						for(int j = 0; j < m_ship[i].getLength(); j++ )
+						{
+							myBoard[m_rowIndex][m_columnIndex+j] = ship;
+							//m_ship[i].setCoordinate(userGuess, j);
 
+						}
+						printMyBoard();
+
+						validLocation = true;
 					}
-					printMyBoard();
-
-					std::cout << "Press Enter to go to the next Player's turn: ";
-					std::cin.ignore();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
-					printIntermission();
+					else
+					{
+						std::cout << "Invalid location. Try again!\n";
+						printMyBoard();
+						std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+						std::cin>>userGuess;
+					}
 				}
+			}
+			else if(userDirection == "V")
+			{
+				validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
+				std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+				std::cin>>userGuess;
 
+				while(validLocation == false)
+				{
+					if(noVerticalCollision(userGuess,i+1))
+					{
+						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						for(int j = 0; j < m_ship[i].getLength(); j++ )
+						{
+							myBoard[m_rowIndex+j][m_columnIndex] = ship;
+							//m_ship[i].setCoordinate(userGuess, j);
+
+						}
+						printMyBoard();
+
+						validLocation = true;
+					}
+					else
+					{
+						std::cout << "Invalid location. Try again!\n";
+						printMyBoard();
+						std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+						std::cin>>userGuess;
+					}
+				}
 			}
 		}
 
 	}
+	std::cout << "Press Enter to go to the next Player's turn: ";
+	std::cin.ignore();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
+	printIntermission();
+
 
 
 }
