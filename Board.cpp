@@ -187,8 +187,9 @@ bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
 	{
 		return false;
 	}
-	return true;
+	//return true;
  }
+ return true;
 }
 
 void Board::setupBoard()
@@ -223,25 +224,40 @@ void Board::setupBoard()
 			std::cin>>userDirection;
 			if(userDirection == "H")
 			{
+				bool validLocation = false;	//used to keep asking for valid location if still false
 
 				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 				std::cin>>userGuess;
-				if(noHorizontalCollision(userGuess,i+1))
+
+				while(validLocation == false)
 				{
-					guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
-					for(int j = 0; j < m_ship[i].getLength(); j++ )
+
+					if(noHorizontalCollision(userGuess,i+1))
 					{
-						myBoard[m_rowIndex][m_columnIndex+j] = ship;
-						//m_ship[i].setCoordinate(userGuess, j);
+						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						for(int j = 0; j < m_ship[i].getLength(); j++ )
+						{
+							myBoard[m_rowIndex][m_columnIndex+j] = ship;
+							//m_ship[i].setCoordinate(userGuess, j);
 
+						}
+						printMyBoard();
+
+						std::cout << "Press Enter to go to the next Player's turn: ";
+						std::cin.ignore();
+						std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
+						printIntermission();
+
+						validLocation = true;
 					}
-					printMyBoard();
-
-					std::cout << "Press Enter to go to the next Player's turn: ";
-					std::cin.ignore();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
-					printIntermission();
+					else
+					{
+						std::cout << "Invalid location. Try again!\n";
+						std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+						std::cin>>userGuess;
+					}
 				}
+
 
 
 			}
