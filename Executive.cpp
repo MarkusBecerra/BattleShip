@@ -120,7 +120,7 @@ void Executive::game()
 					std::cout <<"Player 2: Where would you like to shoot: ";
 
 					std::getline(std::cin, guess);
-					
+
 					if(guess.length() != 2)
 					{
 						std::cout << "Invalid coordinate! Try again.\n";
@@ -215,8 +215,5 @@ void Executive::shoot(std::string location)
 				break;
 			}
 		}
-
-
 	}
-
 }
