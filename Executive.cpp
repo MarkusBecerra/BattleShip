@@ -12,16 +12,70 @@
 
 
 #include "Executive.h"
+#include <limits>
+
+int Executive::boatCheck() // will return numOfBoats when valid
+{
+	int numOfBoats = 0;
+	std::string tempBoats = " ";
+
+	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+
+	try
+	{
+		std::getline(std::cin, tempBoats);
+	}
+
+	catch(std::out_of_range &ex)
+	{
+		std::cout << "No input was recieved, please enter a number 1-5: \n";
+		return boatCheck();
+	}
+
+	if(tempBoats.length() < 1 || tempBoats.length() > 1)
+	{
+		std::cout << "Must be a one-digit number from 1-5!\n";
+		return boatCheck();
+	}
+
+	else
+	{
+		numOfBoats = tempBoats.at(0) - '0';
+
+		if(numOfBoats < 1 || numOfBoats > 5)
+		{
+			std::cout << "Must be an integer from 1-5!\n";
+			return boatCheck();
+		}
+
+		else
+		{
+			return numOfBoats;
+		}
+	}
+
+}
 
 Executive::Executive()
 {
 	int numOfBoats = 0;
-	std::cout <<"How many ships would you like to play with? (Choose 1-5): ";
-	std::cin >> numOfBoats;
+
+	try
+	{
+		numOfBoats = boatCheck();
+	}
+
+	catch(std::runtime_error &rte)
+	{
+		std::cout << rte.what();
+	}
+
 	player_1 = new Player(numOfBoats);
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
 	m_player_1Turn = 1;
+	game();
+
 	std::cout <<"\n\n\nPlayer 1 place your ships\n";
 	player_1 -> getBoard() -> setupBoard();
 	player_2 -> getBoard() -> setupBoard();
@@ -35,7 +89,6 @@ void Executive::mainMenu()
 
 void Executive::game()
 {
-
 	std::string guess;
 	int testTemp = 5;
 	while(!gameOver && testTemp > 0)
@@ -54,8 +107,27 @@ void Executive::game()
 				player_2->getBoard()->printMyBoard();
 				std::cout <<"Player 2: Where would you like to shoot? ";
 			}
-			std::cin >> guess;
-			shoot(guess);
+
+//////below is the try catch block to make sure the guess is a string of length 2
+			try
+			{
+				std::cin >> guess;
+
+				while(guess.length() != 2)			//checking that string length is 2
+				{
+					std::cout << "Please enter a coordinate, such as A1,B5,H2: ";
+					std::cin >> guess;
+				}
+
+				shoot(guess);
+
+			}
+			catch (std::string message)
+			{
+				//what do we add here??
+			}
+///////end try catch block for checking length of guess string
+
 			if(m_player_1Turn % 2 == 1)
 			{
 

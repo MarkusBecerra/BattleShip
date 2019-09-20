@@ -15,5 +15,6 @@ Board.o: Board.cpp Board.h
 
 Ship.o: Ship.cpp Ship.h
 	g++ -g -Wall -std=c++11 -c Ship.cpp
+	
 clean:
 	rm *.o prog

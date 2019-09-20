@@ -51,6 +51,8 @@ public:
 	*/
 	void game();
 
+	int boatCheck();		//checks that number of boats are valid
+
 private:
 
 	Player* player_1;
