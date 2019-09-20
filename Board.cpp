@@ -163,7 +163,7 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 											//of this for loop and m_rowIndex does not become 9
 		}
 	}
-	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract 'a' to convert it from the ASCII value to the proper decimal value. citation needed
+	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract '0' to convert it from the ASCII value to the proper decimal value. citation needed
 
 	m_rowIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
 	std::cout << "column: " << m_columnIndex << " row: " << m_rowIndex << "\n";
