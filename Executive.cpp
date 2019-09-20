@@ -74,11 +74,11 @@ Executive::Executive()
 	player_2 = new Player(numOfBoats);
 	gameOver = false;
 	m_player_1Turn = 1;
-	game();
 
 	std::cout <<"\n\n\nPlayer 1 place your ships\n";
 	player_1 -> getBoard() -> setupBoard();
 	player_2 -> getBoard() -> setupBoard();
+	game();
 
 }
 
