@@ -98,7 +98,14 @@ void Board::printMyBoard()
 		{
 			std::cout << "\t" << myBoard[i][j];
 		}
-		std::cout << "\n\n\n";
+		if(i<8)	//used to reduce whitespace between end of board and next game message
+		{
+			std::cout << "\n\n\n";
+		}
+		else
+		{
+			std::cout << "\n\n";
+		}
 	}
 }
 
@@ -130,7 +137,10 @@ bool Board::updateMyBoard(std::string userGuess)
 				if(m_ship[i].getCoordinate(j) == userGuess)
 				{
 					m_ship[i].addDamage();
-					//make sure to add if statement here checking if the ship is sunk.
+					if(m_ship[i].isSunk())	//make sure to add if statement here checking if the ship is sunk.
+					{
+						std::cout << "BATTLESHIP SUNK!!!\n";
+					}
 					break;
 				}
 			}
@@ -160,7 +170,7 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 //assumes userGuess is within boundary since that is checked first
 void Board::guessConversion(std::string userGuess) //converts userGuess to two indices and updates member variables m_rowIndex and m_columnIndex with those indices
 {
-	std::cout << "guess: " << userGuess << "\n";
+	// std::cout << "guess: " << userGuess << "\n";
 	for(unsigned int i=0;i<m_rowNames.length();i++)	//had to make i an unsigned int since m_rowNames.length() returns an unsigned in as well
 	{
 		if(userGuess.at(0) == m_rowNames.at(i))
@@ -178,7 +188,7 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract '0' to convert it from the ASCII value to the proper decimal value. citation needed
 
 	m_rowIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
-	std::cout << "column: " << m_columnIndex << " row: " << m_rowIndex << "\n";
+	// std::cout << "column: " << m_columnIndex << " row: " << m_rowIndex << "\n";
 }
 
 bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess

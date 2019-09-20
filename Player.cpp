@@ -40,16 +40,17 @@ void Player::shooting(std::string userGuess, bool hit)
 
 bool Player::gettingShot(std::string userGuess)
 {
-	if(m_board->withinBoundary(userGuess)) //used to test correct input. Can delete this if-else if wanted
+	if(m_board->withinBoundary(userGuess))
 	{
-		std::cout << "within boundary\n";
+		return (m_board->updateMyBoard(userGuess));
+		//std::cout << "within boundary\n";
 	}
 	else
 	{
-		throw(std::runtime_error("Out of Boundary\n"));
+		throw(std::runtime_error("Out of Boundary! Try again.\n"));
 	}
 
-	return (m_board->updateMyBoard(userGuess));
+	// return (m_board->updateMyBoard(userGuess));
 
 }
 

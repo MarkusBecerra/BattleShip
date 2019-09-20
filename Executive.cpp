@@ -131,21 +131,21 @@ void Executive::game()
 			if(m_player_1Turn % 2 == 1)
 			{
 
-				std::cout << "PLAYER 1 BOARDS\n";
+				std::cout << "PLAYER 1 TURN\n";
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
 				std::cin.ignore();
-				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret\n";
+				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: ";
 				std::cin.ignore();
 				player_1->getBoard()->printIntermission();
 			}
 			else
 			{
-				std::cout << "PLAYER 2 BOARDS\n";
+				std::cout << "PLAYER 2 TURN\n";
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
 				std::cin.ignore();
-				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret\n";
+				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";
 				std::cin.ignore();
 				player_2->getBoard()->printIntermission();
 			}
@@ -158,8 +158,6 @@ void Executive::game()
 		}
 	}
 }
-
-
 
 void Executive::shoot(std::string location)
 {
@@ -174,6 +172,7 @@ void Executive::shoot(std::string location)
 	{
 		hit = player_1->gettingShot(location);
 		player_2->shooting(location,hit);
+	
 	}
 
 }

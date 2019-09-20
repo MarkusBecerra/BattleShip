@@ -66,3 +66,15 @@ void Ship::setDamage(int newDamage)
 {
 m_damage = newDamage;
 }
+
+bool Ship::isSunk()
+{
+  if(m_damage == m_length)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
