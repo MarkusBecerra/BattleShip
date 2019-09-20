@@ -230,7 +230,7 @@ void Board::setupBoard()
 	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
 	bool validLocation = false;	//used to keep asking for valid location if still false
 	m_ship =  new Ship[numberOfShips];
-	for(int i = 0; i < numberOfShips; i++)
+	for(int i = 0; i < numberOfShips; i++)		//TODO, MAKE SURE THAT IF THEY TYPE B11, IT DOESN'T JUST GO TO B1
 	{
 		m_ship[i].createShip(i+1);
 		if(m_ship[i].getLength() == 1)
@@ -252,7 +252,6 @@ void Board::setupBoard()
 		}
 		else
 		{
-			printMyBoard();
 			std::cout<<"HORIZTONAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
 			std::cin>>userDirection;
 			if(userDirection == "H")
@@ -280,8 +279,8 @@ void Board::setupBoard()
 					}
 					else
 					{
-						std::cout << "Invalid location. Try again!\n";
 						printMyBoard();
+						std::cout << "Invalid location. Try again!\n";
 						std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 						std::cin>>userGuess;
 					}
@@ -311,8 +310,8 @@ void Board::setupBoard()
 					}
 					else
 					{
-						std::cout << "Invalid location. Try again!\n";
 						printMyBoard();
+						std::cout << "Invalid location. Try again!\n";
 						std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
 						std::cin>>userGuess;
 					}
