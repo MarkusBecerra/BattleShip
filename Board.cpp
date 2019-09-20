@@ -251,3 +251,13 @@ void Board::setupBoard()
 
 
 }
+
+void Board::setNumberofShips(int shipnum)
+{
+	numberOfShips = shipnum;
+}
+
+int Board::getNumberofShips() const
+{
+	return numberOfShips;
+}
