@@ -39,9 +39,25 @@ int Ship::getLength() const
 void Ship::setCoordinate(std::string coordinate, int index)
 {
   m_ship[index] = coordinate;
+  std::cout<<coordinate <<'\n';
 }
 
 Ship::~Ship()
 {
   delete m_ship;
+}
+
+void Ship::addDamage()
+{
+  m_damage++;
+}
+
+int Ship::getDamage()
+{
+  return m_damage;
+}
+
+void Ship::setDamage(int newDamage)
+{
+m_damage = newDamage;
 }
