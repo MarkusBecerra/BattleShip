@@ -14,6 +14,7 @@ class Executive
 		void mainMenu();
 		void shoot(std::string location);
 		void game();
+		int boatCheck();		//i added this
 
 	private:
 
