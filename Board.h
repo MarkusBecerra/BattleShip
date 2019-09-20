@@ -1,3 +1,14 @@
+/*
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:	 Board.h
+* \Date:   09/19/2019
+* \Brief:  File is header file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
 
 #ifndef BOARD_H
 #define BOARD_H
@@ -129,6 +140,13 @@ class Board
 		* @return true if ships will collide
 		*/
 		bool noHorizontalCollision(std::string userGuess, int shipLength);
+
+		/**
+		* @pre user's guess location must be valid, ship length cant exceed 5
+		*	@param user's guess location and size of ship
+		*	@post check vertical placed ship will collide with other ship or not
+		* @return true if ships will collide
+		*/
 		bool noVerticalCollision(std::string userGuess, int shipLength);
 	};
 #endif

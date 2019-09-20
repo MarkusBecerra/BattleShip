@@ -1,3 +1,15 @@
+/*
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:	 Executive.cpp
+* \Date:   09/19/2019
+* \Brief:  File is cpp file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
+
 
 #include "Executive.h"
 

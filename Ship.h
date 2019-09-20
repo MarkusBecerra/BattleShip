@@ -1,3 +1,15 @@
+/*
+* \Author: Chance Penner
+* \Author: Markus Becerra
+* \Author: Sarah Scott
+* \Author: Thomas Gardner
+* \Author: Haonan Hu
+* \File:   Ship.h
+* \Date:   09/19/2019
+* \Brief:  File is header file
+* \copyright: Group "Big SegFault Energy" All rights reserved
+*/
+
 #ifndef SHIP_H
 #define SHIP_H
 
@@ -50,7 +62,7 @@ public:
   *	@post get the coordinate for ship
   * @return the coordinates for ship
   */
-  std::string getCoordinate(int index);
+  std::string getCoordinate(int index) const;
 
   /**
   * private member variable helper function

@@ -59,4 +59,6 @@ Meeting 8:
 Location: Eaton 1000C
 All in attendence
 Agenda:
-*
+*Everyone works on Ship set up together
+*Now ships can be correctly placed on the board
+*Some methods left in Ship class need be defined(*****Important*****)
