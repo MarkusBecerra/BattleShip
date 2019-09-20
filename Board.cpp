@@ -123,6 +123,18 @@ bool Board::updateMyBoard(std::string userGuess)
 	else if(location == ship)
 	{
 		myBoard[m_rowIndex][m_columnIndex] = redHit;
+		for(int i = 0; i < numberOfShips; i++)
+		{
+			for(int j = 0; j < m_ship[i].getLength(); j++)
+			{
+				if(m_ship[i].getCoordinate(j) == userGuess)
+				{
+					m_ship[i].addDamage();
+					//make sure to add if statement here checking if the ship is sunk.
+					break;
+				}
+			}
+		}
 		return true;
 	}
 	else if(location == redHit || location == whiteMiss)
@@ -229,6 +241,7 @@ void Board::setupBoard()
 	std::string userGuess;
 	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
 	bool validLocation = false;	//used to keep asking for valid location if still false
+	std::string temp; 		//used for ascii conversion
 	m_ship =  new Ship[numberOfShips];
 	for(int i = 0; i < numberOfShips; i++)		//TODO, MAKE SURE THAT IF THEY TYPE B11, IT DOESN'T JUST GO TO B1
 	{
@@ -252,7 +265,7 @@ void Board::setupBoard()
 		}
 		else
 		{
-			std::cout<<"HORIZTONAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
+			std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
 			std::cin>>userDirection;
 			if(userDirection == "H")
 			{
@@ -267,10 +280,12 @@ void Board::setupBoard()
 					if(noHorizontalCollision(userGuess,i+1))
 					{
 						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						temp = userGuess;
 						for(int j = 0; j < m_ship[i].getLength(); j++ )
 						{
 							myBoard[m_rowIndex][m_columnIndex+j] = ship;
-							//m_ship[i].setCoordinate(userGuess, j);
+							m_ship[i].setCoordinate(temp, j);
+							temp[0] = temp.at(0) + 1;
 
 						}
 						printMyBoard();
@@ -298,10 +313,12 @@ void Board::setupBoard()
 					if(noVerticalCollision(userGuess,i+1))
 					{
 						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+						temp = userGuess;
 						for(int j = 0; j < m_ship[i].getLength(); j++ )
 						{
 							myBoard[m_rowIndex+j][m_columnIndex] = ship;
-							//m_ship[i].setCoordinate(userGuess, j);
+							m_ship[i].setCoordinate(temp, j);
+							temp[1] = temp.at(1) + 1;
 
 						}
 						printMyBoard();
