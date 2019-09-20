@@ -42,6 +42,11 @@ void Ship::setCoordinate(std::string coordinate, int index)
   std::cout<<coordinate <<'\n';
 }
 
+std::string Ship::getCoordinate(int index) const
+{
+  return m_ship[index];
+}
+
 Ship::~Ship()
 {
   delete m_ship;
