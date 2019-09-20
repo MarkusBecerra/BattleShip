@@ -56,9 +56,33 @@ Agenda:
 
 Meeting 8:
 09/18/2019 @ 9:00AM to 10:50AM
-Location: Eaton 1000C
-All in attendence
+Location: Eaton 1005C
+All in attendance
 Agenda:
 *Everyone works on Ship set up together
 *Now ships can be correctly placed on the board
 *Some methods left in Ship class need be defined(*****Important*****)
+
+Meeting 9:
+09/20/2019 @ 10:00AM to 11:00AM
+Location: Eaton 1005A
+Chance, Thomas, Sarah, Markus
+Agenda:
+*Worked on input verification
+*Worked on ship class keeping track of destroyed ships
+
+Meeting 10:
+09/20/2019 @ 12:00PM to 2:00PM
+Location: LEEP2
+Chance, Thomas
+Agenda:
+*Worked on damage counter and game over
+*Boat verification input
+
+Meeting 11:
+09/20/2019 @ 4:10PM to 5:30PM
+Location: LEEP2
+Chance, Thomas
+Agenda:
+*Completed game over functionality
+*Add input verification for coordinates
