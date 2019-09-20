@@ -123,6 +123,18 @@ bool Board::updateMyBoard(std::string userGuess)
 	else if(location == ship)
 	{
 		myBoard[m_rowIndex][m_columnIndex] = redHit;
+		for(int i = 0; i < numberOfShips; i++)
+		{
+			for(int j = 0; j < m_ship[i].getLength(); j++)
+			{
+				if(m_ship[i].getCoordinate(j) == userGuess)
+				{
+					m_ship[i].addDamage();
+					//make sure to add if statement here checking if the ship is sunk.
+					break;
+				}
+			}
+		}
 		return true;
 	}
 	else if(location == redHit || location == whiteMiss)
@@ -252,7 +264,7 @@ void Board::setupBoard()
 		}
 		else
 		{
-			std::cout<<"HORIZTONAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
+			std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
 			std::cin>>userDirection;
 			if(userDirection == "H")
 			{

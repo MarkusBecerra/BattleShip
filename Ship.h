@@ -96,5 +96,11 @@ public:
   */
   bool isSunk();
 
+  void addDamage();
+
+  int getDamage();
+
+  void setDamage(int newDamage);
+
 };
 #endif
