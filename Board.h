@@ -42,5 +42,6 @@ class Board
 
 		bool withinBoundary(std::string userGuess);	//gets called from Player shoot function. Calls guessConversion. Needs to check for valid input.
 		bool noHorizontalCollision(std::string userGuess, int shipLength);
+		bool noVerticalCollision(std::string userGuess, int shipLength);
 	};
 #endif
