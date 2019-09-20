@@ -139,7 +139,8 @@ bool Board::updateMyBoard(std::string userGuess)
 	}
 	else if(location == redHit || location == whiteMiss)
 	{
-		std::cout << "\nYou already shot at this location!\n";
+		throw(std::runtime_error("\nYou already shot at this location!\n"));
+
 	}
 	return false;
 }
