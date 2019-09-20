@@ -243,16 +243,12 @@ void Board::setupBoard()
 						}
 						printMyBoard();
 
-						std::cout << "Press Enter to go to the next Player's turn: ";
-						std::cin.ignore();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
-						printIntermission();
-
 						validLocation = true;
 					}
 					else
 					{
 						std::cout << "Invalid location. Try again!\n";
+						printMyBoard();
 						std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 						std::cin>>userGuess;
 					}
@@ -264,6 +260,11 @@ void Board::setupBoard()
 		}
 
 	}
+	std::cout << "Press Enter to go to the next Player's turn: ";
+	std::cin.ignore();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
+	printIntermission();
+
 
 
 }
