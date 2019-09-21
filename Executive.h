@@ -31,6 +31,8 @@ public:
 	*/
 	Executive();
 
+	~Executive();
+
 	/**
 	* @pre none
 	*	@post print the main menu for the game
@@ -50,7 +52,7 @@ public:
 	*	@post start the game offically
 	*/
 	void game();
-	
+
 	/**
 	* @pre none
 	*	@param none

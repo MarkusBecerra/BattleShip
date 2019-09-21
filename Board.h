@@ -53,6 +53,8 @@ class Board
 		*/
 		Board();
 
+		~Board();
+
 		/**
 		* @pre none
 		*	@param numbers of ships will be passed in the method for board setting up
@@ -148,7 +150,7 @@ class Board
 		* @return true if ships will collide
 		*/
 		bool noVerticalCollision(std::string userGuess, int shipLength);
-		
+
 		/**
 		*	private member variable helper function
 		* @pre none

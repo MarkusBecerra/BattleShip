@@ -83,6 +83,12 @@ Executive::Executive()
 
 }
 
+Executive::~Executive()
+{
+	delete player_1;
+	delete player_2;
+}
+
 void Executive::mainMenu()
 {
 

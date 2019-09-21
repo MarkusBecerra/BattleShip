@@ -51,6 +51,10 @@ Board::Board(int shipnum)
 	}
 }
 
+Board::~Board()
+{
+	delete m_ship;
+}
 
 void Board::printShotBoard()
 {
