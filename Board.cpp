@@ -203,30 +203,21 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess
 {
 	if(userGuess.length() != 2)
-	{
-		return false;
-	}
-	else
-	{
-	guessConversion(userGuess);
-	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
-	{
-		return false;
-	}
-	else
-	{
-		guessConversion(userGuess);
-		if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
-		{
-			return true;
-		}
-		else
 		{
 			return false;
 		}
-	}
-
-	}
+		else
+		{
+			guessConversion(userGuess);
+			if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 }
 
 bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
