@@ -1,7 +1,6 @@
 TODO
 -Fix pressing enter at HORIZONTAL or VERTICAL screen doing nothing
 -User can type anything they want at HORIZONTAL or VERTICAL screen
--Have to press enter twice after shooting, empty standby line???
 -Loading screen intermission, make prettier!
 -Fix memory leaks!!!
 
@@ -9,4 +8,5 @@ TODO
 DONE
 -DOES NOT TELL SHOOTING PLAYER WHEN BATTLESHIP GETS SUNK
 -Typing a coordinate rather than H or V for horizontal or vertical
-Fixed input less than 2 potentially breaking the game
+-Fixed input less than 2 potentially breaking the game
+-Have to press enter twice after shooting, empty standby line???

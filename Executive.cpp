@@ -137,7 +137,7 @@ void Executive::game()
 				std::cout << "PLAYER 1 TURN\n";
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
-				std::cin.ignore();
+
 				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: ";
 				std::cin.ignore();
 				player_1->getBoard()->printIntermission();
@@ -147,7 +147,7 @@ void Executive::game()
 				std::cout << "PLAYER 2 TURN\n";
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
-				std::cin.ignore();
+				
 				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";
 				std::cin.ignore();
 				player_2->getBoard()->printIntermission();
