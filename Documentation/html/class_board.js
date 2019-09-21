@@ -3,6 +3,7 @@ var class_board =
     [ "Board", "class_board.html#a9ee491d4fea680cf69b033374a9fdfcb", null ],
     [ "Board", "class_board.html#a15fbdd82d042c4b27bc66189c5a7f62b", null ],
     [ "getNumberofShips", "class_board.html#a63501a95954f1e0d4ebf6dbf1d0d139f", null ],
+    [ "getShip", "class_board.html#ad73db32692543c389e2484856176d955", null ],
     [ "noHorizontalCollision", "class_board.html#a425dad04038ba0f3e1ef9c0f1b0926a4", null ],
     [ "noVerticalCollision", "class_board.html#ad72a686a82c3d8eedf1f91041dde460d", null ],
     [ "printIntermission", "class_board.html#a1efd7e3974a87e3e52b68138dd390f71", null ],

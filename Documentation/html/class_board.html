@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BattleShip: Board Class Reference</title>
+<title>Battleship: Board Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,10 +26,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BattleShip
-   &#160;<span id="projectnumber">Beta</span>
+   <div id="projectname">Battleship
    </div>
-   <div id="projectbrief">A simple terminal-based Battleship game</div>
+   <div id="projectbrief">A simple terminal-based battleship game</div>
   </td>
  </tr>
  </tbody>
@@ -102,6 +101,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a425dad04038ba0f3e1ef9c0f1b0926a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72a686a82c3d8eedf1f91041dde460d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#ad72a686a82c3d8eedf1f91041dde460d">noVerticalCollision</a> (std::string userGuess, int shipLength)</td></tr>
 <tr class="separator:ad72a686a82c3d8eedf1f91041dde460d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73db32692543c389e2484856176d955"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ship.html">Ship</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#ad73db32692543c389e2484856176d955">getShip</a> () const</td></tr>
+<tr class="separator:ad73db32692543c389e2484856176d955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>\Author: Chance Penner \Author: Markus Becerra \Author: Sarah Scott \Author: Thomas Gardner \Author: Haonan Hu \File: <a class="el" href="_board_8h.html">Board.h</a> \Date: 09/19/2019 \Brief: File is header file </p><dl class="section copyright"><dt>Copyright</dt><dd>: Group "Big SegFault Energy" All rights reserved The <a class="el" href="class_board.html">Board</a> class represents a general game board the scale of the board is 8*8 all the game-related methods are included in this class </dd></dl>
@@ -176,6 +177,32 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section post"><dt>Postcondition</dt><dd>get private member variable numberOfShips </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>number of Ships </dd></dl>
+
+</div>
+</div>
+<a id="ad73db32692543c389e2484856176d955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73db32692543c389e2484856176d955">&#9670;&nbsp;</a></span>getShip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ship.html">Ship</a> * Board::getShip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>private member variable helper function </p><dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondition</dt><dd>get ship object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ship object </dd></dl>
 
 </div>
 </div>

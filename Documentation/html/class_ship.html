@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BattleShip: Ship Class Reference</title>
+<title>Battleship: Ship Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,10 +26,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BattleShip
-   &#160;<span id="projectnumber">Beta</span>
+   <div id="projectname">Battleship
    </div>
-   <div id="projectbrief">A simple terminal-based Battleship game</div>
+   <div id="projectbrief">A simple terminal-based battleship game</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +91,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43cd6eeaffc11b49239b091621963a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34cbc315fd6d44a3cc0c03f34bc4db3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ship.html#a34cbc315fd6d44a3cc0c03f34bc4db3c">isSunk</a> ()</td></tr>
 <tr class="separator:a34cbc315fd6d44a3cc0c03f34bc4db3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0381322d64bcf39796f43c4ad078a0a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ship.html#a0381322d64bcf39796f43c4ad078a0a2">addDamage</a> ()</td></tr>
+<tr class="separator:a0381322d64bcf39796f43c4ad078a0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac6b66776e15aa681922c487d12a9a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ship.html#a1ac6b66776e15aa681922c487d12a9a1">getDamage</a> () const</td></tr>
+<tr class="separator:a1ac6b66776e15aa681922c487d12a9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32628db1c60d95df0cc4ed81b6dd901e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ship.html#a32628db1c60d95df0cc4ed81b6dd901e">setDamage</a> (int newDamage)</td></tr>
+<tr class="separator:a32628db1c60d95df0cc4ed81b6dd901e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>\Author: Chance Penner \Author: Markus Becerra \Author: Sarah Scott \Author: Thomas Gardner \Author: Haonan Hu \File: <a class="el" href="_ship_8h.html">Ship.h</a> \Date: 09/19/2019 \Brief: File is header file </p><dl class="section copyright"><dt>Copyright</dt><dd>: Group "Big SegFault Energy" All rights reserved The <a class="el" href="class_ship.html">Ship</a> class represents all the models of ships, from size 1 to 5 all the ship-related methods are included in this class </dd></dl>
@@ -147,6 +152,31 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0381322d64bcf39796f43c4ad078a0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0381322d64bcf39796f43c4ad078a0a2">&#9670;&nbsp;</a></span>addDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ship::addDamage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondition</dt><dd>hit the enemy ship and give damage to it </dd></dl>
+
+</div>
+</div>
 <a id="a5fbc487451eeab25d10e489338322cdf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fbc487451eeab25d10e489338322cdf">&#9670;&nbsp;</a></span>createShip()</h2>
 
@@ -198,6 +228,32 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section post"><dt>Postcondition</dt><dd>get the coordinate for ship </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>the coordinates for ship </dd></dl>
+
+</div>
+</div>
+<a id="a1ac6b66776e15aa681922c487d12a9a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ac6b66776e15aa681922c487d12a9a1">&#9670;&nbsp;</a></span>getDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Ship::getDamage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>private member variable helper function </p><dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondition</dt><dd>get the ship damage condition @ </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the damage to the ship </dd></dl>
 
 </div>
 </div>
@@ -286,6 +342,33 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section post"><dt>Postcondition</dt><dd>set the coordinate for ship </dd></dl>
+
+</div>
+</div>
+<a id="a32628db1c60d95df0cc4ed81b6dd901e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32628db1c60d95df0cc4ed81b6dd901e">&#9670;&nbsp;</a></span>setDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ship::setDamage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newDamage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>private member variable helper function </p><dl class="section pre"><dt>Precondition</dt><dd>damage cannot exceed 5 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>of damage to the ship </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondition</dt><dd>set the damage condition to the ship @ </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>

@@ -96,10 +96,29 @@ public:
   */
   bool isSunk();
 
+  /**
+  * @pre none
+  *	@param none
+  *	@post hit the enemy ship and give damage to it
+  */
   void addDamage();
 
-  int getDamage();
+  /**
+  * private member variable helper function
+  * @pre none
+  *	@param none
+  *	@post get the ship damage condition
+  @ @return the damage to the ship
+  */
+  int getDamage() const;
 
+  /**
+  * private member variable helper function
+  * @pre damage cannot exceed 5
+  *	@param number of damage to the ship
+  *	@post set the damage condition to the ship
+  @ @return none
+  */
   void setDamage(int newDamage);
 
 };

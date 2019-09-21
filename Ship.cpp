@@ -57,14 +57,14 @@ void Ship::addDamage()
   m_damage++;
 }
 
-int Ship::getDamage()
+int Ship::getDamage() const
 {
   return m_damage;
 }
 
 void Ship::setDamage(int newDamage)
 {
-m_damage = newDamage;
+  m_damage = newDamage;
 }
 
 bool Ship::isSunk()

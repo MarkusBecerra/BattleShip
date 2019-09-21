@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BattleShip: Executive.h Source File</title>
+<title>Battleship: Executive.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,10 +26,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BattleShip
-   &#160;<span id="projectnumber">Beta</span>
+   <div id="projectname">Battleship
    </div>
-   <div id="projectbrief">A simple terminal-based Battleship game</div>
+   <div id="projectbrief">A simple terminal-based battleship game</div>
   </td>
  </tr>
  </tbody>
@@ -87,21 +86,24 @@ $(document).ready(function(){initNavTree('_executive_8h_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_executive.html#a60bf8a3d75b6e52ad6f8f4bf16bdf9ff">shoot</a>(std::string location);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_executive.html#a615a42aab4a61e4505d975619189ec5c">game</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_player.html">Player</a>* player_1;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_player.html">Player</a>* player_2;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> m_player_1Turn; <span class="comment">//true if player1 turn, false if player2 turn</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> gameOver;  <span class="comment">//game over to stop the while loop once the game ends</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_executive.html#a8392c123fee8065416ebdea263f3aa9f">boatCheck</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_player.html">Player</a>* player_1;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_player.html">Player</a>* player_2;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> m_player_1Turn; <span class="comment">//true if player1 turn, false if player2 turn</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> m_gameOver;    <span class="comment">//game over to stop the while loop once the game ends</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_executive_html_a615a42aab4a61e4505d975619189ec5c"><div class="ttname"><a href="class_executive.html#a615a42aab4a61e4505d975619189ec5c">Executive::game</a></div><div class="ttdeci">void game()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:36</div></div>
-<div class="ttc" id="aclass_executive_html_a60bf8a3d75b6e52ad6f8f4bf16bdf9ff"><div class="ttname"><a href="class_executive.html#a60bf8a3d75b6e52ad6f8f4bf16bdf9ff">Executive::shoot</a></div><div class="ttdeci">void shoot(std::string location)</div><div class="ttdef"><b>Definition:</b> Executive.cpp:92</div></div>
-<div class="ttc" id="aclass_executive_html_ad870c1d741f1f313eb0c5a8336f8af6b"><div class="ttname"><a href="class_executive.html#ad870c1d741f1f313eb0c5a8336f8af6b">Executive::Executive</a></div><div class="ttdeci">Executive()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:16</div></div>
-<div class="ttc" id="aclass_executive_html_a8cc461b2eb3b8ace2361c990a0e81782"><div class="ttname"><a href="class_executive.html#a8cc461b2eb3b8ace2361c990a0e81782">Executive::mainMenu</a></div><div class="ttdeci">void mainMenu()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:31</div></div>
+<div class="ttc" id="aclass_executive_html_a615a42aab4a61e4505d975619189ec5c"><div class="ttname"><a href="class_executive.html#a615a42aab4a61e4505d975619189ec5c">Executive::game</a></div><div class="ttdeci">void game()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:90</div></div>
+<div class="ttc" id="aclass_executive_html_a60bf8a3d75b6e52ad6f8f4bf16bdf9ff"><div class="ttname"><a href="class_executive.html#a60bf8a3d75b6e52ad6f8f4bf16bdf9ff">Executive::shoot</a></div><div class="ttdeci">void shoot(std::string location)</div><div class="ttdef"><b>Definition:</b> Executive.cpp:175</div></div>
+<div class="ttc" id="aclass_executive_html_ad870c1d741f1f313eb0c5a8336f8af6b"><div class="ttname"><a href="class_executive.html#ad870c1d741f1f313eb0c5a8336f8af6b">Executive::Executive</a></div><div class="ttdeci">Executive()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:59</div></div>
+<div class="ttc" id="aclass_executive_html_a8cc461b2eb3b8ace2361c990a0e81782"><div class="ttname"><a href="class_executive.html#a8cc461b2eb3b8ace2361c990a0e81782">Executive::mainMenu</a></div><div class="ttdeci">void mainMenu()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:85</div></div>
+<div class="ttc" id="aclass_executive_html_a8392c123fee8065416ebdea263f3aa9f"><div class="ttname"><a href="class_executive.html#a8392c123fee8065416ebdea263f3aa9f">Executive::boatCheck</a></div><div class="ttdeci">int boatCheck()</div><div class="ttdef"><b>Definition:</b> Executive.cpp:17</div></div>
 <div class="ttc" id="aclass_executive_html"><div class="ttname"><a href="class_executive.html">Executive</a></div><div class="ttdef"><b>Definition:</b> Executive.h:25</div></div>
 <div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
 <div class="ttc" id="aclass_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> Player.h:23</div></div>
