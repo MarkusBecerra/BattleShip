@@ -27,7 +27,6 @@ private:
 std::string* m_ship = nullptr;
 int m_length;
 int m_damage = 0;
-bool m_Sunk = false;
 
 public:
   /**
