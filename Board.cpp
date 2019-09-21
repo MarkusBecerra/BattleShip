@@ -193,6 +193,12 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 
 bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess
 {
+	if(userGuess.length() != 2)
+	{
+		return false;
+	}
+	else
+	{
 	guessConversion(userGuess);
 	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
 	{
@@ -202,6 +208,7 @@ bool Board::withinBoundary(std::string userGuess) //a check for valid input stil
 	{
 		return false;
 	}
+}
 }
 
 bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
@@ -265,35 +272,13 @@ void Board::setupBoard()
 					std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
 					std::getline(std::cin, userGuess);
 
-					if(userGuess.length() != 2)
+					if(!withinBoundary(userGuess))
 					{
 						std::cout << "Invalid coordinate! Try again.\n";
 					}
 
-				} while(userGuess.length()!=2);
-
-				// printMyBoard();
-				// std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
-				// std::getline(std::cin, userGuess);
-
-				// if(userGuess.length() != 2)
-				// {
-				// 	std::cout << "Invalid coordinate! Try again.\n";
-				// }
-
-				while(!withinBoundary(userGuess))
-				{
-					printMyBoard();
-					std::cout <<"That coordinate is not valid\n";
-					std::cout <<"Pick a coordinate to place this ship of size 1 (for example C6): ";
-					std::getline(std::cin, userGuess);
-
-					if(userGuess.length() != 2)
-					{
-						std::cout << "Invalid coordinate! Try again.\n";
-					}
-
-				}
+				} while(!withinBoundary(userGuess));
+				
 					myBoard[m_rowIndex][m_columnIndex] = ship;
 					m_ship[i].setCoordinate(userGuess, 0);
 					printMyBoard();
