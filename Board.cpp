@@ -401,7 +401,7 @@ void Board::setupBoard()
 
 	}
 	std::cout << "Press Enter to go to the next Player's turn: ";
-	std::cin.ignore();
+	//std::cin.ignore();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
 	printIntermission();
 
