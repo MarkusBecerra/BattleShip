@@ -38,7 +38,7 @@ int Ship::getLength() const
 void Ship::setCoordinate(std::string coordinate, int index)
 {
   m_ship[index] = coordinate;
-  std::cout<<coordinate <<'\n';
+//  std::cout<<coordinate <<'\n';
 }
 
 std::string Ship::getCoordinate(int index) const
