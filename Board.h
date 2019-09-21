@@ -148,7 +148,14 @@ class Board
 		* @return true if ships will collide
 		*/
 		bool noVerticalCollision(std::string userGuess, int shipLength);
-
+		
+		/**
+		*	private member variable helper function
+		* @pre none
+		*	@param none
+		*	@post get ship object
+		* @return ship object
+		*/
 		Ship* getShip() const;
 	};
 #endif

@@ -50,8 +50,14 @@ public:
 	*	@post start the game offically
 	*/
 	void game();
-
-	int boatCheck();		//checks that number of boats are valid
+	
+	/**
+	* @pre none
+	*	@param none
+	*	@post checks that number of boats are valid
+	* @return number of Ships
+	*/
+	int boatCheck();
 
 private:
 

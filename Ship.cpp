@@ -23,7 +23,6 @@ Ship::Ship()
 std::string* m_ship = nullptr;
 int m_length = 0;
 int m_damage = 0;
-bool m_Sunk = false;
 }
 
 void Ship::setLength(int length)
@@ -39,7 +38,7 @@ int Ship::getLength() const
 void Ship::setCoordinate(std::string coordinate, int index)
 {
   m_ship[index] = coordinate;
-  std::cout<<coordinate <<'\n';
+//  std::cout<<coordinate <<'\n';
 }
 
 std::string Ship::getCoordinate(int index) const
@@ -57,14 +56,14 @@ void Ship::addDamage()
   m_damage++;
 }
 
-int Ship::getDamage()
+int Ship::getDamage() const
 {
   return m_damage;
 }
 
 void Ship::setDamage(int newDamage)
 {
-m_damage = newDamage;
+  m_damage = newDamage;
 }
 
 bool Ship::isSunk()
