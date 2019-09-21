@@ -122,6 +122,7 @@ void Executive::game()
 
 					std::getline(std::cin, guess);
 
+
 					if(guess.length() != 2)
 					{
 						std::cout << "Invalid coordinate! Try again.\n";
@@ -140,7 +141,8 @@ void Executive::game()
 				player_1->getBoard()->printMyBoard();
 
 				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: ";
-				std::cin.ignore();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
 				player_1->getBoard()->printIntermission();
 			}
 			else if(m_player_1Turn % 2 == 0 && !m_gameOver)	//if it is player 2's turn
@@ -150,7 +152,8 @@ void Executive::game()
 				player_2->getBoard()->printMyBoard();
 
 				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";
-				std::cin.ignore();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
 				player_2->getBoard()->printIntermission();
 			}
 
