@@ -2,6 +2,7 @@ TODO
 -DOES NOT TELL SHOOTING PLAYER WHEN BATTLESHIP GETS SUNK
 -Have to press enter twice after shooting, empty standby line???
 -Loading screen intermission, make prettier!
+-Fix memory leaks!!!
 
 
 DONE
