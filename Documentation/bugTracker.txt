@@ -1,5 +1,7 @@
 TODO
 -DOES NOT TELL SHOOTING PLAYER WHEN BATTLESHIP GETS SUNK
+-Fix pressing enter at HORIZONTAL or VERTICAL screen doing nothing
+-User can type anything they want at HORIZONTAL or VERTICAL screen
 -Have to press enter twice after shooting, empty standby line???
 -Loading screen intermission, make prettier!
 -Fix memory leaks!!!
