@@ -179,7 +179,7 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 	{
 	for(unsigned int i=0;i<m_rowNames.length();i++)	//had to make i an unsigned int since m_rowNames.length() returns an unsigned in as well
 	{
-		if(userGuess.at(0) == m_rowNames.at(i))
+		if(userGuess.at(0) == m_rowNames.at(i) ||userGuess.at(0) == (tolower(m_rowNames.at(i))))
 		{
 			m_columnIndex = i;
 			break;

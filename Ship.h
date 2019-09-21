@@ -26,14 +26,7 @@ class Ship
 private:
 std::string* m_ship;
 int m_length;
-<<<<<<< HEAD
-int m_damage = 0;
-||||||| merged common ancestors
-int m_damage = 0;
-bool m_Sunk = false;
-=======
 int m_damage;
->>>>>>> master
 
 public:
   /**
