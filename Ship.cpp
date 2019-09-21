@@ -23,7 +23,6 @@ Ship::Ship()
 std::string* m_ship = nullptr;
 int m_length = 0;
 int m_damage = 0;
-bool m_Sunk = false;
 }
 
 void Ship::setLength(int length)

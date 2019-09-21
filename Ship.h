@@ -24,10 +24,9 @@
 class Ship
 {
 private:
-std::string* m_ship = nullptr;
+std::string* m_ship;
 int m_length;
-int m_damage = 0;
-bool m_Sunk = false;
+int m_damage;
 
 public:
   /**
