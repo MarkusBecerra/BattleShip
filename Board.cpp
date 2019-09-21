@@ -171,6 +171,12 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 void Board::guessConversion(std::string userGuess) //converts userGuess to two indices and updates member variables m_rowIndex and m_columnIndex with those indices
 {
 	// std::cout << "guess: " << userGuess << "\n";
+	if(userGuess.length() != 2)
+	{
+		return;
+	}
+	else
+	{
 	for(unsigned int i=0;i<m_rowNames.length();i++)	//had to make i an unsigned int since m_rowNames.length() returns an unsigned in as well
 	{
 		if(userGuess.at(0) == m_rowNames.at(i))
@@ -184,7 +190,10 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 											//if the letter the user typed is withing "ABCDEFGH", then the correct index is set and we break out
 											//of this for loop and m_rowIndex does not become 9
 		}
+
 	}
+}
+
 	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract '0' to convert it from the ASCII value to the proper decimal value. citation needed
 
 	m_rowIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
@@ -193,12 +202,6 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 
 bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess
 {
-	if(userGuess.length() != 2)
-	{
-		return false;
-	}
-	else
-	{
 	guessConversion(userGuess);
 	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
 	{
@@ -208,7 +211,7 @@ bool Board::withinBoundary(std::string userGuess) //a check for valid input stil
 	{
 		return false;
 	}
-}
+
 }
 
 bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
@@ -298,8 +301,24 @@ void Board::setupBoard()
 
 				if(userDirection == "H" || userDirection == "h")
 				{
+<<<<<<< HEAD
 					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
+					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+||||||| merged common ancestors
+=======
+					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
+>>>>>>> MarkusBugFix
+
+<<<<<<< HEAD
+					std::getline(std::cin, userGuess);
+
+					// std::cin>>userGuess;
+
+					while(validLocation == false)
+||||||| merged common ancestors
+					if(noHorizontalCollision(userGuess,i+1))
+=======
 					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 
 					std::getline(std::cin, userGuess);
@@ -307,6 +326,7 @@ void Board::setupBoard()
 					// std::cin>>userGuess;
 
 					while(validLocation == false)
+>>>>>>> MarkusBugFix
 					{
 
 						if(noHorizontalCollision(userGuess,i+1))
