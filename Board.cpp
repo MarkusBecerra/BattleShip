@@ -391,7 +391,7 @@ void Board::setupBoard()
 				{
 					std::cout << "Invalid Direction. Try again!\n";
 					printMyBoard();
-					std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
+					std::cout<<"HORIZONTAL(H/h) OR VERTICAL(V/v) orientation for this ship of size " <<i+1 <<": ";
 					std::getline(std::cin, userDirection);
 				}
 			}while(!HorV);

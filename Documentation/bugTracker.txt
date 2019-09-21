@@ -1,6 +1,4 @@
 TODO
--Double enter bug.
--Space and enter breaks intermission screen.
 -Fix memory leaks!!!
 
 
@@ -11,3 +9,5 @@ DONE
 -Typing a coordinate rather than H or V for horizontal or vertical
 -Fixed input less than 2 potentially breaking the game
 -Have to press enter twice after shooting, empty standby line???
+-Double enter bug.
+-Space and enter breaks intermission screen.
