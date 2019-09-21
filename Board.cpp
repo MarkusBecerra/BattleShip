@@ -203,6 +203,16 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess
 {
 	if(userGuess.length() != 2)
+<<<<<<< HEAD
+=======
+	{
+		return false;
+	}
+	else
+	{
+	guessConversion(userGuess);
+	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
+>>>>>>> master
 	{
 		return false;
 	}
@@ -218,7 +228,12 @@ bool Board::withinBoundary(std::string userGuess) //a check for valid input stil
 			return false;
 		}
 	}
+<<<<<<< HEAD
 	
+=======
+
+	}
+>>>>>>> master
 }
 
 bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
@@ -299,7 +314,7 @@ void Board::setupBoard()
 		}
 		else
 		{
-			std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
+			std::cout<<"HORIZONTAL(H/h) OR VERTICAL(V/v) orientation for this ship of size " <<i+1 <<": ";
 			std::getline(std::cin, userDirection);
 
 			do
@@ -390,7 +405,7 @@ void Board::setupBoard()
 				}
 				else
 				{
-					std::cout << "Invalid location. Try again!\n";
+					std::cout << "Invalid Direction. Try again!\n";
 					printMyBoard();
 					std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
 					std::getline(std::cin, userDirection);
