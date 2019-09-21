@@ -302,9 +302,15 @@ void Board::setupBoard()
 				if(userDirection == "H" || userDirection == "h")
 				{
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| merged common ancestors
+<<<<<<<<< Temporary merge branch 1
+=======
+>>>>>>> ce95ab7956721283e8a57947b19ac14939b9d087
 					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
 					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+<<<<<<< HEAD
 ||||||| merged common ancestors
 =======
 					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
@@ -320,13 +326,36 @@ void Board::setupBoard()
 					if(noHorizontalCollision(userGuess,i+1))
 =======
 					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+||||||| merged common ancestors
+||||||||| merged common ancestors
+=========
+					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
+>>>>>>>>> Temporary merge branch 2
+
+<<<<<<<<< Temporary merge branch 1
+					std::getline(std::cin, userGuess);
+
+					// std::cin>>userGuess;
+
+					while(validLocation == false)
+||||||||| merged common ancestors
+					if(noHorizontalCollision(userGuess,i+1))
+=========
+					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+=======
+>>>>>>> ce95ab7956721283e8a57947b19ac14939b9d087
 
 					std::getline(std::cin, userGuess);
 
 					// std::cin>>userGuess;
 
 					while(validLocation == false)
+<<<<<<< HEAD
 >>>>>>> MarkusBugFix
+||||||| merged common ancestors
+>>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> ce95ab7956721283e8a57947b19ac14939b9d087
 					{
 
 						if(noHorizontalCollision(userGuess,i+1))
