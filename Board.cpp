@@ -259,6 +259,8 @@ void Board::setupBoard()
 	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
 	bool validLocation = false;	//used to keep asking for valid location if still false
 	std::string temp; 		//used for ascii conversion
+	bool HorV = false; //gets set to true if the user types
+
 	m_ship =  new Ship[numberOfShips];
 	for(int i = 0; i < numberOfShips; i++)		//TODO, MAKE SURE THAT IF THEY TYPE B11, IT DOESN'T JUST GO TO B1
 	{
@@ -278,7 +280,7 @@ void Board::setupBoard()
 					}
 
 				} while(!withinBoundary(userGuess));
-				
+
 					myBoard[m_rowIndex][m_columnIndex] = ship;
 					m_ship[i].setCoordinate(userGuess, 0);
 					printMyBoard();
@@ -288,74 +290,104 @@ void Board::setupBoard()
 		else
 		{
 			std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
-			std::cin>>userDirection;
-			if(userDirection == "H")
+			std::getline(std::cin, userDirection);
+
+			do
 			{
-				validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
+				HorV = false;	//need to reinitialize to false so that each run through, this loop correclty runs
 
-				std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
-				std::cin>>userGuess;
-
-				while(validLocation == false)
+				if(userDirection == "H" || userDirection == "h")
 				{
+					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
-					if(noHorizontalCollision(userGuess,i+1))
+					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+
+					std::getline(std::cin, userGuess);
+
+					// std::cin>>userGuess;
+
+					while(validLocation == false)
 					{
-						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
-						temp = userGuess;
-						for(int j = 0; j < m_ship[i].getLength(); j++ )
+
+						if(noHorizontalCollision(userGuess,i+1))
 						{
-							myBoard[m_rowIndex][m_columnIndex+j] = ship;
-							m_ship[i].setCoordinate(temp, j);
-							temp[0] = temp.at(0) + 1;
+							guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+							temp = userGuess;
+							for(int j = 0; j < m_ship[i].getLength(); j++ )
+							{
+								myBoard[m_rowIndex][m_columnIndex+j] = ship;
+								m_ship[i].setCoordinate(temp, j);
+								temp[0] = temp.at(0) + 1;
 
+							}
+							printMyBoard();
+
+							validLocation = true;
+							HorV = true;	//true to kick out of while loop
 						}
-						printMyBoard();
+						else
+						{
+							printMyBoard();
+							std::cout << "Invalid location. Try again!\n";
+							std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 
-						validLocation = true;
+							std::getline(std::cin, userGuess);
+
+							// std::cin>>userGuess;
+						}
 					}
-					else
+
+				}
+				else if(userDirection == "V" || userDirection == "v")
+				{
+					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
+
+					std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+
+					std::getline(std::cin, userGuess);
+
+					// std::cin>>userGuess;
+
+					while(validLocation == false)
 					{
-						printMyBoard();
-						std::cout << "Invalid location. Try again!\n";
-						std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
-						std::cin>>userGuess;
+						if(noVerticalCollision(userGuess,i+1))
+						{
+							guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
+							temp = userGuess;
+							for(int j = 0; j < m_ship[i].getLength(); j++ )
+							{
+								myBoard[m_rowIndex+j][m_columnIndex] = ship;
+								m_ship[i].setCoordinate(temp, j);
+								temp[1] = temp.at(1) + 1;
+
+							}
+							printMyBoard();
+
+							validLocation = true;
+							HorV = true;	//true to kick out of while loop
+						}
+						else
+						{
+							printMyBoard();
+							std::cout << "Invalid location. Try again!\n";
+							std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+
+							std::getline(std::cin, userGuess);
+
+							// std::cin>>userGuess;
+						}
 					}
 				}
-			}
-			else if(userDirection == "V")
-			{
-				validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
-
-				std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
-				std::cin>>userGuess;
-
-				while(validLocation == false)
+				else
 				{
-					if(noVerticalCollision(userGuess,i+1))
-					{
-						guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
-						temp = userGuess;
-						for(int j = 0; j < m_ship[i].getLength(); j++ )
-						{
-							myBoard[m_rowIndex+j][m_columnIndex] = ship;
-							m_ship[i].setCoordinate(temp, j);
-							temp[1] = temp.at(1) + 1;
-
-						}
-						printMyBoard();
-
-						validLocation = true;
-					}
-					else
-					{
-						printMyBoard();
-						std::cout << "Invalid location. Try again!\n";
-						std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
-						std::cin>>userGuess;
-					}
+					std::cout << "Invalid location. Try again!\n";
+					printMyBoard();
+					std::cout<<"HORIZONTAL(H) OR VERTICAL(V) orientation for this ship of size " <<i+1 <<": ";
+					std::getline(std::cin, userDirection);
 				}
-			}
+			}while(!HorV);
+
+
 		}
 
 	}
