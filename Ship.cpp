@@ -20,9 +20,9 @@ void Ship::createShip(int length)
 
 Ship::Ship()
 {
-std::string* m_ship = nullptr;
-int m_length = 0;
-int m_damage = 0;
+m_ship = nullptr;
+m_length = 0;
+m_damage = 0;
 }
 
 void Ship::setLength(int length)
@@ -48,7 +48,7 @@ std::string Ship::getCoordinate(int index) const
 
 Ship::~Ship()
 {
-  delete m_ship;
+  delete[] m_ship;
 }
 
 void Ship::addDamage()

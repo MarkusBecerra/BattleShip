@@ -14,24 +14,23 @@
 #include <sstream>
 #include <limits>
 
-Board::Board()
-{
-
-	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
-	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
-	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
-	ship = "\033[1;32m∆\033[0m";
-
-	for (int i=0; i<8; i++)
-	{
-		for(int j=0; j<8; j++)
-		{
-			myBoard[i][j] = blueTilde;
-			shotBoard[i][j] = blueTilde;
-		}
-	}
-
-}
+// Board::Board()
+// {
+// 	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
+// 	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
+// 	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
+// 	ship = "\033[1;32m∆\033[0m";
+//
+// 	for (int i=0; i<8; i++)
+// 	{
+// 		for(int j=0; j<8; j++)
+// 		{
+// 			myBoard[i][j] = blueTilde;
+// 			shotBoard[i][j] = blueTilde;
+// 		}
+// 	}
+//
+// }
 
 Board::Board(int shipnum)
 {
@@ -53,7 +52,7 @@ Board::Board(int shipnum)
 
 Board::~Board()
 {
-	delete m_ship;
+	delete[] m_ship;
 }
 
 void Board::printShotBoard()
