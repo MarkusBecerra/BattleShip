@@ -22,16 +22,7 @@ int Executive::boatCheck() //will return numOfBoats when valid
 
 	std::cout << "How many ships would you like to play with? (Choose 1-5): ";		//prompt user for number of ships
 
-	try
-	{
-		std::getline(std::cin, tempBoats);		//try block to gather the users desired number of boats in a getline
-	}
-
-	catch(std::out_of_range &ex)		//catch out of range if the user just presses enter, or the getline fails another way
-	{
-		std::cout << "No input was recieved, please enter a number 1-5: \n";		//print error message
-		return boatCheck();		//return the boatCheck function to get a new input for the number of boats desired
-	}
+	std::getline(std::cin, tempBoats);		//Gather the users desired number of boats in a getline
 
 	if(tempBoats.length() < 1 || tempBoats.length() > 1)		//check if the length of the string is NOT equal to one
 	{
@@ -88,11 +79,6 @@ Executive::~Executive()		//Executive destructor
 {
 	delete player_1;		//delete player1 object
 	delete player_2;		//delete player2 object
-}
-
-void Executive::mainMenu()		//KEEP OR NOT????
-{
-
 }
 
 void Executive::game()

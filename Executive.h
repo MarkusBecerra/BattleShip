@@ -38,12 +38,6 @@ public:
 	~Executive();
 
 	/**
-	* @pre none
-	*	@post print the main menu for the game
-	*/
-	void mainMenu();
-
-	/**
 	* @pre location must be valid
 	* @param takes a location from user
 	*	@post shoot the location
