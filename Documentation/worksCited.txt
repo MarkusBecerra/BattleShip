@@ -1,6 +1,15 @@
 //works CITED
+Press Enter to continue feature:
 https://stackoverflow.com/questions/903221/press-enter-to-continue
+
+Colored text output in terminal:
 https://stackoverflow.com/questions/2616906/how-do-i-output-coloured-text-to-a-linux-terminal
+
+Converting character to integer:
 https://stackoverflow.com/questions/5029840/convert-char-to-int-in-c-and-c
+
+Converting a string to uppercase:
 https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case
+
+Checking valid input with a string:
 http://www.cplusplus.com/reference/stdexcept/out_of_range/
