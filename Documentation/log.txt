@@ -2,7 +2,6 @@ Meeting 1:
 09/06/2019 @ 11:47AM to 11:50AM
 Location: Eaton 2
 All in attendance.
-
 Agenda:
 *Chose C++ as language for project.
 *Set next meeting date.
@@ -11,7 +10,6 @@ Meeting 2:
 09/07/2019 @ 2:40PM to 3:30PM
 Location: Alcove 1326 in LEEP2
 All in attendance.
-
 Agenda:
 *Brainstorming
 *Ran through simulation
@@ -20,6 +18,9 @@ Agenda:
 
 Meeting 3:
 09/09/2019 @11:40AM to 11:50AM
+Location: Eaton Lawr2
+All in attendance
+Agenda:
 *Discussed changes we made since last meeting
 *Planned to meet in lab in two days
 
@@ -27,7 +28,6 @@ Meeting 4:
 09/11/2019 @ 9AM to 10:50AM
 Location: Eaton Hall in a Lab Room
 All in attendance
-
 Agenda:
 *Created Board and Player classes
 
@@ -35,7 +35,8 @@ Meeting 5:
 09/13/2019 11:30AM to 11:50AM
 Location: Eaton Lawr2
 All in attendance.
-Discussed when to meet next and what to focus on
+Agenda:
+*Discussed when to meet next and what to focus on
 
 Meeting 6:
 09/14/2019 @ 2:30PM to 4:00PM
