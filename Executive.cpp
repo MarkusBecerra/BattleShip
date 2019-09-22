@@ -173,10 +173,16 @@ void Executive::game()
 
 	if(m_player_1Turn % 2 == 1) //m_player_1Turn gets changed right before this, which is why the value is comparing different than above
 	{
+		player_2->getBoard()->printShotBoard();
+		player_2->getBoard()->printMyBoard();
+
 		std::cout << "PLAYER 2 WINS!\n";
 	}
 	else
 	{
+		player_1->getBoard()->printShotBoard();
+		player_1->getBoard()->printMyBoard();
+
 		std::cout << "PLAYER 1 WINS!\n";
 	}
 
