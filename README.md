@@ -1,6 +1,8 @@
 # BattleShip
 A Cool Battleship Game for the Epic Gamer
 
+Written in C++
+
 Project 1 Retrospective Write-up for “Big SegFault Energy”
 
 
