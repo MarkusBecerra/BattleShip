@@ -7,11 +7,11 @@ Project 1 Retrospective Write-up for “Big SegFault Energy”
 
 Team Members:
 
-Chance Penner
-Haonan Hu
-Markus Becerra
-Sarah Scott
-Thomas Gardner
+	Chance Penner
+	Haonan Hu
+	Markus Becerra
+	Sarah Scott
+	Thomas Gardner
 
 
 # Group Meeting log:
