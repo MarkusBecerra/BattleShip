@@ -1,5 +1,4 @@
 TODO
--Fix memory leaks!!!
 
 
 DONE
@@ -11,3 +10,4 @@ DONE
 -Have to press enter twice after shooting, empty standby line???
 -Double enter bug.
 -Space and enter breaks intermission screen.
+-Fix memory leaks!!!
