@@ -15,82 +15,82 @@
 #include <limits>
 #include "algorithm" //for toupper
 
-int Executive::boatCheck() // will return numOfBoats when valid
+int Executive::boatCheck() //will return numOfBoats when valid
 {
-	int numOfBoats = 0;
-	std::string tempBoats = " ";
+	int numOfBoats = 0;						//declaring numberOfBoats
+	std::string tempBoats = " ";	//declaring tempBoats string for storing numOfBoats as a string
 
-	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+	std::cout << "How many ships would you like to play with? (Choose 1-5): ";		//prompt user for number of ships
 
 	try
 	{
-		std::getline(std::cin, tempBoats);
+		std::getline(std::cin, tempBoats);		//try block to gather the users desired number of boats in a getline
 	}
 
-	catch(std::out_of_range &ex)
+	catch(std::out_of_range &ex)		//catch out of range if the user just presses enter, or the getline fails another way
 	{
-		std::cout << "No input was recieved, please enter a number 1-5: \n";
-		return boatCheck();
+		std::cout << "No input was recieved, please enter a number 1-5: \n";		//print error message
+		return boatCheck();		//return the boatCheck function to get a new input for the number of boats desired
 	}
 
-	if(tempBoats.length() < 1 || tempBoats.length() > 1)
+	if(tempBoats.length() < 1 || tempBoats.length() > 1)		//check if the length of the string is NOT equal to one
 	{
-		std::cout << "Must be a one-digit number from 1-5!\n";
-		return boatCheck();
+		std::cout << "Must be a one-digit number from 1-5!\n";	//print error that the digit was greater than length 1
+		return boatCheck();		//return the boatCheck function to get a new input for the number of boats desired
 	}
 
-	else
+	else		//if the tempBoats length was equal to 1
 	{
-		numOfBoats = tempBoats.at(0) - '0';
+		numOfBoats = tempBoats.at(0) - '0';		//set numOfBoats integer equal to the first character of the tempBoats string
 
-		if(numOfBoats < 1 || numOfBoats > 5)
+		if(numOfBoats < 1 || numOfBoats > 5)		//if numOfBoats is not between one and five (inclusive)
 		{
-			std::cout << "Must be an integer from 1-5!\n";
-			return boatCheck();
+			std::cout << "Must be an integer from 1-5!\n";		//print error message that the number is out of the range
+			return boatCheck();		//return boatCheck function to get a new input for the number of boats desired
 		}
 
 		else
 		{
-			return numOfBoats;
+			return numOfBoats;		//if the number of boats is valid (1-5), return the integer itself
 		}
 	}
 
 }
 
-Executive::Executive()
+Executive::Executive()		//Executive constructor
 {
-	int numOfBoats = 0;
+	int numOfBoats = 0;		//int numOfBoats to store the number of boats
 
-	try
+	try		//DO WE NEED TRY CATCH HERE???!
 	{
-		numOfBoats = boatCheck();
+		numOfBoats = boatCheck();		//try block to set Executive constructor's numOfBoats to the value returned by boatCheck
 	}
 
-	catch(std::runtime_error &rte)
+	catch(std::runtime_error &rte)	//catch error if the function fails
 	{
-		std::cout << rte.what();
+		std::cout << "Invalid number of ships";		//print error message if the function fails
 	}
 
-	player_1 = new Player(numOfBoats);
-	player_2 = new Player(numOfBoats);
-	m_gameOver = false;
-	m_player_1Turn = 1;
+	player_1 = new Player(numOfBoats); 		//create player 1 object passing in the number of boats
+	player_2 = new Player(numOfBoats);		//create player 2 object passing in the number of boats
+	m_gameOver = false;			//m_gameOver member variable set to false at the beginning of the game
+	m_player_1Turn = 1;			//m_player_1Turn member boolean set to 1, game starts with player 1's turn
 
-	std::cout <<"\nPlayer 1 place your ships\n";
-	player_1 -> getBoard() -> setupBoard();
-	std::cout <<"\nPlayer 2 place your ships\n";
-	player_2 -> getBoard() -> setupBoard();
-	game();
+	std::cout <<"\nPlayer 1 place your ships\n";		//prompt player1 to place their ships
+	player_1 -> getBoard() -> setupBoard();					//call getBoard and setupBoard from board.cpp to create the two boards for player1
+	std::cout <<"\nPlayer 2 place your ships\n";		//promt player2 to place their ships
+	player_2 -> getBoard() -> setupBoard();					//call getBoard and setupBoard from board.cpp to create the two boards for player2
+	game();		//call Executive game function to start the game once both players have set up their boards
 
 }
 
-Executive::~Executive()
+Executive::~Executive()		//Executive destructor
 {
-	delete player_1;
-	delete player_2;
+	delete player_1;		//delete player1 object
+	delete player_2;		//delete player2 object
 }
 
-void Executive::mainMenu()
+void Executive::mainMenu()		//KEEP OR NOT????
 {
 
 }
