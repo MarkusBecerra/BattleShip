@@ -111,13 +111,13 @@ void Executive::game()
 				{
 					player_1->getBoard()->printShotBoard();
 					player_1->getBoard()->printMyBoard();
-					std::cout << "Player 1: Where would you like to shoot: ";
+					std::cout << "Player 1: Where would you like to shoot: "; //print player's board and opponent's board and ask for user a location to shoot
 
 					std::getline(std::cin, guess);
 
 					std::transform(guess.begin(), guess.end(),guess.begin(), ::toupper);	//converts guess to uppercase
 
-std::cout << "guess: " << guess << "\n";
+					std::cout << "guess: " << guess << "\n"; //print out user's guess
 
 					if(guess.length() != 2)
 					{
@@ -154,7 +154,7 @@ std::cout << "guess: " << guess << "\n";
 				player_1->getBoard()->printMyBoard();
 
 				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: ";
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //get rid of user's ramdon input to crash the game
 
 				player_1->getBoard()->printIntermission();
 			}
@@ -165,7 +165,7 @@ std::cout << "guess: " << guess << "\n";
 				player_2->getBoard()->printMyBoard();
 
 				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //get rid of user's ramdon input to crash the game
 
 				player_2->getBoard()->printIntermission();
 			}
