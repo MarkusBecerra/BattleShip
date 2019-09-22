@@ -295,7 +295,7 @@ void Board::setupBoard()	//sets up the board
 				{
 					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
-					std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+					std::cout<<"Where would you like the left most coordinate of this ship to be? ";
 
 					std::getline(std::cin, userGuess);
 
@@ -327,7 +327,7 @@ void Board::setupBoard()	//sets up the board
 						{
 							printMyBoard();	//prints the board again and asks the user to try again
 							std::cout << "Invalid location. Try again!\n";
-							std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
+							std::cout<<"Where would you like the left most coordinate of this ship to be? ";
 
 							std::getline(std::cin, userGuess);
 
@@ -341,7 +341,7 @@ void Board::setupBoard()	//sets up the board
 				{
 					validLocation = false; //reinitializes to false since if they do H twice in a row, it could have been set to true from before
 
-					std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+					std::cout<<"Where would you like the top most coordinate of this ship to be? ";
 
 					std::getline(std::cin, userGuess);
 
@@ -372,7 +372,7 @@ void Board::setupBoard()	//sets up the board
 						{
 							printMyBoard();	//prints the updated board again and asks the user to try again
 							std::cout << "Invalid location. Try again!\n";
-							std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
+							std::cout<<"Where would you like the top most coordinate of this ship to be? ";
 
 							std::getline(std::cin, userGuess);
 
