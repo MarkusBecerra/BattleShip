@@ -31,6 +31,10 @@ public:
 	*/
 	Executive();
 
+	/**
+	* @pre none
+	*	@post Executive object destructor
+	*/
 	~Executive();
 
 	/**

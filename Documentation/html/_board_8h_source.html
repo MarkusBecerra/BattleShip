@@ -78,70 +78,73 @@ $(document).ready(function(){initNavTree('_board_8h_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_board.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_board.html">Board</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::string shotBoard[8][8];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::string myBoard[8][8];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::string m_rowNames = <span class="stringliteral">&quot;ABCDEFGH&quot;</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        std::string m_columnNames = <span class="stringliteral">&quot;12345678&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">int</span> m_rowIndex;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">int</span> m_columnIndex;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> guessConversion(std::string userGuess);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::string shotBoard[8][8];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::string myBoard[8][8];</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::string m_rowNames = <span class="stringliteral">&quot;ABCDEFGH&quot;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string m_columnNames = <span class="stringliteral">&quot;12345678&quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> m_rowIndex;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> m_columnIndex;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> guessConversion(std::string userGuess);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::string blueTilde;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string redHit;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::string whiteMiss;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::string ship;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">int</span> numberOfShips;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_ship.html">Ship</a>* m_ship = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string blueTilde;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::string redHit;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::string whiteMiss;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string ship;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> numberOfShips;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_ship.html">Ship</a>* m_ship = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a>();</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a>(<span class="keywordtype">int</span> shipnum);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_board.html#a181c04f8528cf4ec3883f0d59c5f8c6a">printShotBoard</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_board.html#a8188ac00f5e89d6935474b916ab1e705">printMyBoard</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_board.html#a1efd7e3974a87e3e52b68138dd390f71">printIntermission</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_board.html#a1cd2b7cdf7fdc4944c8cbb0b71b5cd4b">setNumberofShips</a>(<span class="keywordtype">int</span> shipnum);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_board.html#a63501a95954f1e0d4ebf6dbf1d0d139f">getNumberofShips</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_board.html#aeb49572b4c1672503d1e9e3a29e35c68">setupBoard</a>();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_board.html#a25c56580203df5bd530e46341f75ff71">updateShotBoard</a>(std::string userGuess, <span class="keywordtype">bool</span> wasHit);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a3e5d884c4c736be9125f0b39dc7ab3cd">updateMyBoard</a>(std::string userGuess);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a33b7189524a9ab6ec18d0939127d7817">withinBoundary</a>(std::string userGuess);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a425dad04038ba0f3e1ef9c0f1b0926a4">noHorizontalCollision</a>(std::string userGuess, <span class="keywordtype">int</span> shipLength);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_board.html#ad72a686a82c3d8eedf1f91041dde460d">noVerticalCollision</a>(std::string userGuess, <span class="keywordtype">int</span> shipLength);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <a class="code" href="class_ship.html">Ship</a>* <a class="code" href="class_board.html#ad73db32692543c389e2484856176d955">getShip</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    };</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a>(<span class="keywordtype">int</span> shipnum);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a181c04f8528cf4ec3883f0d59c5f8c6a">printShotBoard</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a8188ac00f5e89d6935474b916ab1e705">printMyBoard</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a1efd7e3974a87e3e52b68138dd390f71">printIntermission</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a1cd2b7cdf7fdc4944c8cbb0b71b5cd4b">setNumberofShips</a>(<span class="keywordtype">int</span> shipnum);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_board.html#a63501a95954f1e0d4ebf6dbf1d0d139f">getNumberofShips</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#aeb49572b4c1672503d1e9e3a29e35c68">setupBoard</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_board.html#a25c56580203df5bd530e46341f75ff71">updateShotBoard</a>(std::string userGuess, <span class="keywordtype">bool</span> wasHit);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a3e5d884c4c736be9125f0b39dc7ab3cd">updateMyBoard</a>(std::string userGuess);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a33b7189524a9ab6ec18d0939127d7817">withinBoundary</a>(std::string userGuess);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#a425dad04038ba0f3e1ef9c0f1b0926a4">noHorizontalCollision</a>(std::string userGuess, <span class="keywordtype">int</span> shipLength);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_board.html#ad72a686a82c3d8eedf1f91041dde460d">noVerticalCollision</a>(std::string userGuess, <span class="keywordtype">int</span> shipLength);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="class_ship.html">Ship</a>* <a class="code" href="class_board.html#ad73db32692543c389e2484856176d955">getShip</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;};</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_board_html_aeb49572b4c1672503d1e9e3a29e35c68"><div class="ttname"><a href="class_board.html#aeb49572b4c1672503d1e9e3a29e35c68">Board::setupBoard</a></div><div class="ttdeci">void setupBoard()</div><div class="ttdef"><b>Definition:</b> Board.cpp:249</div></div>
+<div class="ttc" id="aclass_board_html_aeb49572b4c1672503d1e9e3a29e35c68"><div class="ttname"><a href="class_board.html#aeb49572b4c1672503d1e9e3a29e35c68">Board::setupBoard</a></div><div class="ttdeci">void setupBoard()</div><div class="ttdef"><b>Definition:</b> Board.cpp:268</div></div>
 <div class="ttc" id="a_ship_8h_html"><div class="ttname"><a href="_ship_8h.html">Ship.h</a></div></div>
-<div class="ttc" id="aclass_board_html_ad73db32692543c389e2484856176d955"><div class="ttname"><a href="class_board.html#ad73db32692543c389e2484856176d955">Board::getShip</a></div><div class="ttdeci">Ship * getShip() const</div><div class="ttdef"><b>Definition:</b> Board.cpp:396</div></div>
-<div class="ttc" id="aclass_board_html_a63501a95954f1e0d4ebf6dbf1d0d139f"><div class="ttname"><a href="class_board.html#a63501a95954f1e0d4ebf6dbf1d0d139f">Board::getNumberofShips</a></div><div class="ttdeci">int getNumberofShips() const</div><div class="ttdef"><b>Definition:</b> Board.cpp:391</div></div>
-<div class="ttc" id="aclass_board_html_a181c04f8528cf4ec3883f0d59c5f8c6a"><div class="ttname"><a href="class_board.html#a181c04f8528cf4ec3883f0d59c5f8c6a">Board::printShotBoard</a></div><div class="ttdeci">void printShotBoard()</div><div class="ttdef"><b>Definition:</b> Board.cpp:55</div></div>
+<div class="ttc" id="aclass_board_html_ad73db32692543c389e2484856176d955"><div class="ttname"><a href="class_board.html#ad73db32692543c389e2484856176d955">Board::getShip</a></div><div class="ttdeci">Ship * getShip() const</div><div class="ttdef"><b>Definition:</b> Board.cpp:425</div></div>
+<div class="ttc" id="aclass_board_html_a63501a95954f1e0d4ebf6dbf1d0d139f"><div class="ttname"><a href="class_board.html#a63501a95954f1e0d4ebf6dbf1d0d139f">Board::getNumberofShips</a></div><div class="ttdeci">int getNumberofShips() const</div><div class="ttdef"><b>Definition:</b> Board.cpp:420</div></div>
+<div class="ttc" id="aclass_board_html_a181c04f8528cf4ec3883f0d59c5f8c6a"><div class="ttname"><a href="class_board.html#a181c04f8528cf4ec3883f0d59c5f8c6a">Board::printShotBoard</a></div><div class="ttdeci">void printShotBoard()</div><div class="ttdef"><b>Definition:</b> Board.cpp:58</div></div>
 <div class="ttc" id="aclass_ship_html"><div class="ttname"><a href="class_ship.html">Ship</a></div><div class="ttdef"><b>Definition:</b> Ship.h:24</div></div>
-<div class="ttc" id="aclass_board_html_a1efd7e3974a87e3e52b68138dd390f71"><div class="ttname"><a href="class_board.html#a1efd7e3974a87e3e52b68138dd390f71">Board::printIntermission</a></div><div class="ttdeci">void printIntermission()</div><div class="ttdef"><b>Definition:</b> Board.cpp:112</div></div>
-<div class="ttc" id="aclass_board_html_ad72a686a82c3d8eedf1f91041dde460d"><div class="ttname"><a href="class_board.html#ad72a686a82c3d8eedf1f91041dde460d">Board::noVerticalCollision</a></div><div class="ttdeci">bool noVerticalCollision(std::string userGuess, int shipLength)</div><div class="ttdef"><b>Definition:</b> Board.cpp:228</div></div>
-<div class="ttc" id="aclass_board_html_a3e5d884c4c736be9125f0b39dc7ab3cd"><div class="ttname"><a href="class_board.html#a3e5d884c4c736be9125f0b39dc7ab3cd">Board::updateMyBoard</a></div><div class="ttdeci">bool updateMyBoard(std::string userGuess)</div><div class="ttdef"><b>Definition:</b> Board.cpp:122</div></div>
-<div class="ttc" id="aclass_board_html_a33b7189524a9ab6ec18d0939127d7817"><div class="ttname"><a href="class_board.html#a33b7189524a9ab6ec18d0939127d7817">Board::withinBoundary</a></div><div class="ttdeci">bool withinBoundary(std::string userGuess)</div><div class="ttdef"><b>Definition:</b> Board.cpp:194</div></div>
+<div class="ttc" id="aclass_board_html_a1efd7e3974a87e3e52b68138dd390f71"><div class="ttname"><a href="class_board.html#a1efd7e3974a87e3e52b68138dd390f71">Board::printIntermission</a></div><div class="ttdeci">void printIntermission()</div><div class="ttdef"><b>Definition:</b> Board.cpp:115</div></div>
+<div class="ttc" id="aclass_board_html_ad72a686a82c3d8eedf1f91041dde460d"><div class="ttname"><a href="class_board.html#ad72a686a82c3d8eedf1f91041dde460d">Board::noVerticalCollision</a></div><div class="ttdeci">bool noVerticalCollision(std::string userGuess, int shipLength)</div><div class="ttdef"><b>Definition:</b> Board.cpp:247</div></div>
+<div class="ttc" id="aclass_board_html_a3e5d884c4c736be9125f0b39dc7ab3cd"><div class="ttname"><a href="class_board.html#a3e5d884c4c736be9125f0b39dc7ab3cd">Board::updateMyBoard</a></div><div class="ttdeci">bool updateMyBoard(std::string userGuess)</div><div class="ttdef"><b>Definition:</b> Board.cpp:125</div></div>
+<div class="ttc" id="aclass_board_html_a33b7189524a9ab6ec18d0939127d7817"><div class="ttname"><a href="class_board.html#a33b7189524a9ab6ec18d0939127d7817">Board::withinBoundary</a></div><div class="ttdeci">bool withinBoundary(std::string userGuess)</div><div class="ttdef"><b>Definition:</b> Board.cpp:206</div></div>
 <div class="ttc" id="aclass_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> Board.h:26</div></div>
-<div class="ttc" id="aclass_board_html_a425dad04038ba0f3e1ef9c0f1b0926a4"><div class="ttname"><a href="class_board.html#a425dad04038ba0f3e1ef9c0f1b0926a4">Board::noHorizontalCollision</a></div><div class="ttdeci">bool noHorizontalCollision(std::string userGuess, int shipLength)</div><div class="ttdef"><b>Definition:</b> Board.cpp:207</div></div>
-<div class="ttc" id="aclass_board_html_a25c56580203df5bd530e46341f75ff71"><div class="ttname"><a href="class_board.html#a25c56580203df5bd530e46341f75ff71">Board::updateShotBoard</a></div><div class="ttdeci">void updateShotBoard(std::string userGuess, bool wasHit)</div><div class="ttdef"><b>Definition:</b> Board.cpp:157</div></div>
-<div class="ttc" id="aclass_board_html_a8188ac00f5e89d6935474b916ab1e705"><div class="ttname"><a href="class_board.html#a8188ac00f5e89d6935474b916ab1e705">Board::printMyBoard</a></div><div class="ttdeci">void printMyBoard()</div><div class="ttdef"><b>Definition:</b> Board.cpp:83</div></div>
-<div class="ttc" id="aclass_board_html_a1cd2b7cdf7fdc4944c8cbb0b71b5cd4b"><div class="ttname"><a href="class_board.html#a1cd2b7cdf7fdc4944c8cbb0b71b5cd4b">Board::setNumberofShips</a></div><div class="ttdeci">void setNumberofShips(int shipnum)</div><div class="ttdef"><b>Definition:</b> Board.cpp:386</div></div>
-<div class="ttc" id="aclass_board_html_a9ee491d4fea680cf69b033374a9fdfcb"><div class="ttname"><a href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board::Board</a></div><div class="ttdeci">Board()</div><div class="ttdef"><b>Definition:</b> Board.cpp:17</div></div>
+<div class="ttc" id="aclass_board_html_a425dad04038ba0f3e1ef9c0f1b0926a4"><div class="ttname"><a href="class_board.html#a425dad04038ba0f3e1ef9c0f1b0926a4">Board::noHorizontalCollision</a></div><div class="ttdeci">bool noHorizontalCollision(std::string userGuess, int shipLength)</div><div class="ttdef"><b>Definition:</b> Board.cpp:226</div></div>
+<div class="ttc" id="aclass_board_html_a25c56580203df5bd530e46341f75ff71"><div class="ttname"><a href="class_board.html#a25c56580203df5bd530e46341f75ff71">Board::updateShotBoard</a></div><div class="ttdeci">void updateShotBoard(std::string userGuess, bool wasHit)</div><div class="ttdef"><b>Definition:</b> Board.cpp:160</div></div>
+<div class="ttc" id="aclass_board_html_a8188ac00f5e89d6935474b916ab1e705"><div class="ttname"><a href="class_board.html#a8188ac00f5e89d6935474b916ab1e705">Board::printMyBoard</a></div><div class="ttdeci">void printMyBoard()</div><div class="ttdef"><b>Definition:</b> Board.cpp:86</div></div>
+<div class="ttc" id="aclass_board_html_af73f45730119a1fd8f6670f53f959e68"><div class="ttname"><a href="class_board.html#af73f45730119a1fd8f6670f53f959e68">Board::~Board</a></div><div class="ttdeci">~Board()</div><div class="ttdef"><b>Definition:</b> Board.cpp:53</div></div>
+<div class="ttc" id="aclass_board_html_a1cd2b7cdf7fdc4944c8cbb0b71b5cd4b"><div class="ttname"><a href="class_board.html#a1cd2b7cdf7fdc4944c8cbb0b71b5cd4b">Board::setNumberofShips</a></div><div class="ttdeci">void setNumberofShips(int shipnum)</div><div class="ttdef"><b>Definition:</b> Board.cpp:415</div></div>
+<div class="ttc" id="aclass_board_html_a9ee491d4fea680cf69b033374a9fdfcb"><div class="ttname"><a href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board::Board</a></div><div class="ttdeci">Board()</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

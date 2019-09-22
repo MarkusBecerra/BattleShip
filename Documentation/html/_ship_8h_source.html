@@ -78,53 +78,49 @@ $(document).ready(function(){initNavTree('_ship_8h_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_ship.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ship.html">Ship</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;std::string* m_ship = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;std::string* m_ship;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> m_length;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> m_damage = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">bool</span> m_Sunk = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_ship.html#ab7608fcfc4d27c678aacaf9bfd68a462">Ship</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#a5fbc487451eeab25d10e489338322cdf">createShip</a>(<span class="keywordtype">int</span> length);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">//void createShip(int length, int shipNumber);</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="comment">//bool ConsecutiveCoordinates(int index) I DONT THINK WE NEED THIS</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#ab2b947630faed5698a566463ec6d6f8b">setCoordinate</a>(std::string coordinate, <span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::string <a class="code" href="class_ship.html#a563f0674311cd2ddc6d5b3f3ea99b589">getCoordinate</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#aa99bcdfdfbf72412ef6f46bf35764bdd">setLength</a>(<span class="keywordtype">int</span> length);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_ship.html#a5c36a859d4600ba27c091fa9254faadd">getLength</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="class_ship.html#a43cd6eeaffc11b49239b091621963a65">~Ship</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_ship.html#a34cbc315fd6d44a3cc0c03f34bc4db3c">isSunk</a>();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#a0381322d64bcf39796f43c4ad078a0a2">addDamage</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_ship.html#a1ac6b66776e15aa681922c487d12a9a1">getDamage</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#a32628db1c60d95df0cc4ed81b6dd901e">setDamage</a>(<span class="keywordtype">int</span> newDamage);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> m_damage;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_ship.html#ab7608fcfc4d27c678aacaf9bfd68a462">Ship</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#a5fbc487451eeab25d10e489338322cdf">createShip</a>(<span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#ab2b947630faed5698a566463ec6d6f8b">setCoordinate</a>(std::string coordinate, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  std::string <a class="code" href="class_ship.html#a563f0674311cd2ddc6d5b3f3ea99b589">getCoordinate</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#aa99bcdfdfbf72412ef6f46bf35764bdd">setLength</a>(<span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_ship.html#a5c36a859d4600ba27c091fa9254faadd">getLength</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="class_ship.html#a43cd6eeaffc11b49239b091621963a65">~Ship</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_ship.html#a34cbc315fd6d44a3cc0c03f34bc4db3c">isSunk</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#a0381322d64bcf39796f43c4ad078a0a2">addDamage</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_ship.html#a1ac6b66776e15aa681922c487d12a9a1">getDamage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ship.html#a32628db1c60d95df0cc4ed81b6dd901e">setDamage</a>(<span class="keywordtype">int</span> newDamage);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_ship_html_a32628db1c60d95df0cc4ed81b6dd901e"><div class="ttname"><a href="class_ship.html#a32628db1c60d95df0cc4ed81b6dd901e">Ship::setDamage</a></div><div class="ttdeci">void setDamage(int newDamage)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:65</div></div>
-<div class="ttc" id="aclass_ship_html_a5c36a859d4600ba27c091fa9254faadd"><div class="ttname"><a href="class_ship.html#a5c36a859d4600ba27c091fa9254faadd">Ship::getLength</a></div><div class="ttdeci">int getLength() const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:34</div></div>
-<div class="ttc" id="aclass_ship_html_a0381322d64bcf39796f43c4ad078a0a2"><div class="ttname"><a href="class_ship.html#a0381322d64bcf39796f43c4ad078a0a2">Ship::addDamage</a></div><div class="ttdeci">void addDamage()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:55</div></div>
-<div class="ttc" id="aclass_ship_html_ab2b947630faed5698a566463ec6d6f8b"><div class="ttname"><a href="class_ship.html#ab2b947630faed5698a566463ec6d6f8b">Ship::setCoordinate</a></div><div class="ttdeci">void setCoordinate(std::string coordinate, int index)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:39</div></div>
+<div class="ttc" id="aclass_ship_html_a32628db1c60d95df0cc4ed81b6dd901e"><div class="ttname"><a href="class_ship.html#a32628db1c60d95df0cc4ed81b6dd901e">Ship::setDamage</a></div><div class="ttdeci">void setDamage(int newDamage)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:64</div></div>
+<div class="ttc" id="aclass_ship_html_a5c36a859d4600ba27c091fa9254faadd"><div class="ttname"><a href="class_ship.html#a5c36a859d4600ba27c091fa9254faadd">Ship::getLength</a></div><div class="ttdeci">int getLength() const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:33</div></div>
+<div class="ttc" id="aclass_ship_html_a0381322d64bcf39796f43c4ad078a0a2"><div class="ttname"><a href="class_ship.html#a0381322d64bcf39796f43c4ad078a0a2">Ship::addDamage</a></div><div class="ttdeci">void addDamage()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:54</div></div>
+<div class="ttc" id="aclass_ship_html_ab2b947630faed5698a566463ec6d6f8b"><div class="ttname"><a href="class_ship.html#ab2b947630faed5698a566463ec6d6f8b">Ship::setCoordinate</a></div><div class="ttdeci">void setCoordinate(std::string coordinate, int index)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:38</div></div>
 <div class="ttc" id="aclass_ship_html"><div class="ttname"><a href="class_ship.html">Ship</a></div><div class="ttdef"><b>Definition:</b> Ship.h:24</div></div>
-<div class="ttc" id="aclass_ship_html_a1ac6b66776e15aa681922c487d12a9a1"><div class="ttname"><a href="class_ship.html#a1ac6b66776e15aa681922c487d12a9a1">Ship::getDamage</a></div><div class="ttdeci">int getDamage() const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:60</div></div>
-<div class="ttc" id="aclass_ship_html_aa99bcdfdfbf72412ef6f46bf35764bdd"><div class="ttname"><a href="class_ship.html#aa99bcdfdfbf72412ef6f46bf35764bdd">Ship::setLength</a></div><div class="ttdeci">void setLength(int length)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:29</div></div>
-<div class="ttc" id="aclass_ship_html_a43cd6eeaffc11b49239b091621963a65"><div class="ttname"><a href="class_ship.html#a43cd6eeaffc11b49239b091621963a65">Ship::~Ship</a></div><div class="ttdeci">~Ship()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:50</div></div>
-<div class="ttc" id="aclass_ship_html_a34cbc315fd6d44a3cc0c03f34bc4db3c"><div class="ttname"><a href="class_ship.html#a34cbc315fd6d44a3cc0c03f34bc4db3c">Ship::isSunk</a></div><div class="ttdeci">bool isSunk()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:70</div></div>
+<div class="ttc" id="aclass_ship_html_a1ac6b66776e15aa681922c487d12a9a1"><div class="ttname"><a href="class_ship.html#a1ac6b66776e15aa681922c487d12a9a1">Ship::getDamage</a></div><div class="ttdeci">int getDamage() const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:59</div></div>
+<div class="ttc" id="aclass_ship_html_aa99bcdfdfbf72412ef6f46bf35764bdd"><div class="ttname"><a href="class_ship.html#aa99bcdfdfbf72412ef6f46bf35764bdd">Ship::setLength</a></div><div class="ttdeci">void setLength(int length)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:28</div></div>
+<div class="ttc" id="aclass_ship_html_a43cd6eeaffc11b49239b091621963a65"><div class="ttname"><a href="class_ship.html#a43cd6eeaffc11b49239b091621963a65">Ship::~Ship</a></div><div class="ttdeci">~Ship()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:49</div></div>
+<div class="ttc" id="aclass_ship_html_a34cbc315fd6d44a3cc0c03f34bc4db3c"><div class="ttname"><a href="class_ship.html#a34cbc315fd6d44a3cc0c03f34bc4db3c">Ship::isSunk</a></div><div class="ttdeci">bool isSunk()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:69</div></div>
 <div class="ttc" id="aclass_ship_html_a5fbc487451eeab25d10e489338322cdf"><div class="ttname"><a href="class_ship.html#a5fbc487451eeab25d10e489338322cdf">Ship::createShip</a></div><div class="ttdeci">void createShip(int length)</div><div class="ttdef"><b>Definition:</b> Ship.cpp:15</div></div>
 <div class="ttc" id="aclass_ship_html_ab7608fcfc4d27c678aacaf9bfd68a462"><div class="ttname"><a href="class_ship.html#ab7608fcfc4d27c678aacaf9bfd68a462">Ship::Ship</a></div><div class="ttdeci">Ship()</div><div class="ttdef"><b>Definition:</b> Ship.cpp:21</div></div>
-<div class="ttc" id="aclass_ship_html_a563f0674311cd2ddc6d5b3f3ea99b589"><div class="ttname"><a href="class_ship.html#a563f0674311cd2ddc6d5b3f3ea99b589">Ship::getCoordinate</a></div><div class="ttdeci">std::string getCoordinate(int index) const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:45</div></div>
+<div class="ttc" id="aclass_ship_html_a563f0674311cd2ddc6d5b3f3ea99b589"><div class="ttname"><a href="class_ship.html#a563f0674311cd2ddc6d5b3f3ea99b589">Ship::getCoordinate</a></div><div class="ttdeci">std::string getCoordinate(int index) const</div><div class="ttdef"><b>Definition:</b> Ship.cpp:44</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

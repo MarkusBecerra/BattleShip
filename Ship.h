@@ -43,9 +43,6 @@ public:
   */
   void createShip(int length);
 
-  //void createShip(int length, int shipNumber);
-  //bool ConsecutiveCoordinates(int index) I DONT THINK WE NEED THIS
-
   /**
   *	private member variable helper function
   * @pre coordinates must within Boundary
