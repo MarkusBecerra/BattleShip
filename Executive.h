@@ -16,7 +16,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "Player.h"
+#include "Player.h"		//include player to utilize player objects
 
 /**
  * The Executive class controls the game

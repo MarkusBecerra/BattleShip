@@ -11,11 +11,11 @@
 */
 
 #include <iostream>
-#include "Executive.h"
+#include "Executive.h"			//include executive for game functions
 
 int main()
 {
-	std::cout << "BattleShip!\n";
-	Executive exec;
-	return 0;
+	std::cout << "Welcome to BattleShip!\n";		//print welcome message
+	Executive exec;	//create executive object to utilize all game functions
+	return 0;				//exit program
 }
