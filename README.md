@@ -154,18 +154,18 @@ Agenda:\
 
 
 # Unfinished Features:
-We had a lot features that we wanted to add into our games at the second meeting, here is some of them:
-&nbsp;&nbsp;&nbsp;1)	Player name customization 
-&nbsp;&nbsp;&nbsp;2)	Different colors for each ship
+We had a lot features that we wanted to add into our games at the second meeting, here is some of them:\
+&nbsp;&nbsp;&nbsp;1)	Player name customization\
+&nbsp;&nbsp;&nbsp;2)	Different colors for each ship\
 &nbsp;&nbsp;&nbsp;3)	Play again feature for after a player wins
 
 # Features to be added after demo
-Features we knew we would not have time for, but would gladly implement after due date:
-&nbsp;&nbsp;&nbsp;1)	We wanted to add sound effect to ship actions
-&nbsp;&nbsp;&nbsp;2)	Player can control their ships with WASD
-&nbsp;&nbsp;&nbsp;3)	High score output file for lowest turns to win per game mode
-&nbsp;&nbsp;&nbsp;4)	Turn timer to make players choose quickly
-&nbsp;&nbsp;&nbsp;5)	Game mode for having another turn each time you successfully hit a ship
+Features we knew we would not have time for, but would gladly implement after due date:\
+&nbsp;&nbsp;&nbsp;1)	We wanted to add sound effect to ship actions\
+&nbsp;&nbsp;&nbsp;2)	Player can control their ships with WASD\
+&nbsp;&nbsp;&nbsp;3)	High score output file for lowest turns to win per game mode\
+&nbsp;&nbsp;&nbsp;4)	Turn timer to make players choose quickly\
+&nbsp;&nbsp;&nbsp;5)	Game mode for having another turn each time you successfully hit a ship\
 &nbsp;&nbsp;&nbsp;6)	VS Computer mode
 
 
