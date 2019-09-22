@@ -121,7 +121,7 @@ void Executive::game()
 
 					if(guess.length() != 2)
 					{
-						std::cout << "Invalid coordinate! Try again.\n";
+						std::cout << "Invalid coordinate! Try again.\n"; //error if user inputs a string which length is not 2
 					}
 
 				}
@@ -129,7 +129,7 @@ void Executive::game()
 				{
 					player_2->getBoard()->printShotBoard();
 					player_2->getBoard()->printMyBoard();
-					std::cout <<"Player 2: Where would you like to shoot: ";
+					std::cout <<"Player 2: Where would you like to shoot: "; //print player's board and opponent's board and ask for user a location to shoot
 
 					std::getline(std::cin, guess);
 
@@ -138,13 +138,13 @@ void Executive::game()
 
 					if(guess.length() != 2)
 					{
-						std::cout << "Invalid coordinate! Try again.\n";
+						std::cout << "Invalid coordinate! Try again.\n";//error if user inputs a string which length is not 2
 					}
 
 				}
 			}
 
-			shoot(guess);
+			shoot(guess); //shoot the location as user demand
 
 			if(m_player_1Turn % 2 == 1 && !m_gameOver) //if it is player 1's turn
 			{
@@ -153,7 +153,7 @@ void Executive::game()
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
 
-				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: ";
+				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: "; //print the board for checking hit or not and hit eneter for next player's turn
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //get rid of user's ramdon input to crash the game
 
 				player_1->getBoard()->printIntermission();
@@ -164,7 +164,7 @@ void Executive::game()
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
 
-				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";
+				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";//print the board for checking hit or not and hit eneter for next player's turn
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //get rid of user's ramdon input to crash the game
 
 				player_2->getBoard()->printIntermission();
@@ -203,8 +203,8 @@ void Executive::shoot(std::string location)
 
 	if(m_player_1Turn % 2 == 1)
 	{
-		hit = player_2->gettingShot(location);
-		player_1->shooting(location,hit);
+		hit = player_2->gettingShot(location); //check player_2 has a ship at the location or not
+		player_1->shooting(location,hit); //update hit marker for player_1
 
 		for(int i=0;i<numberOfShips;i++)	//checks for game over
 		{
@@ -223,8 +223,8 @@ void Executive::shoot(std::string location)
 	}
 	else
 	{
-		hit = player_1->gettingShot(location);
-		player_2->shooting(location,hit);
+		hit = player_1->gettingShot(location); //check player_1 has a ship at the location or not
+		player_2->shooting(location,hit); //update hit marker for player_2
 
 		for(int i=0;i<numberOfShips;i++)	//checks for game over
 		{
