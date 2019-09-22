@@ -14,33 +14,15 @@
 #include <sstream>
 #include <limits>
 
-// Board::Board()
-// {
-// 	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
-// 	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
-// 	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
-// 	ship = "\033[1;32m∆\033[0m";
-//
-// 	for (int i=0; i<8; i++)
-// 	{
-// 		for(int j=0; j<8; j++)
-// 		{
-// 			myBoard[i][j] = blueTilde;
-// 			shotBoard[i][j] = blueTilde;
-// 		}
-// 	}
-//
-// }
-
 Board::Board(int shipnum)
 {
-	numberOfShips = shipnum;
-	blueTilde = "\033[1;36m~\033[0m"; //CITATION NEEDED
-	redHit = "\033[1;31mX\033[0m";	//CITATION NEEDED
-	whiteMiss = "\033[1;37mO\033[0m";	//CITATION NEEDED
-	ship = "\033[1;32m∆\033[0m";
+	numberOfShips = shipnum;	//the number of ships per player.
+	blueTilde = "\033[1;36m~\033[0m";	//sets the color of ~ to blue
+	redHit = "\033[1;31mX\033[0m";	//sets the color of X to red
+	whiteMiss = "\033[1;37mO\033[0m";		//sets the color of O to white
+	ship = "\033[1;32m∆\033[0m";	//sets the color of ship (∆) to green
 
-	for (int i=0; i<8; i++)
+	for (int i=0; i<8; i++)	//initializes myBoard and shotBoard to a grid of just blueTildes (aka water)
 	{
 		for(int j=0; j<8; j++)
 		{
@@ -50,27 +32,27 @@ Board::Board(int shipnum)
 	}
 }
 
-Board::~Board()
+Board::~Board()	//destructor to delete m_ship
 {
 	delete[] m_ship;
 }
 
-void Board::printShotBoard()
+void Board::printShotBoard()	//prints the current player's view of their opponents side. Aka what they are shooting at
 {
 	std::cout << "\n\t\t\tYour opponent's board\n";
 	std::cout << '\t';
 	for(int i=0;i<8;i++)
   {
-    std::cout << m_rowNames[i] << "\t";
+    std::cout << m_rowNames[i] << "\t";	//prints the column names (A-H)
   }
 std::cout << "\n";
 
   for(int i=0;i<8;i++)
   {
-		std::cout << i+1;
+		std::cout << i+1;	//prints the row names (1-8)
 		for(int j=0;j<8;j++)
 		{
-			std::cout << "\t" << shotBoard[i][j];
+			std::cout << "\t" << shotBoard[i][j];	//prints the elements of the board
 		}
 		if(i != 7)
 		{
@@ -78,28 +60,28 @@ std::cout << "\n";
 		}
 		else
 		{
-			std::cout << "\n\n"; //prints only one newline instead of three to conserve space
+			std::cout << "\n\n"; //prints only two newlines instead of three to conserve space
 		}
   }
 }
 
-void Board::printMyBoard()
+void Board::printMyBoard()	//prints the current player's board
 {
 	std::cout << "\t\t\tYour board\n";
 	std::cout << "\t";
 
 	for(int i=0;i<8;i++)
 	{
-		std::cout << m_rowNames[i] << "\t";
+		std::cout << m_rowNames[i] << "\t";	//prints the column names (A-H)
 	}
 	std::cout << "\n";
 
 	for(int i=0;i<8;i++)
 	{
-		std::cout << i+1;
+		std::cout << i+1;	//prints the row names (1-8)
 		for(int j=0;j<8;j++)
 		{
-			std::cout << "\t" << myBoard[i][j];
+			std::cout << "\t" << myBoard[i][j];	//prints the elements of the board
 		}
 		if(i<8)	//used to reduce whitespace between end of board and next game message
 		{
@@ -112,59 +94,59 @@ void Board::printMyBoard()
 	}
 }
 
-void Board::printIntermission()
+void Board::printIntermission()	//prints the intermission screen so player's can swap turns
 {
 	for(int i=0;i<40;i++)
 	{
-		std::cout << "\n\n\n\n\n\n";
+		std::cout << "\n\n\n\n\n\n";	//prints a lot of newlines to add blank space so that player's can swap turns without seeing each other's boards
 	}
 	std::cout << "When ready, please press Enter: ";
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');	//takes in input of the user, basically ignoring any input so that the user can type anything
 }
 
-bool Board::updateMyBoard(std::string userGuess)
+bool Board::updateMyBoard(std::string userGuess)	//updates the current player's board
 {
-	guessConversion(userGuess);
-	std::string location = myBoard[m_rowIndex][m_columnIndex];
-	if(location == blueTilde)
+	guessConversion(userGuess);	//updates m_rowIndex and m_columnIndex based on userGuess
+	std::string location = myBoard[m_rowIndex][m_columnIndex];	//sets the location to the current element in the index that the player got shot at
+	if(location == blueTilde)	//if the location is a blueTilde (aka water), then it becomes a miss
 	{
 		myBoard[m_rowIndex][m_columnIndex] = whiteMiss;
 	}
-	else if(location == ship)
+	else if(location == ship)	//if the location is a ship, then we set that element to a redHit
 	{
 		myBoard[m_rowIndex][m_columnIndex] = redHit;
-		for(int i = 0; i < numberOfShips; i++)
+		for(int i = 0; i < numberOfShips; i++)	//searches through each ship, at the length of each ship, until it finds the correct index holding the userGuess location
 		{
 			for(int j = 0; j < m_ship[i].getLength(); j++)
 			{
 				if(m_ship[i].getCoordinate(j) == userGuess)
 				{
-					m_ship[i].addDamage();
-					if(m_ship[i].isSunk())	//make sure to add if statement here checking if the ship is sunk.
+					m_ship[i].addDamage();	//add damage counter to that ship
+					if(m_ship[i].isSunk())	//then, we check if it has an amount of damage counters equal to its length, meaning it has been sunk
 					{
-						std::cout << "BATTLESHIP SUNK!!!\n";
+						std::cout << "BATTLESHIP SUNK!!!\n";	//prints that the ship has been sunk
 					}
-					break;
+					break;	//we can break since we found the indices of the userGuess location ship
 				}
 			}
 		}
-		return true;
+		return true;	//return true because a ship was hit
 	}
-	else if(location == redHit || location == whiteMiss)
+	else if(location == redHit || location == whiteMiss)	//if the user guesses a location already shot at before, we prompt them to try again
 	{
 		throw(std::runtime_error("You already shot at this location! Try again."));
 	}
-	return false;
+	return false;	//if there were no hits, then this runs and we return false because it was a miss
 }
 
-void Board::updateShotBoard(std::string userGuess, bool wasHit)
+void Board::updateShotBoard(std::string userGuess, bool wasHit)	//takes in the userGuess and a bool wasHit
 {
-	guessConversion(userGuess);
-	if(wasHit)
+	guessConversion(userGuess);	//calls guess conversion to get back the correct indices based on userGuess
+	if(wasHit)	//if that location was hit, then we changed it to a redHit
 	{
 		shotBoard[m_rowIndex][m_columnIndex] = redHit;
 	}
-	else
+	else	//if that location was a miss, we change it to whiteMiss
 	{
 		shotBoard[m_rowIndex][m_columnIndex] = whiteMiss;
 	}
@@ -173,8 +155,7 @@ void Board::updateShotBoard(std::string userGuess, bool wasHit)
 //assumes userGuess is within boundary since that is checked first
 void Board::guessConversion(std::string userGuess) //converts userGuess to two indices and updates member variables m_rowIndex and m_columnIndex with those indices
 {
-	// std::cout << "guess: " << userGuess << "\n";
-	if(userGuess.length() != 2)
+	if(userGuess.length() != 2)	//if userGuess is not a string of length 2, we instantly return because it cannot be a valid input
 	{
 		return;
 	}
@@ -182,9 +163,11 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 	{
 	for(unsigned int i=0;i<m_rowNames.length();i++)	//had to make i an unsigned int since m_rowNames.length() returns an unsigned in as well
 	{
-		if(userGuess.at(0) == m_rowNames.at(i) ||userGuess.at(0) == (tolower(m_rowNames.at(i))))
+		if(userGuess.at(0) == m_rowNames.at(i) ||userGuess.at(0) == (tolower(m_rowNames.at(i))))	//compares the first char in userGuess to every element in m_rowNames,
+																																															//which is "ABCDEFGH" until it matches one, and returns that index.
+																																															//it also compares it to the tolower version, so "abcdefgh"
 		{
-			m_columnIndex = i;
+			m_columnIndex = i;	//sets m_columnIndex to the correct index, and then breaks out since we do not need to scan through m_rowNames anymore
 			break;
 		}
 		else
@@ -197,114 +180,112 @@ void Board::guessConversion(std::string userGuess) //converts userGuess to two i
 	}
 }
 
-	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract '0' to convert it from the ASCII value to the proper decimal value. citation needed
+	int temp = userGuess.at(1) - '0'; //sets temp to the index the user typed. We subtract '0' to convert it from the ASCII value to the proper decimal value. In works cited
 
 	m_rowIndex = temp - 1; //sets it to the column the user wants, but subtracts 1 to get the proper index
-	// std::cout << "column: " << m_columnIndex << " row: " << m_rowIndex << "\n";
+
 }
 
-bool Board::withinBoundary(std::string userGuess) //a check for valid input still needs to be made, either here or where the user inputs the guess
+bool Board::withinBoundary(std::string userGuess) //returns true if userGuess is within bounds of the board, false if not
 {
-	if(userGuess.length() != 2)
+	if(userGuess.length() != 2)	//checks that the userGuess was length 2. If not, returns false immediately
 		{
 			return false;
 		}
 		else
 		{
-			guessConversion(userGuess);
+			guessConversion(userGuess);	//takes in userGuess and sets the indices based on that guess
 			if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
 			{
-				return true;
+				return true;	//if the indices are within the bounds of our board, we return true
 			}
 			else
 			{
-				return false;
+				return false;	//otherwise, we return false
 			}
 		}
 }
 
-bool Board::noHorizontalCollision(std::string userGuess, int shipLength)
+bool Board::noHorizontalCollision(std::string userGuess, int shipLength)	//returns true if the userGuess location will not cause any horizontal ship collision or out of bounds errors
 {
-	guessConversion(userGuess);
-	for(int i = 0; i < shipLength; i++) //Add try catch block friends!
+	guessConversion(userGuess);	//updates m_rowIndex and m_columnIndex based on userGuess
+	for(int i = 0; i < shipLength; i++)
  {
-	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex + i && m_columnIndex + i <= 7))
+	if((0 <= m_rowIndex && m_rowIndex <= 7) && (0 <= m_columnIndex + i && m_columnIndex + i <= 7))	//checks that all the next right indices are within the bounds
 		{
-		if(myBoard[m_rowIndex][m_columnIndex + i] != blueTilde)
+		if(myBoard[m_rowIndex][m_columnIndex + i] != blueTilde)	//returns false if at any time the next right indices are not blueTildes
 			{
 			return false;
 			}
 		}
 	else
 	{
-		return false;
+		return false;	//returns false if any of the right indices are out of bounds
 	}
-	//return true;
  }
- return true;
+ return true;	//returns true since all the false checks were not hit, so there is no collision that would happen
 }
 
-bool Board::noVerticalCollision(std::string userGuess, int shipLength)
+bool Board::noVerticalCollision(std::string userGuess, int shipLength)	//returns true if the userGuess location will not cause any vertical ship collison or out of bounds errors
 {
-	guessConversion(userGuess);
-	for(int i = 0; i < shipLength; i++) //Add try catch block friends!
+	guessConversion(userGuess);	//updates m_rowIndex and m_columnIndex based on userGuess
+	for(int i = 0; i < shipLength; i++)
  {
-	if((0 <= m_rowIndex + i && m_rowIndex + i <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))
+	if((0 <= m_rowIndex + i && m_rowIndex + i <= 7) && (0 <= m_columnIndex && m_columnIndex <= 7))	//checks that all the next below indices are within bounds
 		{
-		if(myBoard[m_rowIndex + i][m_columnIndex] != blueTilde)
+		if(myBoard[m_rowIndex + i][m_columnIndex] != blueTilde)	//returns false if at any time the next below indices are not blueTildes
 			{
 			return false;
 			}
 		}
 	else
 	{
-		return false;
+		return false;	//returns false if any of the below indices are out of bounds
 	}
-	//return true;
  }
- return true;
+ return true;	//returns true since all the false checks were not hit, so there is no collision that would happen
 }
 
-void Board::setupBoard()
+void Board::setupBoard()	//sets up the board
 {
-	std::string userGuess;
-	std::string userDirection;	//("H" or "V") horizontal or vertical ship placement
+	std::string userGuess;	//used to take in the user's location
+	std::string userDirection;	//("H" or "h" or "V" or "v") horizontal or vertical ship placement
 	bool validLocation = false;	//used to keep asking for valid location if still false
 	std::string temp; 		//used for ascii conversion
-	bool HorV = false; //gets set to true if the user types
+	bool HorV = false; //gets set to true if the user types "H" or "h" or "V" or "v"
 
-	m_ship =  new Ship[numberOfShips];
-	for(int i = 0; i < numberOfShips; i++)		//TODO, MAKE SURE THAT IF THEY TYPE B11, IT DOESN'T JUST GO TO B1
+	m_ship =  new Ship[numberOfShips];	//creates an array of Ship objects, the amount is the number of ships
+	for(int i = 0; i < numberOfShips; i++)
 	{
-		m_ship[i].createShip(i+1);
-		if(m_ship[i].getLength() == 1)
+		m_ship[i].createShip(i+1);	//creates a ship at each index, of which the size corresponds to the index +1 (eg. index 0 houses ship of length 1, index 1 houses ship of length 2)
+		if(m_ship[i].getLength() == 1)	//if the ship is length 1, we do not need to do horizontal or vertical collision checks, so we just ask where to place it
 		{
-			userGuess = " ";
+			userGuess = " ";	//reinitialize userGuess
 
 				do {
-					printMyBoard();
+					printMyBoard();	//prints the user's board s they can see where to place the ship
 					std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
-					std::getline(std::cin, userGuess);
+					std::getline(std::cin, userGuess);	//takes in the user's input
 
-					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper); //converts guess to uppercase
+					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper); //converts guess to uppercase so that it is always passed in consistently
 
-					if(!withinBoundary(userGuess))
+					if(!withinBoundary(userGuess))	//if that location is not within the boundary, we tell them to try again
 					{
 						std::cout << "Invalid coordinate! Try again.\n";
 					}
 
-				} while(!withinBoundary(userGuess));
+				} while(!withinBoundary(userGuess));	//runs until the user's guess is within the boundary
 
-					myBoard[m_rowIndex][m_columnIndex] = ship;
-					m_ship[i].setCoordinate(userGuess, 0);
-					printMyBoard();
+					myBoard[m_rowIndex][m_columnIndex] = ship;	//sets the user's guess location to a ship
+					m_ship[i].setCoordinate(userGuess, 0);	//sets the element in the m_ship array to the location string (eg. "A1", "B4"), and passes in the index as 0
+					printMyBoard();	//prints the newly updated board
 
 
 		}
 		else
 		{
 			std::cout<<"HORIZONTAL(H/h) OR VERTICAL(V/v) orientation for this ship of size " <<i+1 <<": ";
-			std::getline(std::cin, userDirection);
+			std::getline(std::cin, userDirection);	//takes in the user input of horizontal or vertical
 
 			do
 			{
@@ -320,30 +301,31 @@ void Board::setupBoard()
 
 					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
 
-					// std::cin>>userGuess;
-
-					while(validLocation == false)
+					while(validLocation == false)	//runs until the location is valid
 					{
 
-						if(noHorizontalCollision(userGuess,i+1))
+						if(noHorizontalCollision(userGuess,i+1))	//checks for no horizontal collion, passing in the location and current ship length
 						{
 							guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
-							temp = userGuess;
+							temp = userGuess;	//used to store and manipulate userGuess without changing userGuess
+
 							for(int j = 0; j < m_ship[i].getLength(); j++ )
 							{
-								myBoard[m_rowIndex][m_columnIndex+j] = ship;
+								myBoard[m_rowIndex][m_columnIndex+j] = ship;	//sets the horizontal locations to a ship
 								m_ship[i].setCoordinate(temp, j);
-								temp[0] = temp.at(0) + 1;
+								temp[0] = temp.at(0) + 1;	//sets the first value of temp (which is a copy of userGuess) to the next consecutive alphabetical value, using ASCII math
+																					//for example, if temp is "A1" then temp[0] = 'A', and temp.at(0) = 'A'. temp.at(0) + 1 is 'A' + 1, which returns 'B'
+																					//so, when then override temp[0] to B, hence traversing the columns
 
 							}
-							printMyBoard();
+							printMyBoard();	//prints the updated board
 
-							validLocation = true;
+							validLocation = true;	//sets valid location to true to help break out of loop
 							HorV = true;	//true to kick out of while loop
 						}
-						else
+						else	//if the input was not "H" or "h"
 						{
-							printMyBoard();
+							printMyBoard();	//prints the board again and asks the user to try again
 							std::cout << "Invalid location. Try again!\n";
 							std::cout<<"Where would you like the head of this ship to be (The left most coordinate)? ";
 
@@ -351,7 +333,6 @@ void Board::setupBoard()
 
 							std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
 
-							// std::cin>>userGuess;
 						}
 					}
 
@@ -366,29 +347,30 @@ void Board::setupBoard()
 
 					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
 
-					// std::cin>>userGuess;
 
 					while(validLocation == false)
 					{
 						if(noVerticalCollision(userGuess,i+1))
 						{
 							guessConversion(userGuess); //pushing two int indexes back to orignal spot of user guess
-							temp = userGuess;
+							temp = userGuess;	//used to store and manipulate userGuess without changing userGuess
 							for(int j = 0; j < m_ship[i].getLength(); j++ )
 							{
 								myBoard[m_rowIndex+j][m_columnIndex] = ship;
 								m_ship[i].setCoordinate(temp, j);
-								temp[1] = temp.at(1) + 1;
+								temp[1] = temp.at(1) + 1;	//sets the second value of temp (which is a copy of userGuess) to the next consecutive numberical value
+																					//for example, if temp is "A1" then temp[1] = '1', and temp.at(1) = '1'. temp.at(1) + 1 is '1' + 1, which returns '2'
+																					//so, when then override temp[1] to 2, hence traversing the rows
 
 							}
-							printMyBoard();
+							printMyBoard();	//prints the updated board
 
-							validLocation = true;
+							validLocation = true;	//sets valid location to true to help break out of loop
 							HorV = true;	//true to kick out of while loop
 						}
 						else
 						{
-							printMyBoard();
+							printMyBoard();	//prints the updated board again and asks the user to try again
 							std::cout << "Invalid location. Try again!\n";
 							std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
 
@@ -396,18 +378,17 @@ void Board::setupBoard()
 
 							std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
 
-							// std::cin>>userGuess;
 						}
 					}
 				}
-				else
+				else	//if the input was not "V" or "v"
 				{
 					std::cout << "Invalid Direction. Try again!\n";
-					printMyBoard();
+					printMyBoard();	//prints the board again so that the user can try again
 					std::cout<<"HORIZONTAL(H/h) OR VERTICAL(V/v) orientation for this ship of size " <<i+1 <<": ";
 					std::getline(std::cin, userDirection);
 				}
-			}while(!HorV);
+			}while(!HorV);	//runs until the user has inputed "H" or "h" or "V" or "v". Also, there are checks to insure that the location was valid first as well, before getting to this point
 
 
 		}
@@ -415,24 +396,24 @@ void Board::setupBoard()
 	}
 	std::cout << "Press Enter to go to the next Player's turn: ";
 
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //NEEDS WORKS CITED CITATION NEEDED
-	printIntermission();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //basically lets the user type in anything, ignoring their input
+	printIntermission();	//prints the intermission screen
 
 
 
 }
 
-void Board::setNumberofShips(int shipnum)
+void Board::setNumberofShips(int shipnum)	//sets the number of ships
 {
 	numberOfShips = shipnum;
 }
 
-int Board::getNumberofShips() const
+int Board::getNumberofShips() const	//returns the number of ships
 {
 	return numberOfShips;
 }
 
-Ship* Board::getShip() const
+Ship* Board::getShip() const	//returns m_ship
 {
 	return m_ship;
 }

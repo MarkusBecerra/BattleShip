@@ -17,6 +17,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "Ship.h"
+#include "algorithm"
 
 /**
  * The Board class represents a general game board
