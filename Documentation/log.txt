@@ -87,7 +87,7 @@ Agenda:
 *Completed game over functionality
 *Add input verification for coordinates
 
-Meeting 12
+Meeting 12:
 09/21/2019 @ 3:00PM to 6:13PM
 Location: LEEP2
 Chance, Markus
@@ -97,8 +97,14 @@ Agenda:
 *Fixed output placement
 *Added some features
 
-Meeting 13
+Meeting 13:
 09/21/2019 @ 6:13PM to 7:13PM
 Location: Eaton
 Agenda:
 *Checked Valgrind and fixed ALL MEMORY LEAKS AND ERRORS
+
+Meeting 14:
+09/22/2019 @ 2::00PM to PM
+Location: Eaton 1005C
+Agenda:
+*Commenting all the cpp files for code readability
