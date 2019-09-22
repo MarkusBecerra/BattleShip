@@ -135,7 +135,7 @@ Agenda:\
 Location: Leep2 common area\
 all in attendance\
 Agenda:\
-* double checking Retrospective write-up
+*double checking Retrospective write-up
 
 
 # Work Distribution:
