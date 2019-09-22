@@ -16,14 +16,14 @@ Team Members:
 	Thomas Gardner
 
 
-# Group Meeting log:\
+# Group Meeting log:
 # Meeting 1:
 09/06/2019 @ 11:47AM to 11:50AM\
 Location: Eaton 2\
 All in attendance.\
 Agenda:\
 *Chose C++ as language for project.\
-*Set next meeting date.\
+*Set next meeting date.
 
 # Meeting 2:
 09/07/2019 @ 2:40PM to 3:30PM\
@@ -33,7 +33,7 @@ Agenda:\
 *Brainstorming\
 *Ran through simulation\
 *Started Class Creation (pseudocode)\
-*Set up potential next meeting.\
+*Set up potential next meeting.
 
 # Meeting 3:
 09/09/2019 @11:40AM to 11:50AM\
@@ -41,21 +41,21 @@ Location: Eaton Lawr2\
 All in attendance\
 Agenda:\
 *Discussed changes we made since last meeting\
-*Planned to meet in lab in two days\
+*Planned to meet in lab in two days
 
 # Meeting 4:
 09/11/2019 @ 9AM to 10:50AM\
 Location: Eaton Hall in a Lab Room\
 All in attendance\
 Agenda:\
-*Created Board and Player classes\
+*Created Board and Player classes
 
 # Meeting 5:
 09/13/2019 11:30AM to 11:50AM\
 Location: Eaton Lawr2\
 All in attendance.\
 Agenda:\
-*Discussed when to meet next and what to focus on\
+*Discussed when to meet next and what to focus on
 
 # Meeting 6:
 09/14/2019 @ 2:30PM to 4:00PM\
@@ -64,7 +64,7 @@ All in attendance.\
 Agenda:\
 *Outlined classes and their functions\
 *Added class functions\
-*Mapped out the flow of the program, step by step\
+*Mapped out the flow of the program, step by step
 
 # Meeting 7:
 09/16/2019 @ 4:00 PM to 6:00PM\
@@ -72,7 +72,7 @@ Location: LEEP2 1322\
 Haonan and Chance\
 Agenda:\
 *try and catch implementation\
-*Get the board operating without ships\
+*Get the board operating without ships
 
 # Meeting 8:
 09/18/2019 @ 9:00AM to 10:50AM\
@@ -81,7 +81,7 @@ All in attendance\
 Agenda:\
 *Everyone works on Ship set up together\
 *Now ships can be correctly placed on the board\
-*Some methods left in Ship class need be defined(*****Important*****)\
+*Some methods left in Ship class need be defined(*****Important*****)
 
 # Meeting 9:
 09/20/2019 @ 10:00AM to 11:00AM\
@@ -89,7 +89,7 @@ Location: Eaton 1005A\
 Chance, Thomas, Sarah, Markus\
 Agenda:\
 *Worked on input verification\
-*Worked on ship class keeping track of destroyed ships\
+*Worked on ship class keeping track of destroyed ships
 
 # Meeting 10:
 09/20/2019 @ 12:00PM to 2:00PM\
@@ -97,7 +97,7 @@ Location: LEEP2\
 Chance, Thomas\
 Agenda:\
 *Worked on damage counter and game over\
-*Boat verification input\
+*Boat verification input
 
 # Meeting 11:
 09/20/2019 @ 4:10PM to 5:30PM\
@@ -105,7 +105,7 @@ Location: LEEP2\
 Chance, Thomas\
 Agenda:\
 *Completed game over functionality\
-*Add input verification for coordinates\
+*Add input verification for coordinates
 
 # Meeting 12:
 09/21/2019 @ 3:00PM to 6:13PM\
@@ -115,27 +115,27 @@ Agenda:\
 *Fixed existing bugs\
 *Fixed newly created bugs\
 *Fixed output placement\
-*Added some features\
+*Added some features
 
 # Meeting 13:
 09/21/2019 @ 6:13PM to 7:13PM\
 Location: Eaton\
 Agenda:\
-*Checked Valgrind and fixed ALL MEMORY LEAKS AND ERRORS\
+*Checked Valgrind and fixed ALL MEMORY LEAKS AND ERRORS
 
 # Meeting 14:
 09/22/2019 @ 2:00PM to 16:30PM\
 Location: Eaton 1005C\
 Chance,Haonan,Thomas\
 Agenda:\
-*Commenting all the cpp files for code readability\
+*Commenting all the cpp files for code readability
 
 # Meeting 15:
 09/22/2019 @ 17:00PM to 18:00PM\
 Location: Leep2 common area\
 all in attendance\
 Agenda:\
-* double checking Retrospective write-up\
+* double checking Retrospective write-up
 
 
 # Work Distribution:
