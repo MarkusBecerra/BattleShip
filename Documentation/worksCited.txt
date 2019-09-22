@@ -2,3 +2,4 @@
 https://stackoverflow.com/questions/903221/press-enter-to-continue
 https://stackoverflow.com/questions/2616906/how-do-i-output-coloured-text-to-a-linux-terminal
 https://stackoverflow.com/questions/5029840/convert-char-to-int-in-c-and-c
+https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case

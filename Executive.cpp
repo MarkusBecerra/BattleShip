@@ -13,6 +13,7 @@
 
 #include "Executive.h"
 #include <limits>
+#include "algorithm" //for toupper
 
 int Executive::boatCheck() // will return numOfBoats when valid
 {
@@ -114,6 +115,10 @@ void Executive::game()
 
 					std::getline(std::cin, guess);
 
+					std::transform(guess.begin(), guess.end(),guess.begin(), ::toupper);	//converts guess to uppercase
+
+std::cout << "guess: " << guess << "\n";
+
 					if(guess.length() != 2)
 					{
 						std::cout << "Invalid coordinate! Try again.\n";
@@ -127,6 +132,8 @@ void Executive::game()
 					std::cout <<"Player 2: Where would you like to shoot: ";
 
 					std::getline(std::cin, guess);
+
+					std::transform(guess.begin(), guess.end(),guess.begin(), ::toupper);	//converts guess to uppercase
 
 
 					if(guess.length() != 2)

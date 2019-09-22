@@ -286,6 +286,8 @@ void Board::setupBoard()
 					std::cout<<"Where would you like to place this ship of size 1? Enter your coordinate: ";
 					std::getline(std::cin, userGuess);
 
+					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper); //converts guess to uppercase
+
 					if(!withinBoundary(userGuess))
 					{
 						std::cout << "Invalid coordinate! Try again.\n";
@@ -316,6 +318,8 @@ void Board::setupBoard()
 
 					std::getline(std::cin, userGuess);
 
+					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
+
 					// std::cin>>userGuess;
 
 					while(validLocation == false)
@@ -345,6 +349,8 @@ void Board::setupBoard()
 
 							std::getline(std::cin, userGuess);
 
+							std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
+
 							// std::cin>>userGuess;
 						}
 					}
@@ -357,6 +363,8 @@ void Board::setupBoard()
 					std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
 
 					std::getline(std::cin, userGuess);
+
+					std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
 
 					// std::cin>>userGuess;
 
@@ -385,6 +393,8 @@ void Board::setupBoard()
 							std::cout<<"Where would you like the head of this ship to be (The top most coordinate)? ";
 
 							std::getline(std::cin, userGuess);
+
+							std::transform(userGuess.begin(), userGuess.end(),userGuess.begin(), ::toupper);	//converts guess to uppercase
 
 							// std::cin>>userGuess;
 						}
