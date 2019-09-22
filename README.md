@@ -194,4 +194,9 @@ https://stackoverflow.com/questions/735204/convert-a-string-in-c-to-upper-case
 
 Checking valid input with a string:
 http://www.cplusplus.com/reference/stdexcept/out_of_range/
-	
+
+Tab in Markdown for the README:
+https://stackoverflow.com/questions/6046263/how-to-indent-a-few-lines-in-markdown-markup/48273501
+
+Enter in Markdown for the README:
+https://gist.github.com/shaunlebron/746476e6e7a4d698b373
