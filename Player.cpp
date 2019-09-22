@@ -35,22 +35,19 @@ std::string Player::getRecentGuess() const
 
 void Player::shooting(std::string userGuess, bool hit)
 {
-	m_board->updateShotBoard(userGuess, hit);
+	m_board->updateShotBoard(userGuess, hit); //update the shot board after player shooting
 }
 
 bool Player::gettingShot(std::string userGuess)
 {
-	if(m_board->withinBoundary(userGuess))
+	if(m_board->withinBoundary(userGuess)) // check userGuess within boundary or not
 	{
-		return (m_board->updateMyBoard(userGuess));
-		//std::cout << "within boundary\n";
+		return (m_board->updateMyBoard(userGuess)); //updated player's board after get shot
 	}
 	else
 	{
 		throw(std::runtime_error("Out of Boundary! Try again.\n"));
 	}
-
-	// return (m_board->updateMyBoard(userGuess));
 
 }
 

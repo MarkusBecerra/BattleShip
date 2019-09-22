@@ -15,82 +15,82 @@
 #include <limits>
 #include "algorithm" //for toupper
 
-int Executive::boatCheck() // will return numOfBoats when valid
+int Executive::boatCheck() //will return numOfBoats when valid
 {
-	int numOfBoats = 0;
-	std::string tempBoats = " ";
+	int numOfBoats = 0;						//declaring numberOfBoats
+	std::string tempBoats = " ";	//declaring tempBoats string for storing numOfBoats as a string
 
-	std::cout << "How many ships would you like to play with? (Choose 1-5): ";
+	std::cout << "How many ships would you like to play with? (Choose 1-5): ";		//prompt user for number of ships
 
 	try
 	{
-		std::getline(std::cin, tempBoats);
+		std::getline(std::cin, tempBoats);		//try block to gather the users desired number of boats in a getline
 	}
 
-	catch(std::out_of_range &ex)
+	catch(std::out_of_range &ex)		//catch out of range if the user just presses enter, or the getline fails another way
 	{
-		std::cout << "No input was recieved, please enter a number 1-5: \n";
-		return boatCheck();
+		std::cout << "No input was recieved, please enter a number 1-5: \n";		//print error message
+		return boatCheck();		//return the boatCheck function to get a new input for the number of boats desired
 	}
 
-	if(tempBoats.length() < 1 || tempBoats.length() > 1)
+	if(tempBoats.length() < 1 || tempBoats.length() > 1)		//check if the length of the string is NOT equal to one
 	{
-		std::cout << "Must be a one-digit number from 1-5!\n";
-		return boatCheck();
+		std::cout << "Must be a one-digit number from 1-5!\n";	//print error that the digit was greater than length 1
+		return boatCheck();		//return the boatCheck function to get a new input for the number of boats desired
 	}
 
-	else
+	else		//if the tempBoats length was equal to 1
 	{
-		numOfBoats = tempBoats.at(0) - '0';
+		numOfBoats = tempBoats.at(0) - '0';		//set numOfBoats integer equal to the first character of the tempBoats string
 
-		if(numOfBoats < 1 || numOfBoats > 5)
+		if(numOfBoats < 1 || numOfBoats > 5)		//if numOfBoats is not between one and five (inclusive)
 		{
-			std::cout << "Must be an integer from 1-5!\n";
-			return boatCheck();
+			std::cout << "Must be an integer from 1-5!\n";		//print error message that the number is out of the range
+			return boatCheck();		//return boatCheck function to get a new input for the number of boats desired
 		}
 
 		else
 		{
-			return numOfBoats;
+			return numOfBoats;		//if the number of boats is valid (1-5), return the integer itself
 		}
 	}
 
 }
 
-Executive::Executive()
+Executive::Executive()		//Executive constructor
 {
-	int numOfBoats = 0;
+	int numOfBoats = 0;		//int numOfBoats to store the number of boats
 
-	try
+	try		//DO WE NEED TRY CATCH HERE???!
 	{
-		numOfBoats = boatCheck();
+		numOfBoats = boatCheck();		//try block to set Executive constructor's numOfBoats to the value returned by boatCheck
 	}
 
-	catch(std::runtime_error &rte)
+	catch(std::runtime_error &rte)	//catch error if the function fails
 	{
-		std::cout << rte.what();
+		std::cout << "Invalid number of ships";		//print error message if the function fails
 	}
 
-	player_1 = new Player(numOfBoats);
-	player_2 = new Player(numOfBoats);
-	m_gameOver = false;
-	m_player_1Turn = 1;
+	player_1 = new Player(numOfBoats); 		//create player 1 object passing in the number of boats
+	player_2 = new Player(numOfBoats);		//create player 2 object passing in the number of boats
+	m_gameOver = false;			//m_gameOver member variable set to false at the beginning of the game
+	m_player_1Turn = 1;			//m_player_1Turn member boolean set to 1, game starts with player 1's turn
 
-	std::cout <<"\nPlayer 1 place your ships\n";
-	player_1 -> getBoard() -> setupBoard();
-	std::cout <<"\nPlayer 2 place your ships\n";
-	player_2 -> getBoard() -> setupBoard();
-	game();
+	std::cout <<"\nPlayer 1 place your ships\n";		//prompt player1 to place their ships
+	player_1 -> getBoard() -> setupBoard();					//call getBoard and setupBoard from board.cpp to create the two boards for player1
+	std::cout <<"\nPlayer 2 place your ships\n";		//promt player2 to place their ships
+	player_2 -> getBoard() -> setupBoard();					//call getBoard and setupBoard from board.cpp to create the two boards for player2
+	game();		//call Executive game function to start the game once both players have set up their boards
 
 }
 
-Executive::~Executive()
+Executive::~Executive()		//Executive destructor
 {
-	delete player_1;
-	delete player_2;
+	delete player_1;		//delete player1 object
+	delete player_2;		//delete player2 object
 }
 
-void Executive::mainMenu()
+void Executive::mainMenu()		//KEEP OR NOT????
 {
 
 }
@@ -111,17 +111,17 @@ void Executive::game()
 				{
 					player_1->getBoard()->printShotBoard();
 					player_1->getBoard()->printMyBoard();
-					std::cout << "Player 1: Where would you like to shoot: ";
+					std::cout << "Player 1: Where would you like to shoot: "; //print player's board and opponent's board and ask for user a location to shoot
 
 					std::getline(std::cin, guess);
 
 					std::transform(guess.begin(), guess.end(),guess.begin(), ::toupper);	//converts guess to uppercase
 
-std::cout << "guess: " << guess << "\n";
+					std::cout << "guess: " << guess << "\n"; //print out user's guess
 
 					if(guess.length() != 2)
 					{
-						std::cout << "Invalid coordinate! Try again.\n";
+						std::cout << "Invalid coordinate! Try again.\n"; //error if user inputs a string which length is not 2
 					}
 
 				}
@@ -129,7 +129,7 @@ std::cout << "guess: " << guess << "\n";
 				{
 					player_2->getBoard()->printShotBoard();
 					player_2->getBoard()->printMyBoard();
-					std::cout <<"Player 2: Where would you like to shoot: ";
+					std::cout <<"Player 2: Where would you like to shoot: "; //print player's board and opponent's board and ask for user a location to shoot
 
 					std::getline(std::cin, guess);
 
@@ -138,13 +138,13 @@ std::cout << "guess: " << guess << "\n";
 
 					if(guess.length() != 2)
 					{
-						std::cout << "Invalid coordinate! Try again.\n";
+						std::cout << "Invalid coordinate! Try again.\n";//error if user inputs a string which length is not 2
 					}
 
 				}
 			}
 
-			shoot(guess);
+			shoot(guess); //shoot the location as user demand
 
 			if(m_player_1Turn % 2 == 1 && !m_gameOver) //if it is player 1's turn
 			{
@@ -153,8 +153,8 @@ std::cout << "guess: " << guess << "\n";
 				player_1->getBoard()->printShotBoard();
 				player_1->getBoard()->printMyBoard();
 
-				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: ";
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+				std::cout <<"Player 1 please hit enter and let other player shoot at your ships in secret: "; //print the board for checking hit or not and hit eneter for next player's turn
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //get rid of user's ramdon input to crash the game
 
 				player_1->getBoard()->printIntermission();
 			}
@@ -164,8 +164,8 @@ std::cout << "guess: " << guess << "\n";
 				player_2->getBoard()->printShotBoard();
 				player_2->getBoard()->printMyBoard();
 
-				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+				std::cout <<"Player 2 please hit enter and let other player shoot at your ships in secret: ";//print the board for checking hit or not and hit eneter for next player's turn
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); //get rid of user's ramdon input to crash the game
 
 				player_2->getBoard()->printIntermission();
 			}
@@ -203,8 +203,8 @@ void Executive::shoot(std::string location)
 
 	if(m_player_1Turn % 2 == 1)
 	{
-		hit = player_2->gettingShot(location);
-		player_1->shooting(location,hit);
+		hit = player_2->gettingShot(location); //check player_2 has a ship at the location or not
+		player_1->shooting(location,hit); //update hit marker for player_1
 
 		for(int i=0;i<numberOfShips;i++)	//checks for game over
 		{
@@ -223,8 +223,8 @@ void Executive::shoot(std::string location)
 	}
 	else
 	{
-		hit = player_1->gettingShot(location);
-		player_2->shooting(location,hit);
+		hit = player_1->gettingShot(location); //check player_1 has a ship at the location or not
+		player_2->shooting(location,hit); //update hit marker for player_2
 
 		for(int i=0;i<numberOfShips;i++)	//checks for game over
 		{
