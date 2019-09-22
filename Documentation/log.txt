@@ -86,3 +86,19 @@ Chance, Thomas
 Agenda:
 *Completed game over functionality
 *Add input verification for coordinates
+
+Meeting 12
+09/21/2019 @ 3:00PM to 6:13PM
+Location: LEEP2
+Chance, Markus
+Agenda:
+*Fixed existing bugs
+*Fixed newly created bugs
+*Fixed output placement
+*Added some features
+
+Meeting 13
+09/21/2019 @ 6:13PM to 7:13PM
+Location: Eaton
+Agenda:
+*Checked Valgrind and fixed ALL MEMORY LEAKS AND ERRORS
