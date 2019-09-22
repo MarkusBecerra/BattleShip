@@ -1,5 +1,5 @@
 TODO
-
+FIX LOWER CASE LETTER BEING OUT OF BOUNDS FOR SHOOTING
 
 DONE
 -Fix pressing enter at HORIZONTAL or VERTICAL screen doing nothing
