@@ -124,14 +124,14 @@ Agenda:\
 *Checked Valgrind and fixed ALL MEMORY LEAKS AND ERRORS
 
 # Meeting 14:
-09/22/2019 @ 2:00PM to 16:30PM\
+09/22/2019 @ 2:00PM to 5:00PM\
 Location: Eaton 1005C\
 Chance,Haonan,Thomas\
 Agenda:\
 *Commenting all the cpp files for code readability
 
 # Meeting 15:
-09/22/2019 @ 17:00PM to 18:00PM\
+09/22/2019 @ 5:00PM to 6:10PM\
 Location: Leep2 common area\
 all in attendance\
 Agenda:\
